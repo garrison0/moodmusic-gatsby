@@ -1,0 +1,182 @@
+.Page {
+  text-align: center;
+  font-family: 'Roboto';
+  color: #000;
+  font-size: calc(8px + 1vh);
+}
+
+.Header {
+  width: 90%;
+  min-height: 8vh;
+  font-size: calc(10px + 4vmin);
+  margin-top: 1vh;
+  margin-left: 5vw;
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  z-index: 2;
+}
+
+.Header a { 
+  text-decoration: none!important;
+  box-shadow: 0 0; 
+  color: rgb(0,0,0);
+}
+
+.nound { 
+  text-decoration: none!important;
+}
+
+ul li a {
+  text-decoration:none;
+}
+
+
+.Link {
+  color: #000;
+}
+
+.grid__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  max-height: 80vh;
+  font-size: 5em;
+  color: inherit;
+  /* overflow: hidden; */
+  text-decoration: none;
+  opacity: 1;
+  background: rgb(255,255,255);
+}
+/* .grid__item:active + .grid__description {
+  /* max-height: 1000px; */
+  /* transition: max-height 2.0s ease-in; */
+/* } */
+
+.card-header {
+  margin: 0;
+  padding: 0;
+}
+
+.card-header:focus {
+  outline: 0;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* object-position: 150% 100%; */
+}
+.grid__description {
+  top: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in;
+}
+
+.grid__description div {
+  padding: 2em;
+}
+
+@media screen and (min-width: 40em) {
+  .grid {
+    display: grid;
+    grid-template-areas: "item item item" "desc desc desc";
+    grid-template-columns: 33% 33% 33%;
+  }
+
+  .grid__description {
+    grid-area: desc;
+  }
+}
+
+
+.textbox-container {
+  text-align: left;
+  justify-content: center;
+}
+
+.corner-wrapper {
+  overflow: hidden;
+  width: 240px;
+  border-radius: 7px;
+  transform: translateZ(0px);
+  border: 3px solid #aaa;
+}
+
+.preview {
+  width:200px; height:200px;
+  transition: opacity .25s ease-in-out;
+  -webkit-transform:scale(.25);
+  -ms-transform:scale(.5);
+  transform:scale(.5);
+  -webkit-transform-origin:0 0; 
+  -ms-transform-origin:0 0; 
+  transform-origin:0 0; 
+  cursor: pointer;
+}
+
+.textbox .textbox-text {
+  text-align: center;
+  font-size: 14px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #000;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* text pop up */
+.textbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  opacity: 0.0;
+  overflow: hidden;
+  background-color: #fff;
+  transition: opacity .5s ease-in-out;
+}
+
+.hidden{ 
+  overflow: hidden;
+}
+
+.top-margin{
+  margin-top: 9vh;
+}
+
+@media(any-hover: hover) {
+  a:hover {
+    text-decoration: none;
+    opacity: 0.25;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: opacity 0.5s;
+  }
+
+  /* img:hover{
+      opacity: 0.4;
+      -webkit-transition: opacity 0.5s;
+      -moz-transition: 0.5s;
+      -o-transition: 0.5s;
+      transition: opacity 0.5s; */
+  /* } */
+
+  .textbox:hover{
+    cursor: pointer;
+    opacity: 1.0;
+  }
+  
+}
+.App-link {
+  /* color: #09d3ac; */
+  color: #000000;
+}

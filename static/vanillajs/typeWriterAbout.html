@@ -1,0 +1,102 @@
+<html>
+
+  <head>
+    <title>huff huff</title>  
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <style>
+    .canvas { 
+      position: absolute;
+      z-index: -1;
+    }
+
+    @font-face {
+      font-family: 'Roboto-Med';
+      src: url('fonts/Roboto-Medium.ttf') format('truetype')
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .text {
+      font-family: 'Roboto-Med';
+      font-size: 12px;
+      margin-top: 15%;
+      margin-bottom: 5%;
+    }
+
+    @media (min-width: 768px) { 
+      .music {
+        position: fixed;
+      }
+    }
+  </style>
+  
+  <body>
+    <script src="p5.min.js"></script>
+<!--     <script src="https://bundle.run/pixelmatch"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/opentype.js@latest/dist/opentype.min.js"></script>
+
+    <div class="container-fluid text">
+      <div class="row d-flex ml-md-5 justify-content-center">
+        <div id='parent' class="col-9 col-md-5 mr-sm-3 justify-content-start">
+          <p class="characters">
+            At age 6, I was born in the rolling hillsides of Lancaster County, Pennsylvania. My parents found me wrapped in a husk of corn. As they unpeeled my fibrous shackles, they wept, and I cried out, “woof woof, daddy, woof woof.” 
+          </p>
+          <p class="characters">
+            I proceeded to grow up small and feeble. I made my international debut by moving to Pittsburgh in 2014 for college, increasing my “have-travelled-to radius” to 250 miles. 
+          </p>
+          <p class="characters">
+            The University of Pittsburgh, what a school! I liked it so much, I left. I transferred to Carnegie Mellon University in 2016 where I realized my heart is in the work, but not this work in particular. So, I re-arranged my Pitt-Milieu-Inspired Philosophy PhD plans to become… an audio engineer… in order to support my illustrious music career potential. A month later, I was taking sound recording. 2 months later, I was part of the recording crew in the school of music. 5 months later, I had a formal internship running sound and doing production for a local band. 
+          </p>
+          <p class="characters">
+            As graduation neared, and the audio experience accumulated, I realized that despite taking some pretty terse mathematics, a course in algorithms, machine learning, etc., and having written a (most-probably sophomoric) thesis in philosophical logic, I was headed straight for a lovely, satisfying career of clicking microphones onto stands and taping cables to the floor. To rectify this, a month after graduating, in January of 2019, I flew straight to India. Then I spent another month in Tanzania. This increased my “having-travelled-to radius” to a more satisfying number. 
+          </p>
+          <p class="characters">
+            I came back. I had to figure something out. I lived with a professor-friend and worked odd jobs in Pittsburgh for a few months. I landed a more stable audio gig. Then, in June of 2019, I took the safe option and drove across the country to the west coast. In my quasi-homeless state, surviving primarily from my car (#2 of the roadtrip), and ritually praying in the direction of Apple Park three times a day, I began learning front-end development. 
+          </p>
+          <p class="characters">
+            Then I drove back to Pittsburgh, with plans to go further east. I went to the wrong coast, it seems. 
+          </p>
+          <p class="characters">
+            Unfortunately, employers are not often keen on hiring engineers without direct experience. Neither time spent on audio nor previous summers spent paying my rent as a temporary “industrial assembler” helped my job search. But they don’t know what they don’t know - you learn something. Waking up at 5:30am, driving 25 minutes past Kreider Farms, past some nameless train tracks, and past more than a few cornfields, to get to your small manufacturing company’s building and sand a few thousand pieces of wood for 8 hours. 5 days a week. For two months. You learn something, so they tell me. You just don’t realize it. In fact, I still haven’t. 
+          </p>
+          <p class="characters">
+            I am now preparing for an internship as a full-stack engineer. I’ve been exploring the creative possibilities of the web stack through my project work. I’m interested in the mythical role of a developer with a creative voice. Something that utilizes my jack-of-all-trades skillset and wide interest range.
+          </p>
+          <p class="characters">
+            This figure is generated from Georgia O’Keeffe’s Blue II, 1916.
+          </p>
+        </div>
+        <div class="col-md-5 col-9 d-flex justify-content-center text-center border-left">
+          <div class="music pl-lg-5 pl-md-4 pr-md-5">
+            <p>hover over the text, ok?</p>
+            <!-- space for music links n stuff -->
+
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/722184160&color=%2300aabb&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="characterize.js"></script>
+<!--     <div style="text-align: center; padding: 5%">
+      <div id="overlay" style="width: 80%; height: 80%; display: none; margin: 0 auto; background: white; border: 2px solid black;"">
+        <button onclick="handleXClick()" style="float: left">X</button>
+      </div>
+    </div> -->
+    
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>

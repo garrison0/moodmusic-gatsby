@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #g{
+    z-index: 3;
+    opacity: 0.5;
+    background-color: rgba(255,255,255,0);
+  }
+</style>
+
+<body>
+  <script>  
+    var canv = document.getElementById('g');
+
+    function updateMousePosition(e){
+      if (e.clientX < (window.innerWidth / 2)){
+        document.body.style = 'cursor: url(vacuumleft.png) 32 25, auto;'
+      } else {
+        document.body.style = 'cursor: url(vacuum.png) -32 25, auto;'
+      } 
+      if (BoidGlobals.mousePosition == null) return;
+      BoidGlobals.mousePosition.d[0] = e.clientX;
+      BoidGlobals.mousePosition.d[1] = e.clientY;
+    }
+
+    function mouseUp(e){
+      BoidGlobals.mousePosition = null;
+    }
+
+    function mouseDown(e){
+      var position = new Vector();
+      position.d[0] = e.clientX;
+      position.d[1] = e.clientY;
+      BoidGlobals.mousePosition = position;
+    }
+  </script>
+
+  <div style="margin: 0, padding: 0, width: 100%, height: 100%; position: absolute">
+    <canvas id="g"></canvas>
+    <script src="boids.js"></script>
+  </div>
+
+  <script>
+    window.addEventListener('mousemove', e => {
+      updateMousePosition(e);
+    });
+
+    window.addEventListener('mousedown', e => {
+      mouseDown(e);
+    });
+
+    window.addEventListener('mouseup', e => {
+      mouseUp(e);
+    });
+
+    var canv = document.getElementById('g');
+    canv.width = window.outerWidth;
+    canv.style.position = 'relative';
+
+    // hide scroll bars
+    // document.documentElement.style.overflow = 'hidden';  // firefox, chrome
+    // document.body.scroll = "no"; // ie only
+
+  </script>
+</body>
+
+</html>
+
