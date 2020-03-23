@@ -10,7 +10,6 @@ import Button from "../components/button"
 class Blog extends React.Component {
   render() {
     const { data } = this.props
-    debugger;
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMdx.edges
 
@@ -45,9 +44,6 @@ class Blog extends React.Component {
             )
           })}
         </div>
-        <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
-        </Link>
       </Layout>
     )
   }

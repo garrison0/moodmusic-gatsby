@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <title>hi there</title>
+
+  <style type="text/css">
+  body {
+    background-color: #161616;
+    font-family: Monospace;
+    margin: 0px;
+    color: white;
+    overflow: hidden;
+  }
+
+  #myCanvas {
+        background: #161616;
+  }
+  </style>
+
+  <div id="initText" style="width: 100%; margin-top: 20%; text-align: center"">
+    <p>click anywhere</p>
+  </div>
+  <div id='wrapper' style='overflow: hidden;'>
+     <canvas id="myCanvas" width='1000' height='1000'></canvas>
+  </div>
+
+</head>
+
+<body>
+  <script src="jsus.min.js"></script>
+  <script src="mainloop.min.js"></script>
+  <script> 
+
+    function getParamValue(paramName){
+        var url = window.location.search.substring(1); //get rid of "?" in querystring
+        var qArray = url.split('&'); //get key-value pairs
+        for (var i = 0; i < qArray.length; i++) 
+        {
+            var pArr = qArray[i].split('='); //split key and value
+            if (pArr[0] == paramName) 
+                return pArr[1]; //return value
+        }
+    }
+
+    preview = getParamValue('preview');
+
+    var mountains= document.createElement('script');
+    mountains.setAttribute('src','bundle.js');
+    mountains.setAttribute('id','previewHelper');
+
+    // add script with preview attribute
+    if(preview){
+      mountains.setAttribute('preview', 'true');
+    } else {
+      mountains.setAttribute('preview', 'false');
+    }
+
+    document.head.appendChild(mountains);
+  </script>
+</body>
+
+</html>

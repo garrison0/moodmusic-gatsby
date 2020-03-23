@@ -1,0 +1,71 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>hi there</title>
+
+  <style type="text/css">
+    body {
+      font-family: Monospace;
+      margin-top: 2.5%;
+      margin-bottom: 5%;
+    }
+
+    .slider {
+      width: 50%;
+      margin-left: auto !important;
+      margin-right: auto ! important;
+    }
+
+    .slider-container {
+      text-align: center;
+      margin-top: 5%;
+      font-family: Monospace 24px;
+      width: 100%;
+    }
+
+    .explanation {
+      margin-left: 25%;
+      margin-right: 25%;
+    }
+
+    .file {
+      align-items: center;
+      justify-content: center;
+    }
+
+  </style>
+
+  <div style='overflow: hidden;'>
+    <div class="slider-container">
+      <p class="explanation">
+        Wondering what's going on here? In 1969, Alvin Lucier recorded himself talking in a room.
+        Then he recorded the recording of himself played on a speaker across the room.
+        Then he recorded that recording played across the room, across the room. About 30 times.  <br/><br/>
+        Eventually the signal came to be dominated by the resonant frequencies of the room
+        and lost most other audible qualities. And now music tech people talk about it.  <br/><br/>
+        This simulates that process with convolution reverb. It just feeds the wet signal back
+        into the reverb each iteration, for the given number of iterations, and plays the result for you. 
+        It's rough - WebAudio lacks a useful built-in limiter, so it'll tend to explode. Have fun. <br/><br/>
+        Select a file and the number of times to put it through the reverb. A default sample is provided from
+        "Songs My Mother Taught Me" by Charles Ives.<br/><br/>
+        The max number of times is 30, but it tends to become purely tonal by iteration 10.
+      </p>
+      <input type="range" id="sliderGetVal" min="0" max="30" class="slider">
+      <p class="explanation" id="sliderDisplayVal" height='100px'>15</p>
+    </div>
+    <div class="slider-container">
+      <input type="file" id="source" class="file" accept="audio/*">
+      <button id="play">Play!</button>
+    </div>
+  </div>
+
+</head>
+
+<body>
+  <script src="sitting.js"></script>
+</body>
+
+</html>

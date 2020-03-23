@@ -19,7 +19,7 @@ function Bio() {
       render={data => {
         const { author, social } = data.site.siteMetadata
         return (
-          <Container>
+          <Container className="mt-2">
             <Image
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
@@ -33,13 +33,10 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
-            <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
+            <p className="mt-3">
+              Written by <strong>{author}</strong> who is ok at stuff.
               {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
+              
             </p>
           </Container>
         )

@@ -1,0 +1,263 @@
+<html>
+
+<head>
+  <title>hi there</title>
+
+  <style type="text/css">
+  body {
+    background-color: #000000;
+    font-family: Monospace;
+		margin: 0px;
+		overflow: hidden;
+  }
+
+  #myCanvas {
+				background: #161616;
+	}
+  </style>
+</head>
+
+<body>
+  <canvas id="myCanvas"></canvas>
+  <script src="stats.min.js"></script>
+  <script src="proton.min.js"></script>
+  <script>
+    var canvas;
+    var context;
+    var proton;
+    var renderer;
+    var delta;
+    var lastFrameTimeMs;
+    var cf; 
+    var emitter;
+    var stop = false; 
+
+    class Nozzle{
+      constructor(extent, dExtent){
+        // between 0 and 1 
+        // what this means is determined by the fountain
+        this.extent = extent;
+        this.dExtent = dExtent;
+      }
+
+      update(dt){
+        this.extent = this.extent + this.dExtent * dt;
+        if (this.extent > 1){
+          this.extent = this.extent - 1;
+        } else if (this.extent < 0){
+          this.extent = this.extent + 1;
+        }
+      }
+
+      spritz(x, y, time, direction){
+        let emitter = new Proton.Emitter();
+        // if(time <= 0.01){
+        //   emitter.emit('once', true);
+        // }
+        emitter.rate = new Proton.Rate(0.001);
+        emitter.addInitialize(new Proton.Mass(1));
+        emitter.addInitialize(new Proton.Radius(1.0, 1.0));
+        emitter.addInitialize(new Proton.Life(2));
+        emitter.addInitialize(new Proton.V(new Proton.Span(3.0, 3.0), new Proton.Span(direction, direction), 'polar'));
+
+        emitter.addBehaviour(new Proton.Color('#ffffff', 'random'));
+        emitter.addBehaviour(new Proton.Alpha(1,0));
+        emitter.p.x = x;
+        emitter.p.y = y;
+
+        emitter.emit('once', true);
+        proton.addEmitter(emitter);
+      }
+    }
+
+    class Fountain{
+      constructor(numberOfNozzles, x, y){
+        this.n = numberOfNozzles;
+        this.nozzles = []
+        this.timer = 0;
+        this.nozzleTimer = 0;
+        this.timeBetweenShot = 0;
+        this.currentNozzleIndex = 0;
+        this.x = x;
+        this.y = y;
+
+        for (var i = 0; i < this.n; i++){
+          let extent = i * (1 / this.n);
+          var nozzle = new Nozzle(extent, 0.1);
+          this.nozzles.push(nozzle);
+        }
+      }
+
+      /* direction = -1 => backwards
+                      0 => all at onces
+                      1 => forwards
+      */
+      spritz(direction, timeBetween, timeTotal){
+        this.direction = direction;
+        this.timeBetweenShot = timeBetween;
+        this.nozzleTimer = 0;
+        this.timer = timeTotal;
+      }
+    }
+
+    class CircleFountain extends Fountain{
+      constructor(numberOfNozzles, x ,y){
+        super(numberOfNozzles, x, y);        
+      }
+
+      update(dt){
+        // console.log("direction: ");
+        // console.log(this.direction);
+        // console.log("nozzleTimer: ");
+        // console.log(this.nozzleTimer);
+        for (var i = 0; i < this.n; i++) {
+          this.nozzles[i].update(dt);
+        }
+
+        // still putting out particles
+        if (this.timer > 0){
+          // console.log("got this far");
+          // console.log(this.timer);
+          // time to burst a new nozzle
+          if (this.nozzleTimer < 0){
+            // burst all of them
+            if(this.direction == 0){
+              for (var i = 0; i < this.n; i++){
+                this.nozzles[i].spritz(this.x, this.y, 5, this.nozzles[i].extent * 360);
+              }
+            } else {
+              
+              this.nozzles[this.currentNozzleIndex].spritz(this.x, this.y, 5, this.nozzles[this.currentNozzleIndex].extent * 360);
+
+              if (this.direction == -1) {
+                this.currentNozzleIndex = (this.currentNozzleIndex + 1) % this.n;
+              } else {
+                let foo = (this.currentNozzleIndex - 1) % this.n;
+                if (foo < 0){
+                  foo = foo + this.n;
+                }
+                this.currentNozzleIndex = foo;
+              }
+            }
+            this.nozzleTimer = this.timeBetweenShot;
+          }
+
+          this.nozzleTimer = this.nozzleTimer - dt;
+          this.timer = this.timer - dt;
+        } 
+      }
+    }
+
+    class LineFountain extends Fountain{
+      constructor(numberOfNozzles, x, y, len){
+        super(numberOfNozzles, x, y);        
+      }
+
+      update(dt){
+        // console.log("direction: ");
+        // console.log(this.direction);
+        // console.log("nozzleTimer: ");
+        // console.log(this.nozzleTimer);
+        for (var i = 0; i < this.n; i++) {
+          this.nozzles[i].update(dt);
+        }
+
+        // still putting out particles
+        if (this.timer > 0){
+          // console.log("got this far");
+          // console.log(this.timer);
+          // time to burst a new nozzle
+          if (this.nozzleTimer < 0){
+            // burst all of them
+            if(this.direction == 0){
+              for (var i = 0; i < this.n; i++){
+                let nozzleX = this.x + this.nozzles[i].extent * this.len;
+                this.nozzles[i].dExtent = 0.00;
+                this.nozzles[i].spritz(nozzleX, 400, 5, 90);
+              }
+            } else {
+              
+              let nozzleX = this.x + this.nozzles[this.currentNozzleIndex].extent * this.len;
+              this.nozzles[this.currentNozzleIndex].spritz(nozzleX, this.y, 5, this.nozzles[this.currentNozzleIndex].extent * 360);
+
+              if (this.direction == -1) {
+                this.currentNozzleIndex = (this.currentNozzleIndex + 1) % this.n;
+              } else {
+                let foo = (this.currentNozzleIndex - 1) % this.n;
+                if (foo < 0){
+                  foo = foo + this.n;
+                }
+                this.currentNozzleIndex = foo;
+              }
+            }
+            this.nozzleTimer = this.timeBetweenShot;
+          }
+
+          this.nozzleTimer = this.nozzleTimer - dt;
+          this.timer = this.timer - dt;
+        } 
+      }
+    }
+
+    main();
+    function main() {
+      canvas = document.getElementById("myCanvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      canvas.style.background = '222222';
+      context = canvas.getContext('2d');
+      lastFrameTimeMs = 0;
+
+      createProton();
+
+      // initialize stuff here (after creating proton)
+      cf = new CircleFountain(10, canvas.width / 2, canvas.height / 2);
+      //cf2 = new CircleFountain(25, 2 * canvas.width / 3, canvas.height / 2);
+      //cf3 = new LineFountain(50, 200, 400, 300);
+      tick();
+    }
+
+    function createProton(image) {
+      proton = new Proton;
+      renderer = new Proton.CanvasRenderer(canvas);
+      proton.addRenderer(renderer);
+      ////NOTICE :you can only use two emitters do this effect.In this demo I use more emitters want to test the emtter's life
+      // proton.addEventListener(Proton.PARTICLE_DEAD, function(particle) {
+      //   if (Math.random() < .7)
+      //     createFirstEmitter(particle);
+      //   else
+      //     createSecendEmitter(particle);
+      // });
+    }
+
+    function tick(timestamp) {
+      requestAnimationFrame(tick);
+
+      canvas.style.background = '000000';
+      renderer.onProtonUpdate = function() {
+        context.fillStyle = "rgba(0, 0, 0, 0.1)";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+      };
+      
+      proton.update();
+
+      if (timestamp !== undefined){
+        delta = timestamp - lastFrameTimeMs;
+        lastFrameTimeMs = timestamp;
+
+        // update stuff here (given dt)
+        cf.update(delta);
+        //cf2.update(delta);
+        //cf3.update(delta);
+        if (timestamp > 50 && !stop){
+          stop = true;
+          cf.spritz(0, 100, 100000);
+          //cf2.spritz(1, 5, 10000);
+          //cf3.spritz(0, 25, 10000);
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<html>
+
+<head>
+  <title>hi there</title>
+
+  <style type="text/css">
+  body {
+    background-color: #000000;
+    font-family: Monospace;
+    margin: 0px;
+    overflow: hidden;
+  }
+
+  #myCanvas {
+        background: #161616;
+  }
+  </style>
+
+  <div id='wrapper' style='overflow: hidden;'>
+     <canvas id="myCanvas" width='1000' height='1000'></canvas>
+  </div>
+
+</head>
+
+<body>
+  <script src="JSUS.min.js"></script>
+  <script>
+
+    /*
+
+    NEXT STEPS:
+    
+    (1) Abstract the mountain to a class so we can have 2 or 3 of them stacked on top of each other, the pivot point "revolving" around different y values
+    (2) Add an intro splash page with options to adjust the number of "mountains", the flatness of each range, how fast the whole thing scrolls
+    (3) consider using in the future for music visualization (especially changing color), having musical qualities (tempo, frequency spectra) 
+        effect the variables controlling the mountains
+
+
+    */
+
+
+    var canvas;
+    var context;
+
+    var px;
+    var y;
+    var dy;
+    var ddy;
+
+    main();
+
+    function main() {
+      canvas = document.getElementById("myCanvas");
+      canvas.width = window.innerWidth * 10;
+      canvas.height = window.innerHeight;
+      var wrapper = document.getElementById('wrapper'); 
+      wrapper.width = window.innerWidth;
+      wrapper.height = window.innerHeight;
+
+      canvas.style.background = '222222';
+      context = canvas.getContext('2d');
+
+      y = canvas.height / 2;
+      dy = 0;
+      px = 0;
+      ddy = 0;
+
+      lastFrameTimeMs = 0;
+      delta = 0;
+
+      tick();
+    }
+
+    function scrollWrapper(x, y){
+      var wrapper = document.getElementById('wrapper');  
+      wrapper.scrollTop = y;
+      wrapper.scrollLeft = x;
+    }
+
+    function tick(timestamp) {
+      requestAnimationFrame(tick);
+
+      canvas.style.background = '000000';
+
+      let oldy, oldx;
+
+      if (timestamp !== undefined){
+        delta = timestamp - lastFrameTimeMs;
+        lastFrameTimeMs = timestamp;
+
+        oldx = px;
+        px = px + delta * 0.05;
+
+        // distribution varies based on position of y 
+        // (at top => can only accelerate down, vice versa)
+        // upper bound of accel
+        var x = 0.001;
+        var a = -1 * x  + x * (y / canvas.height);
+        var b = x * (y / canvas.height);
+
+        ddy = -1 * JSUS.random(a,b);
+        ddy = ddy;
+
+        dy = dy + (ddy * delta);
+        
+        // add random noise acceleration
+        dy = dy + JSUS.random(-0.005, 0.005) * delta;
+        
+        let scaling_factor = .9;
+        dy = dy * scaling_factor;
+        // scaling factor from 1 to .5 == tall vs flat mountains (have a scale or a knob)
+
+        // brakes -- not too fast
+        if (Math.abs(dy) > 0.2) {
+          dy = .9 * dy;
+        }
+
+        oldy = y;
+        y = y + (dy * delta);
+      }
+
+      // split it into the box and the triangle on top
+      var gradient = context.createLinearGradient(px,y, px,wrapper.height);
+      gradient.addColorStop(0, 'lightblue');
+      gradient.addColorStop(.88, 'black');
+
+      context.fillStyle = gradient;
+      context.fillRect(oldx, Math.max(oldy, y), px - oldx + 1, wrapper.height+10);
+
+      context.fillStyle = "lightblue";
+      if (oldy < y){
+        // moving downhill
+        context.beginPath();
+        context.moveTo(oldx, y);
+        context.lineTo(oldx - 0.5, oldy);
+        context.lineTo(px + 1, y + 0.5);
+        context.fill();
+      } else {
+        // moving uphill
+        context.beginPath();
+        context.moveTo(px, oldy + 0.5);
+        context.lineTo(px + 1.0, y + 0.5);
+        context.lineTo(oldx - 0.5, oldy + 0.5);
+        context.fill();
+      }
+
+      // scroll the 'camera'
+      scrollWrapper(px - wrapper.width, y - wrapper.height / 2);
+
+    }
+  </script>
+</body>
+
+</html>

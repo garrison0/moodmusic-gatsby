@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-
+import Header from "./Header"
 import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
@@ -63,13 +63,19 @@ class Layout extends React.Component {
             padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
           }}
         >
-          <header>{header}</header>
-          <main>{children}</main>
+          <Header 
+            style={{
+              marginTop: 0,
+            }}
+            layout="inline" 
+            align="left" 
+            className="neumorph"
+          />
+          {/* <header>{header}</header> */}
+          <main className="mt-1">{children}</main>
         </div>
         <Footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          © {new Date().getFullYear()}, made by Garrison McMullen
         </Footer>
       </Wrapper>
     )

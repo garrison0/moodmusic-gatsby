@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>Babylon.js sample code</title>
+
+        <!-- Babylon.js -->
+        <script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+        <script src="https://preview.babylonjs.com/ammo.js"></script>
+        <script src="https://preview.babylonjs.com/cannon.js"></script>
+        <script src="https://preview.babylonjs.com/Oimo.js"></script>
+        <script src="https://preview.babylonjs.com/gltf_validator.js"></script>
+        <script src="https://preview.babylonjs.com/earcut.min.js"></script>
+        <script src="https://preview.babylonjs.com/babylon.js"></script>
+        <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+        <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+        <script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+        <script src="https://preview.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+        <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+        <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
+
+        <!-- Bootstrap stylesheet -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- jQuery --> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        </script>
+
+        <style>
+            html/*, body*/ {
+                /*overflow: hidden;*/
+                /*width: 100%;
+                height: 100%;*/
+                margin: 0;
+                padding: 0;
+            }
+
+            .collapse {
+              display: none;
+              visibility: hidden;
+            }
+            .collapse.show {
+              display: block;
+              visibility: visible;
+            }
+
+            .collapsing.width {
+              -webkit-transition-property: width, visibility;
+              transition-property: width, visibility;
+              width: 0;
+              height: auto !important;
+            }
+
+            .slideLeft {
+              margin: 0;
+              position: absolute;
+              right: 0;
+              margin-bottom: 5%;
+            }
+
+            .fixedWidth {
+              width: 600px;
+            }
+
+            .socialLinks {
+              align-content: center;
+              text-align: center;
+              margin-top: 20%;
+            }
+
+            #renderCanvas {
+                position: fixed;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+            }
+        </style>
+    </head>
+<body>
+    <canvas id="renderCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById("renderCanvas");
+
+        var engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
+
+        $.ajaxSetup({cache:true});
+        var typeURL = "https://sanfrancisco.ca.illuminated.city/js/meshwriter.min.js";
+
+
+        var createScene = function (engine) {
+            var scene = new BABYLON.Scene(engine);
+        
+            // Camera
+            var camera = new BABYLON.ArcRotateCamera("Camera", 3 * Math.PI / 2, Math.PI / 2.3, 50, BABYLON.Vector3.Zero(), scene);
+            //camera.attachControl(canvas, true);
+            
+            // Light
+            var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
+        
+            // Skybox
+            var skybox = BABYLON.Mesh.CreateBox("skyBox", 5000.0, scene);
+            var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+            skyboxMaterial.backFaceCulling = false;
+            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("//www.babylonjs.com/assets/skybox/TropicalSunnyDay", scene);
+            skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+            skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+            skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+            skyboxMaterial.disableLighting = true;
+            skybox.material = skyboxMaterial;
+        
+            // Water material
+            var waterMaterial = new BABYLON.WaterMaterial("waterMaterial", scene, new BABYLON.Vector2(512, 512));
+            waterMaterial.bumpTexture = new BABYLON.Texture("//www.babylonjs.com/assets/waterbump.png", scene);
+            waterMaterial.windForce = -10;
+            waterMaterial.waveHeight = 0.5;
+            waterMaterial.bumpHeight = 0.1;
+            waterMaterial.waveLength = 0.1;
+            waterMaterial.waveSpeed = 50.0;
+            waterMaterial.colorBlendFactor = 0;
+            waterMaterial.windDirection = new BABYLON.Vector2(1, 1);
+            waterMaterial.colorBlendFactor = 0;
+        
+            // Ground
+            var groundTexture = new BABYLON.Texture("//www.babylonjs.com/assets/sand.jpg", scene);
+            groundTexture.vScale = groundTexture.uScale = 4.0;
+        
+            var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
+            groundMaterial.diffuseTexture = groundTexture;
+        
+            var ground = BABYLON.Mesh.CreateGround("ground", 512, 512, 32, scene, false);
+            ground.position.y = -1;
+            ground.material = groundMaterial;
+        
+            // Water mesh
+            var waterMesh = BABYLON.Mesh.CreateGround("waterMesh", 512, 512, 32, scene, false);
+            waterMesh.material = waterMaterial;
+        
+            var anchor = new BABYLON.TransformNode("");
+            var manager = new BABYLON.GUI.GUI3DManager(scene);
+        
+            var panel = new BABYLON.GUI.PlanePanel();
+            panel.margin = 0.8;
+         
+            manager.addControl(panel);
+            panel.linkToTransformNode(anchor);
+            panel.position.z = -25;
+            panel.position.y = 0;
+            panel.position.x = 13.50;
+        
+            // Let's add some buttons!
+            var addButton = function(id) {
+                var button = new BABYLON.GUI.HolographicButton("orientation");
+                
+                panel.addControl(button);
+                button.scaling = new BABYLON.Vector3(3.0,3.0,3.0);
+                button.onPointerClickObservable.add(() => {
+                  let group = document.querySelectorAll("[page-group='true']");
+                  group.forEach( (section) => {
+                    if (section.id == id) {
+                      if (id=="GitHub"){
+                        window.location.assign('https://www.github.com/garrison0');
+                      } else {
+                      // set the height manually
+                      // since css % is not working as expected!
+                      // section.style.height = '' + window.innerHeight * 0.8 + 'px';
+                      section.style.display = "inline-block";
+                      }
+                    } else {
+                      section.style.display = "none";
+                    }
+                  });
+                });
+                let txt = new BABYLON.GUI.TextBlock("Button", id);
+                txt.alpha = 1;
+                txt.fontSizeInPixels = 48;
+                txt.color = "white";
+                button.content = txt;
+            }
+        
+            addButton('About');
+            addButton('Projects');
+            addButton('GitHub');
+            addButton('Donate');
+
+            // Configure water material
+            waterMaterial.addToRenderList(ground);
+            waterMaterial.addToRenderList(skybox);
+        
+            ////////// RAY CAST TO FIND WATER HEIGHT ////////////
+            //var angle = 0;
+            let i = 0;
+            scene.registerBeforeRender(function() {
+                let btns = panel.children;
+                for(var j = 0; j < btns.length; j++){
+                    let btn = btns[j];
+                    let time = waterMaterial._lastTime / 100000;
+                    let x = panel.position.x + 1.6 * j;
+                    let z = panel.position.z;
+                    btn.position.y = Math.abs((Math.sin(((x / 0.05) + time * waterMaterial.waveSpeed)) * waterMaterial.waveHeight * waterMaterial.windDirection.x * 5.0) + (Math.cos(((z / 0.05) +  time * waterMaterial.waveSpeed)) * waterMaterial.waveHeight * waterMaterial.windDirection.y * 5.0));
+                    btn.position.y += 0.3;
+                }
+            });
+        
+            // 3d text
+            // These lines load the module, if not already loaded, and then call write
+            var scale   = 0.1, MeshWriter, text1, text2, text3, text4;
+
+            if ( typeof TYPE === "undefined" ) {
+                jQuery.getScript(typeURL).then(write)
+            } else {
+                write()
+            }
+
+            return scene;
+
+            function write () {
+              Writer = BABYLON.MeshWriter(scene, {scale:scale,defaultFont:"Arial"});
+              text1  = new Writer( 
+                              "by garrison @ moodmusic.me",
+                              {
+                                  "anchor": "center",
+                                  "letter-height": 40,
+                                  "color": "#909090",
+                                  "position": {
+                                      "z": 1000,
+                                      "x": 0,
+                                      "y": 25
+                                  }
+                              }
+                          );
+              text1.getMesh().rotation = new BABYLON.Vector3(-Math.PI / 1.5,0,0);
+          }
+
+        };
+        scene = createScene();
+        
+        engine.runRenderLoop(function () {
+            if (scene) {
+                scene.render();
+            }
+        });
+
+        // Resize
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+    </script>
+
+    <script>
+      function handleXClick(id) {
+        document.getElementById(id).style.display = "none";
+      }
+    </script>
+
+    <div style="text-align: center; padding: 5%; margin-bottom: 5%">
+      <div id="Donate" page-group="true" class="card text-center" style="width: 80%; height: 80%; display: none; margin: 0 auto; background: white;">
+        <div class="card-header">
+          <button onclick="handleXClick('Donate')" style="float: left">X</button>
+          Featured Benefactor
+        </div>
+        <div class="card-body">
+          <div class="well well-lg mt-3 mb-3">if you wanna buy me a coffee to keep me going, i'd appreciate it<br>
+                                              (especially if you decide to use this idea)<br>
+                                              (i don't make much!)
+          </div>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="margin-bottom:1%">
+          <input type="hidden" name="cmd" value="_donations" />
+          <input type="hidden" name="business" value="7MF7LH6HVX5G4" />
+          <input type="hidden" name="currency_code" value="USD" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+        </div>
+      </div>
+      <div id="About" page-group="true" class="card text-center" style="width: 80%; height: 80%; display: none; margin: 0 auto; background: white; margin-bottom: 5%">
+        <div class="card-header">
+          <button onclick="handleXClick('About')" style="float: left">X</button>
+          Featured: Me
+        </div>
+        <div class="card-body">
+          <div class="container mt-3 mb-3"> 
+            <div class="row">
+              <div class="col-sm-8">
+                <p class="card-text mt-1">
+                  i've decided websites all look the same... kind of like magazine ads. just google 'best website designs'
+                  and you'll see what i mean. so i've taken on the task of 
+                  making a few proof-of-concepts. i'm generally aiming for fun, animated, or interactive UIs. whatever that 
+                  means. this one has a 3d UI made via Babylon.js. button clicks open links 
+                  or corresponding divs that overlay the 3d scene. you could use any 3d scene.
+                  you could even raycast to check for mouse collisions and use that 
+                  to make any old mesh a button that controls in-scene interactions,
+                  animations, etc, as well as opening links and HTML divs. 
+                </p>
+              </div>
+              <div class="col-sm-4">
+                <div id="profPic">
+                  <a role="button" href="https://moodmusic.me" class="">
+                    <img src="itsme.jpg" class="img-fluid rounded-circle mx-auto d-block mb-2">
+                  </a>
+                  <p className="socialLinks">me as an 'entrepreneur'</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="card-text mt-5">This</p>
+          <p class="card-text mt-5">is</p>
+          <p class="card-text mt-5">testing</p>
+          <p class="card-text mt-5">a</p>
+          <p class="card-text mt-5">long</p>
+          <p class="card-text mt-5">element</p>
+          <p class="card-text mt-5">that</p>
+          <p class="card-text mt-5">involves</p>
+          <p class="card-text mt-5">scrolling</p>
+        </div>
+        <div class="card-footer text-muted">
+          Many, many days ago
+        </div>
+      </div>
+      <div id="Projects" page-group="true" class="card text-center" style="width: 80%; height: 80%; display: none; margin: 0 auto; background: white; margin-bottom: 5%">
+        <div class="card-header">
+          <button onclick="handleXClick('Projects')" style="float: left">X</button>
+          Featured Projects
+        </div>
+        <div class="card-body" style="height: 100%">
+          <h5 class="card-title">Projects... all about them</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

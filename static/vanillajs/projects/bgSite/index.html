@@ -1,0 +1,169 @@
+<html>
+
+  <head>
+    <title>neat huh?</title>  
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+
+  <style>
+    .canvas { 
+      position: absolute;
+      z-index: -1;
+    }
+
+    .collapse {
+      display: none;
+      visibility: hidden;
+    }
+    .collapse.show {
+      display: block;
+      visibility: visible;
+    }
+
+    .collapsing.width {
+      -webkit-transition-property: width, visibility;
+      transition-property: width, visibility;
+      width: 0;
+      height: auto !important;
+    }
+
+    .slideLeft {
+      margin: 0;
+      position: absolute;
+      right: 0;
+      margin-bottom: 5%;
+    }
+
+    .fixedWidth {
+      width: 600px;
+    }
+
+    .socialLinks {
+      align-content: center;
+      text-align: center;
+      margin-top: 20%;
+    }
+  </style>
+  
+  <body>
+    <script src="p5.min.js"></script>
+    <script src="sketch.js"></script>
+
+    <!-- everything else -->
+    <div class="container menu noPreview" id="collapseGroup">
+      <script src="previewHandler.js"></script>
+      <div class="row" style="margin-top: 5%; margin-bottom: 5%; height: 70%; padding: 20px">
+        <div class="col-sm-10">
+          
+          <div id="about" class="collapse width slideLeft" data-parent="#collapseGroup">
+            <div class="fixedWidth">
+              <div class="card text-center">
+                <div class="card-header">
+                  Featured
+                </div>
+                <div class="card-body">
+                  <div class="container mt-3 mb-3"> 
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <p class="card-text mt-1">
+                          i've decided websites all look the same... kind of like magazine ads. just google 'best website designs'
+                          and you'll see what i mean. so i've taken on the task of 
+                          making a few proof-of-concepts. i'm generally aiming for fun, animated, or interactive UIs. whatever that 
+                          means. this particular one has p5.js running in the background using the 3d 'sine-cosine' demo
+                          on their website, slightly modified. on top i've put a simple collapsible menu, so you 
+                          can always collapse it and watch the show. the collapsible
+                          elements can be any HTML you want, as big as you want. I'm just using bootstrap components for
+                          simplicity. you could also modify the sidebar to have it follow as you scroll down, or have
+                          a tab open when you load the page (like I do with 'donate' -- spot the differerence in the code
+                          to see how), or have your github load into
+                          a collapsible panel instead of redirecting your window...  whatever!
+                        </p>
+                      </div>
+                      <div class="col-sm-4">
+                        <a role="button" href="https://moodmusic.me" class="">
+                          <img src="itsme.jpg" class="img-fluid rounded-circle mx-auto d-block mb-2">
+                        </a>
+                        <p className="socialLinks">me as an 'entrepreneur'</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text mt-5">This</p>
+                  <p class="card-text mt-5">is</p>
+                  <p class="card-text mt-5">testing</p>
+                  <p class="card-text mt-5">a</p>
+                  <p class="card-text mt-5">long</p>
+                  <p class="card-text mt-5">element</p>
+                  <p class="card-text mt-5">that</p>
+                  <p class="card-text mt-5">involves</p>
+                  <p class="card-text mt-5">scrolling</p>
+
+                </div>
+                <div class="card-footer text-muted">
+                  Many, many days ago
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="projects" class="collapse width slideLeft" data-parent="#collapseGroup">
+            <div class="fixedWidth">
+              <div class="card text-center">
+                <div class="card-header">
+                  Featured
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Projects... all about them</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                <div class="card-footer text-muted">
+                  Many, many days ago
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="donate" class="collapse show width slideLeft" data-parent="#collapseGroup">
+            <div class="fixedWidth" style="text-align: center; background: white; border: 1px solid black; border-radius: 10px;">
+              <div class="well well-lg mt-3 mb-3">if you wanna buy me a coffee to keep me going, i'd appreciate it<br>
+                                                  (especially if you decide to use this idea)<br>
+                                                  (i don't make much!)
+              </div>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_donations" />
+              <input type="hidden" name="business" value="7MF7LH6HVX5G4" />
+              <input type="hidden" name="currency_code" value="USD" />
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+              <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-2">
+          <div class="list-group">
+            <a href="#" id="woah" data-toggle="collapse" data-target="#about" class="list-group-item list-group-item-action">about</a>
+            <a href="#" data-toggle="collapse" data-target="#projects" class="list-group-item list-group-item-action">projects</a>
+            <a href="https://www.github.com/garrison0" class="list-group-item list-group-item-action">github</a>
+            <a href="#" class="list-group-item list-group-item-action">whatever</a>
+            <a href="#" data-toggle="collapse" data-target="#donate" class="list-group-item list-group-item-action">donate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>

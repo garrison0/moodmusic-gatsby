@@ -1,17 +1,16 @@
 import React from "react"
-import { Router, Link } from "@reach/router"
+import { Router } from "@reach/router"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-alice-carousel/lib/alice-carousel.css";
 import '../App.css'
 
-import Home from "./Home"
+import Home from "./home"
 import Blog from "./blog"
-import Projects from './Projects'
-import About from './About'
-import Header from '../components/Header.js'
+import Projects from './projects'
+import About from './about'
 
 const App = () => (
   <div> 
-    <Header />
     <Router>
       <Home path="/" />
       <Blog path="/blog" />
