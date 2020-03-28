@@ -30,12 +30,12 @@ export default function Header(props){
       isInline = true;
       break;
     case "vertical":
-      CLASSES += " Header__vertical border border-light height image-border neumorph";
+      CLASSES += " Header__vertical border border-light height image-border";
       SHOW_CLASSES = "show";
       isVertical = true;
       break;
     default:
-      CLASSES += " Header mt-3 border border-light width neumorph";
+      CLASSES += " Header mt-3 border border-light width";
       SHOW_CLASSES = "show";
       break;
   }

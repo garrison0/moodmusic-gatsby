@@ -5,6 +5,10 @@
   font-size: calc(8px + 1vh);
 }
 
+body { 
+  background-color: rgba(97, 122, 128);
+}
+
 /* GENERAL/MISC SITE WIDE:  */
 @media screen and (min-width: 768px) {
   #projects-container { 
@@ -20,7 +24,7 @@
   content: "";
 	width: 8px;
 	height: 8px;
-	background: #f8f9fa!important;
+	background: #d1d7d7!important;
 	border-radius: 4px;
 	position: absolute;
   margin-top: -4px;
@@ -35,7 +39,7 @@ ul li a {
   text-decoration:none;
 }
 
-a { 
+a, img { 
   cursor: pointer;
 }
 
@@ -70,6 +74,14 @@ a {
   margin-top: 9vh;
 }
 
+.section--innerShadowTop { 
+  box-shadow: inset 0 10px 14px -11px rgba(97, 122, 128)
+}
+/* FOOTER */
+.footer { 
+  background: rgb(209,215,215)
+}
+
 /* HEADER / COLLAPSE CSS  */
 /* ########################## */
 .Header {
@@ -91,20 +103,17 @@ a {
   width: 100%!important;
   margin-right: 0!important;
   margin-left: 0!important;
-  /* background-color: rgba(255,255,255,0.9); */
+  background-color: rgba(255,255,255,1.0);
   z-index: 5;
   line-height: 0!important;
 }
 
 .neumorph { 
-  box-shadow:  -2px 6px 10px #f2f2f2, 
-              3px -4px 10px #fefffe;
+  box-shadow:  -2px 6px 8px rgba(97, 122, 128)
 }
 
 .neumorph--image-border-big{
-  
-  box-shadow: -1px 6px 10px #f2f2f2, 
-              3px -3px 14px #ffffff;
+  box-shadow: -1px 6px 6px rgba(97, 122, 128)
 }
 .Header__vertical {
   /* just the letters MDMC, not the buttons */
@@ -117,7 +126,7 @@ a {
   overflow: hidden;
   margin-left: 8px!important;
   margin-top: 5vh!important;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,1.0);
 }
 
 /* LINKS in HEADER */

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "gatsby"
+import Image from 'gatsby-image/withIEPolyfill';
 import Button from 'react-bootstrap/Button'
 
 export default function BioDescriptions(props) { 

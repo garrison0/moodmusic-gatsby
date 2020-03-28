@@ -8,6 +8,7 @@ import Iframe from 'react-iframe';
 import Image from 'gatsby-image/withIEPolyfill';
 import Button from 'react-bootstrap/Button';
 import Header from '../components/Header';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 function Projects() {
   const data = useStaticQuery(graphql`
@@ -61,10 +62,14 @@ function Projects() {
       <Header layout="inline" />
       <Accordion>
         <Card className="grid border-0 image-border-big-container-bottom">
-          <Accordion.Toggle as={Card.Header} className="grid__item border border-light" eventKey="0" tabIndex="1">
+          <Accordion.Toggle as={Card.Header} className="grid__item border border-light" 
+                            eventKey="0" tabIndex="1"
+                            onClick={() => setTimeout(() => {
+                              scrollTo('#text-art-section')
+                            }, 1000)} >
             <Image fluid={data.mlImage.childImageSharp.fluid} className="cover"/>
           </Accordion.Toggle>
-          <Accordion.Collapse eventKey="0" className="grid__description mx-5">
+          <Accordion.Collapse eventKey="0" className="grid__description mx-5" id="text-art-section">
             <Card.Body>
               <Row className="h-100">
                 {/* IMAGE(s) */}
@@ -122,10 +127,14 @@ function Projects() {
             </Card.Body>
           </Accordion.Collapse>
           
-          <Accordion.Toggle as={Card.Header} className="grid__item border border-light" eventKey="1" tabIndex="2">
+          <Accordion.Toggle as={Card.Header} className="grid__item border border-light" 
+                            eventKey="1" tabIndex="2"
+                            onClick={() => setTimeout(() => {
+                              scrollTo('#boids-section')
+                            }, 1000)}>
             <Image fluid={data.boidsImage.childImageSharp.fluid} className="cover" /> 
           </Accordion.Toggle>
-          <Accordion.Collapse eventKey="1" className="grid__description mx-5">
+          <Accordion.Collapse eventKey="1" className="grid__description mx-5" id="boids-section">
             <Card.Body>
               <Row>
                 <Col xs={12} lg={6}>
@@ -148,10 +157,14 @@ function Projects() {
             </Card.Body>
           </Accordion.Collapse>
           
-          <Accordion.Toggle as={Card.Header} className="grid__item border border-light" eventKey="2" tabIndex="3">
+          <Accordion.Toggle as={Card.Header} className="grid__item border border-light" 
+                            eventKey="2" tabIndex="3"
+                            onClick={() => setTimeout(() => {
+                              scrollTo('#eulogy-gen-section')
+                            }, 1000)}>
             <Image fluid={data.eulogyImage.childImageSharp.fluid} className="cover" />  
           </Accordion.Toggle>
-          <Accordion.Collapse eventKey="2" className="grid__description mx-5">
+          <Accordion.Collapse eventKey="2" className="grid__description mx-5" id="eulogy-gen-section">
             <Card.Body>
               <Row className="h-100">
                 {/* PROJECT DESCRIPTION */}

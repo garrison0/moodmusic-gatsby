@@ -8,6 +8,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
 import Header from '../components/Header.js'
 import BioCarousel from '../components/BioCarousel.js'
+import Image from 'gatsby-image/withIEPolyfill';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Footer = styled.footer`
   text-align: center;
@@ -16,15 +18,8 @@ const Footer = styled.footer`
 
 const Home = () => {
   const data = useStaticQuery(graphql`
-    query selfPortraitHome {
-      selfPortrait: file(relativePath: {eq: "selfportrait.jpg"}) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      projectImage: file(relativePath: {eq: "ML-DISPLAY.png"}) {
+    query home {
+      downArrowIndicator: file(relativePath: {eq: "arrowDownBig.png"}) {
         childImageSharp {
           fluid { 
             ...GatsbyImageSharpFluid
@@ -33,7 +28,6 @@ const Home = () => {
       }
     }
   `)
-  // console.log(data);
   return (
   <Container fluid='true'>
     {/* fireworks script */}
@@ -47,19 +41,30 @@ const Home = () => {
           display="initial"
           frameBorder="0"
           position="relative" />
+        <div className="text-center w-100" onClick={() => scrollTo('#about-section')} >
+          <Image fluid={data.downArrowIndicator.childImageSharp.fluid}  
+                        style={{ width: '3.5em', position: 'absolute', bottom: 0, left: 'calc(50% - 1.5em)' }}
+                        alt="hey, scroll down!"/>
+        </div>
       </Col>
     </Row>
-    <BioCarousel />
+    <BioCarousel id="about-section" />
     {/* TO-DO: cohesive footer component, REFACTOR TO USE LAYOUT!!! */}
-    <Footer>
-      © {new Date().getFullYear()}, made by Garrison McMullen 
-      <SocialIcon url="https://www.linkedin.com/in/garrisonmcmullen/"
-                style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
-      <SocialIcon url="https://www.soundcloud.com/garrison0"
-                style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
-      <SocialIcon url="https://www.paypal.me/moodmusic" 
-                style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
-    </Footer>
+    <Row className="footer justify-content-center section--innerShadowTop">
+      <Footer>
+        <Col xs="12"> 
+          © {new Date().getFullYear()}, made by Garrison McMullen
+        </Col>
+        <Col> 
+          <SocialIcon url="https://www.linkedin.com/in/garrisonmcmullen/"
+                    style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
+          <SocialIcon url="https://www.soundcloud.com/garrison0"
+                    style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
+          <SocialIcon url="https://www.paypal.me/moodmusic" 
+                    style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
+        </Col>
+      </Footer>
+    </Row>
   </Container>);
 }
 
