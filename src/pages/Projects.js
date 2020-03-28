@@ -154,6 +154,14 @@ function Projects() {
           <Accordion.Collapse eventKey="2" className="grid__description mx-5">
             <Card.Body>
               <Row className="h-100">
+                {/* PROJECT DESCRIPTION */}
+                <Col xs={5}>
+                <h3><b>boids 404</b></h3>
+                  {/* adds a line */}
+                  <p id="line" className="border border-light w-75 mb-2"></p> 
+                  <p>I have a boids-knockoff script (basically, boids with only a separation force) simulating dust you can vacuum up
+                     in the background of my 404 page. Like this:</p>
+                </Col>
                 {/* IMAGE */}
                 <Col xs={7}>
                   <Row>
@@ -167,10 +175,6 @@ function Projects() {
                   <Row className="h-100">
                     asdasd
                   </Row>
-                </Col>
-                {/* PROJECT DESCRIPTION */}
-                <Col xs={5}>
-                    yup
                 </Col>
               </Row>
             </Card.Body>
