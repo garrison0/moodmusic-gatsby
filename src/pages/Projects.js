@@ -68,33 +68,26 @@ function Projects() {
             <Card.Body>
               <Row className="h-100">
                 {/* IMAGE(s) */}
-                <Col xs={12} md={7}>
+                <Col xs={12}>
                   <Row className="py-3 px-2">
                     <Col>
                       <Image fluid={data.seatedNudeImage.childImageSharp.fluid} 
                           objectFit="contain"
                           style={{ maxHeight: "100%" }}
                           alt="picture of georgia o'keeffe's seated nude made with text" 
-                          className="image-border-big border w-100 h-100" />
+                          className="image-border-big border neumorph w-100 h-100" />
                     </Col>
                     <Col className="align-self-end">
                       <Image fluid={data.gazeImage.childImageSharp.fluid} 
                           objectFit="contain"
                           style={{width: "100%", maxHeight: "60%", bottom: 0}}
                           alt="picture of paul klee's gaze of silence made with text" 
-                          className="image-reversed-border border w-100 h-100" />
+                          className="image-reversed-border border neumorph w-100 h-100" />
                     </Col>
-                  </Row>
-                  <Row>
-                    <Image fluid={data.cabinImage.childImageSharp.fluid} 
-                          objectFit="contain"
-                          style={{ maxHeight: "100%" }}
-                          alt="picture of cabin made of text" 
-                          className="image-border-big border w-100 h-100" />
                   </Row>
                 </Col>
                 {/* DESCRIPTION */}
-                <Col xs={12} md={5}>
+                <Col xs={12}>
                   <div className="mx-3">
                     <h3><b>fontdraw</b></h3>
                     {/* adds a line */}
@@ -118,6 +111,13 @@ function Projects() {
                     </p>
                   </div>
                 </Col>
+                <Col>
+                    <Image fluid={data.cabinImage.childImageSharp.fluid} 
+                          objectFit="contain"
+                          style={{ maxHeight: "100%" }}
+                          alt="picture of cabin made of text" 
+                          className="image-border-big neumorph border w-100 h-100" />
+                </Col>
               </Row>
             </Card.Body>
           </Accordion.Collapse>
@@ -139,7 +139,7 @@ function Projects() {
                   <Iframe url="/vanillajs/boids.html"
                     width="100%"
                     id="boids demo"
-                    className="mt-4 image-reversed-border border"
+                    className="mt-4 image-reversed-border neumorph border"
                     position="relative" />
                 </Col>
               </Row>

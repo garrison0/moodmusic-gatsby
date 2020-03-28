@@ -11,6 +11,7 @@
     margin-left: 15%!important;
     margin-right: 15%!important;
     margin-top: 3vh;
+    margin-bottom: 3vh;
   }
 }
 
@@ -212,22 +213,21 @@ a {
 }
 
 .bio_descriptions_carousel {
-  min-height: 45vh;
+
   margin-top: 0;
 }
 
 .image_carousel { 
-  height: 55vh;
-  min-height: 200px;
-  margin-top: 5vh;
+  height: 21em;
+  margin-top: 3em;
 }
 
 @media screen and (min-width: 768px) { 
   .bio_descriptions_carousel { 
-    margin-top: 20vh!important;
+    margin-top: 5em!important;
   }
   .image_carousel { 
-    margin-top: 27vh!important;
+    margin-top: 8em!important;
   }
 }
 
@@ -237,7 +237,7 @@ a {
   .image-border-big-container { 
     border-radius: 0!important;
   }
-  .image-border-big-container-bottom {
+  .image-border-big-bottom {
     border-radius: 0!important;
   }
 }

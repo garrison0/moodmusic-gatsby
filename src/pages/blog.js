@@ -52,7 +52,7 @@ class Blog extends React.Component {
 export default Blog
 
 export const pageQuery = graphql`
-  query {
+  query blog {
     site {
       siteMetadata {
         title

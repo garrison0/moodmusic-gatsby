@@ -61,12 +61,12 @@ export default function BioCarousel(props) {
   };
 
   return (
-    <Row style={{height: '100%', minHeight: '100vh'}} className="border border-light"> 
+    <Row style={{height: '100%', minHeight: '80vh'}} className="border-top border-light"> 
 
       <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}}>
         {/* another row, w the col inside being the text box */}
-        <Row style={{height: '100%'}} className="justify-content-end mr-3">
-          <Col xs="9" className="bio_descriptions_carousel">
+        <Row style={{height: '100%'}} className="justify-content-end">
+          <Col md="9" xs="12" className="px-5 px-md-0 bio_descriptions_carousel">
             <h2 className="d-none d-md-block"><b>About</b></h2>
             <br className="d-none d-md-block"/>
             {/* adds a line */}
@@ -78,7 +78,7 @@ export default function BioCarousel(props) {
 
       <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}}>
         {/* CAROUSELS */}
-        <Row style={{height: '100%'}} >
+        <Row style={{height: '100%'}} className="pl-4 pl-md-0">
           {/* IMAGE CAROUSEL */}
           <Col xs={6} className="image_carousel">
             <Carousel style={{height: '100%', marginTop: '0vh'}}

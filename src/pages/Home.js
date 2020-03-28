@@ -16,7 +16,7 @@ const Footer = styled.footer`
 
 const Home = () => {
   const data = useStaticQuery(graphql`
-    query myQuery {
+    query selfPortraitHome {
       selfPortrait: file(relativePath: {eq: "selfportrait.jpg"}) {
         childImageSharp {
           fluid {
