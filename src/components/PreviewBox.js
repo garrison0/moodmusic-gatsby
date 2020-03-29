@@ -4,19 +4,15 @@ import Iframe from 'react-iframe'
 
 function PreviewBox(props) {
     return (
-      <a target="" href={props.dest}>
-        <Col xs={{ span: 12, offset: 4 }} md= {{span: 4, offset: 0}}
-            lg={{ span: 3, offset: 0 }}
-          className="ml-md-5 mb-3">
-          <div className="corner-wrapper">
-            <Iframe url={props.url}
-                    width="240px"
-                    id={props.id}
-                    position="relative" />
-            <div className="textbox">
-              <span className="textbox-text" id="mountainsPopup">
-                {props.slogan}
-              </span>
+      <a style={{'width': '100%'}} target="" href={props.dest}>
+        <Col xs={12} style={{'overflow': 'hidden'}}>
+          <Iframe url={props.url}
+                  id={props.id}
+                  position="relative"
+                  className="image-border neumorph preview" />
+          <div className="textbox">
+            <div className="textbox-text" id="mountainsPopup">
+              {props.slogan}
             </div>
           </div>
         </Col>

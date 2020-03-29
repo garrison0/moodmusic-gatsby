@@ -299,7 +299,7 @@ a, img {
   justify-content: center;
   min-height: 150px;
   max-height: 80vh;
-  font-size: 5em;
+  font-size: 1em;
   color: inherit;
   /* overflow: hidden; */
   text-decoration: none;
@@ -349,37 +349,15 @@ a, img {
 
 
 
-
-
-
-
-
-
-
 /* DEPRECATED: OLD PROJECTS */
 .textbox-container {
   text-align: left;
   justify-content: center;
 }
 
-.corner-wrapper {
-  overflow: hidden;
-  width: 240px;
-  border-radius: 7px;
-  transform: translateZ(0px);
-  border: 3px solid #aaa;
-}
-
 .preview {
-  width:200px; height:200px;
-  transition: opacity .25s ease-in-out;
-  -webkit-transform:scale(.25);
-  -ms-transform:scale(.5);
-  transform:scale(.5);
-  -webkit-transform-origin:0 0; 
-  -ms-transform-origin:0 0; 
-  transform-origin:0 0; 
-  cursor: pointer;
+  height: 260px;
+  width: 100%;
 }
 
 .textbox .textbox-text {
@@ -389,7 +367,7 @@ a, img {
   position: absolute;
   top: 50%;
   left: 50%;
-  color: #000;
+  color: rgb(38, 61, 69);
   -moz-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -408,5 +386,9 @@ a, img {
   overflow: hidden;
   background-color: #fff;
   transition: opacity .5s ease-in-out;
+}
+
+.textbox:hover { 
+  opacity: 1.0;
 }
 /* END: DEPRECATED */
