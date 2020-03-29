@@ -109,11 +109,11 @@ a, img {
 }
 
 .neumorph { 
-  box-shadow:  -2px 6px 8px rgba(97, 122, 128)
+  box-shadow:  -2px 6px 6px rgba(97, 122, 128)
 }
 
 .neumorph--image-border-big{
-  box-shadow: -1px 6px 6px rgba(97, 122, 128)
+  box-shadow: -6px 8px 6px rgb(38, 61, 69)
 }
 .Header__vertical {
   /* just the letters MDMC, not the buttons */
@@ -249,6 +249,9 @@ a, img {
   .image-border-big-bottom {
     border-radius: 0!important;
   }
+  .image-border-big-top {
+    border-radius: 0!important;
+  }
 }
 .image-border{ 
   border-radius: 20px 5px 20px;
@@ -258,14 +261,22 @@ a, img {
   border-radius: 40px 5px 40px;
 }
 
+.image-border-big-container { 
+  border-radius: 40px 5px 40px;
+}
+
 /* effect bottom left, bottom right INSIDE*/
 .image-border-big-bottom {
-  border-radius: 0 0 40px 5px;
+  border-radius: 0 0 38px 3px;
 }
 
 /* effect bottom left INSIDE */
 .image-border-big-bottomleft {
   border-radius: 0 0 0 5px;
+}
+
+.image-border-big-top {
+  border-radius: 38px 3px 0px 0px;
 }
 
 .image-border-big-bottomright {

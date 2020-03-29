@@ -97,7 +97,7 @@ export default function BioCarousel(props) {
                         objectFit="contain"
                         style={{ maxHeight: "100%", height: "70%" }}
                         alt="picture of me" 
-                        className="my-auto mx-2 image-border-big border border-light neumorph--image-border-big" />
+                        className="my-auto mx-2 image-border-big border border-light neumorph" />
                 <Carousel.Caption>
                   <h3 style={{color: 'rgb(0,0,0)'}}><b>Me</b></h3>
                 </Carousel.Caption>
@@ -108,7 +108,7 @@ export default function BioCarousel(props) {
                       objectFit="contain"
                       style={{ maxHeight: "100%", height: "70%" }}
                       alt="picture of one of my projects" 
-                      className="my-auto mx-2 image-border-big border border-light neumorph--image-border-big" />
+                      className="my-auto mx-2 image-border-big border border-light neumorph" />
                 <Carousel.Caption>
                   <h3 style={{color: 'rgb(0,0,0)'}}><b>Tech</b></h3>
                 </Carousel.Caption>
@@ -119,7 +119,7 @@ export default function BioCarousel(props) {
                       objectFit="contain"
                       style={{ maxHeight: "100%", height: "70%" }}
                       alt="picture of harmonics" 
-                      className="my-auto mx-2 image-border-big border border-light neumorph--image-border-big" />
+                      className="my-auto mx-2 image-border-big border border-light neumorph" />
                 <Carousel.Caption>
                   <h3 style={{color: 'rgb(0,0,0)'}}><b>Music</b></h3>
                 </Carousel.Caption>

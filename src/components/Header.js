@@ -21,28 +21,31 @@ export default function Header(props){
   
   let CLASSES = "";
   let SHOW_CLASSES = "";
-  let isInline = false;
   let isVertical = false;
+  var button_classes = "";
   switch ( (props.layout || '').toLowerCase() ) { 
     case "inline":
-      CLASSES += " Header__inline border-bottom";
+      CLASSES += " Header__inline image-border-big-top border-bottom";
       button__styling['display'] = 'none';
-      isInline = true;
+      button_classes = "text-left text-muted EmojiButton pr-0 my-auto"
       break;
     case "vertical":
       CLASSES += " Header__vertical border border-light height image-border";
       SHOW_CLASSES = "show";
+      button_classes = "text-left text-muted EmojiButton pr-0 mt-1"
       isVertical = true;
       break;
     default:
-      CLASSES += " Header mt-3 border border-light width";
+      CLASSES += " Header mt-3 border border-light width neumorph";
+      button_classes = "text-left text-muted EmojiButton pr-0 my-auto"
       SHOW_CLASSES = "show";
       break;
   }
 
   let expandButton;
   if (props.align !== "left") {
-    expandButton = <Col xs={1} className="text-left text-muted EmojiButton pr-0 my-auto">
+    expandButton = <Col xs={1} className={button_classes}
+                        style={isVertical ? {height: '50px'} : {}}>
       <div style={button__styling}>
         <a
           onClick={() => setOpen(!open)}
@@ -77,7 +80,7 @@ export default function Header(props){
           <Row style={isVertical ? {} : {width: '100vw'}}> 
             <Col xs={isVertical ? 12 : 6} 
                  className="text-left my-auto">
-              <div style={isVertical ? {} : {paddingTop: '0.2vw'}}>
+              <div style={isVertical ? {paddingBottom: '2em'} : {paddingTop: '0.2vw'}}>
                 <Link to="/">
                   <div>{isVertical ? "MDMC" : "MOODMUSIC"}</div>
                 </Link>

@@ -58,10 +58,10 @@ function Projects() {
     }`
   );
   return (
-    <div id="projects-container" className="image-border-big-container shadow-sm border">
-      <Header layout="inline" />
+    <div id="projects-container" className="image-border-big-container border neumorph--image-border-big">
+      <Header layout="inline" className="image-border-big-top" />
       <Accordion>
-        <Card className="grid border-0 image-border-big-container-bottom">
+        <Card className="grid border-0 image-border-big-bottom">
           <Accordion.Toggle as={Card.Header} className="grid__item border border-light" 
                             eventKey="0" tabIndex="1"
                             onClick={() => setTimeout(() => {
@@ -69,7 +69,7 @@ function Projects() {
                             }, 1000)} >
             <Image fluid={data.mlImage.childImageSharp.fluid} className="cover"/>
           </Accordion.Toggle>
-          <Accordion.Collapse eventKey="0" className="grid__description mx-5" id="text-art-section">
+          <Accordion.Collapse eventKey="0" className="grid__description mx-md-5" id="text-art-section">
             <Card.Body>
               <Row className="h-100">
                 {/* IMAGE(s) */}

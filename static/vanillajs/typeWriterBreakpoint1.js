@@ -25,6 +25,7 @@
 var CANVAS;
 var LEFT_MARGIN = 56;
 var RIGHT_MARGIN = 8;
+var TOP_MARGIN = 36;
 var BREAKPOINT = 'sm';
 var FONT_SIZE = 14;
 var TIME_TO_TRANSITON = 3; 
@@ -62,7 +63,7 @@ function setup() {
 	textAlign(LEFT);
 	textSize(FONT_SIZE);
     CANVAS = createCanvas(window.innerWidth, 2600);
-    CANVAS.position(LEFT_MARGIN,0);
+    CANVAS.position(LEFT_MARGIN, 0);
     CANVAS.style('z-index', '-1');
 }
 
@@ -72,9 +73,9 @@ function draw() {
     if ( CHAR_POSITIONS ) {
         for (var i = 0; i < CHAR_POSITIONS.length; i++){
             let cur = CHAR_POSITIONS[i];
-            let value = (1 - cur.currentGrayscale) * 255;
+            let value = (cur.currentGrayscale) * 255;
             fill(value,value,value,cur.currentOpacity * 255);
-            text(cur.c, cur.currentPosition.x, 14 + cur.currentPosition.y);
+            text(cur.c, cur.currentPosition.x, TOP_MARGIN + cur.currentPosition.y);
 
             //always walk towards position/opacity/vel matching state
             let currentPosition = cur.currentPosition;

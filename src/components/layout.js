@@ -63,6 +63,7 @@ class Layout extends React.Component {
             padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
             background: 'rgb(255,255,255)'
           }}
+          className="neumorph--image-border-big image-border-big-bottom"
         >
           <Header 
             style={{
@@ -72,7 +73,6 @@ class Layout extends React.Component {
             align="left" 
             className="neumorph"
           />
-          {/* <header>{header}</header> */}
           <main className="mt-1">{children}</main>
         </div>
         <Footer>
