@@ -59,12 +59,12 @@ function mouseClicked() {
 }
 
 function setup() {
+    CANVAS = createCanvas(window.innerWidth, 2600, WEBGL);
+    CANVAS.position(LEFT_MARGIN, 0);
+    CANVAS.style('z-index', '-1');
     textFont(p5font);
 	textAlign(LEFT);
 	textSize(FONT_SIZE);
-    CANVAS = createCanvas(window.innerWidth, 2600);
-    CANVAS.position(LEFT_MARGIN, 0);
-    CANVAS.style('z-index', '-1');
 }
 
 function draw() {
@@ -83,12 +83,12 @@ function draw() {
             // if more than a pixel away on either axis, move towards goal
             // todo: use vectors like a normal person
             let x_diff = currentPosition.x - goalPosition.x;
-            let x_vel = Math.min(Math.abs(x_diff), 240 * 1/30);
+            let x_vel = Math.min(Math.abs(x_diff), 240 * 1/60);
             if ( Math.abs(x_diff) > 0 ) {
                 x_diff > 0 ? cur.currentPosition.x -= x_vel : cur.currentPosition.x += x_vel;
             }
             let y_diff = currentPosition.y - goalPosition.y;
-            let y_vel = Math.min(Math.abs(y_diff), 800 * 1/30);
+            let y_vel = Math.min(Math.abs(y_diff), 800 * 1/200);
             if ( Math.abs(y_diff) > 0 ) {
                 y_diff > 0 ? cur.currentPosition.y -= y_vel : cur.currentPosition.y += y_vel;
             }
