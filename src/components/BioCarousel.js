@@ -68,7 +68,7 @@ export default function BioCarousel(props) {
   };
 
   return (
-    <Row id="about-section" style={{height: '100%', minHeight: '80vh', background: 'rgb(255,255,255)'}} className="border-top border-light"> 
+    <Row id="about-section" style={{height: '100%', minHeight: '35em', background: 'rgb(255,255,255)'}} className="border-top border-light"> 
 
       <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}}>
         {/* another row, w the col inside being the text box */}

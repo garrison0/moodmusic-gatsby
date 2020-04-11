@@ -22,12 +22,14 @@ export default function Header(props){
   let CLASSES = "";
   let SHOW_CLASSES = "";
   let isVertical = false;
+  let isInline = false;
   var button_classes = "";
   switch ( (props.layout || '').toLowerCase() ) { 
     case "inline":
       CLASSES += " Header__inline image-border-big-top border-bottom";
       button__styling['display'] = 'none';
       button_classes = "text-left text-muted EmojiButton pr-0 my-auto"
+      isInline = true;
       break;
     case "vertical":
       CLASSES += " Header__vertical border border-light height image-border";
@@ -45,7 +47,8 @@ export default function Header(props){
   let expandButton;
   if (props.align !== "left") {
     expandButton = <Col xs={1} className={button_classes}
-                        style={isVertical ? {height: '50px'} : {}}>
+                        style={isVertical ? {height: '50px'} : 
+                              (isInline ? {display: 'none'} : {})}>
       <div style={button__styling}>
         <a
           onClick={() => setOpen(!open)}
@@ -76,7 +79,7 @@ export default function Header(props){
         {/* emoji icons */}
         {expandButton}
         <Col style={showButtonsLogic()} 
-             xs={11}>
+             xs={isInline ? 12 : 11}>
           <Row style={isVertical ? {} : {width: '100vw'}}> 
             <Col xs={isVertical ? 12 : 6} 
                  className="text-left my-auto">

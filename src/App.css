@@ -7,6 +7,12 @@
 
 body { 
   background-color: rgba(97, 122, 128);
+  font-family: 'Source Serif Pro, sans-serif';
+  font-size: 1.15rem;
+}
+
+h1,h2,h3,h4,h5,h6 { 
+  font-family: 'Source Serif Pro, sans-serif';
 }
 
 /* GENERAL/MISC SITE WIDE:  */
@@ -99,7 +105,7 @@ a, img {
 
 .Header__inline{
   height: 48px;
-  font-size: calc(12px + 1vw);
+  font-size: calc(1.2rem + 0.3vw);
   width: 100%!important;
   margin-right: 0!important;
   margin-left: 0!important;

@@ -48,11 +48,11 @@ IMPROVEMENTS:
 function preload(){
 	// img = loadImage('assets/gwape3.jpg');
 	// img = loadImage('assets/cabin.jpeg');
-	img = loadImage('assets/blueno2.png');
+	// img = loadImage('assets/blueno2.png');
 	// img = loadImage('assets/bluenude.jpeg');
 	// img = loadImage('assets/nude8.jpg');
   // img = loadImage('assets/series.png');
-//   img = loadImage('assets/gokflower.jpg');
+  img = loadImage('assets/gokflower.jpg');
 //   img = loadImage('assets/series.jpg');
 	// img = loadImage('assets/gazeofsilenceklee.jpg');
 	// img = loadImage('assets/seatednudexi.jpg');
@@ -113,8 +113,8 @@ function setup(){
  	var x = 0;
 	 var y = Math.ceil(fontSize * 2);
 	 console.log(fontSize)
- 	for (var i = 0; i < selfstory.length; i++){
- 		c = selfstory.charAt(i);
+ 	for (var i = 0; i < shortLorem.length; i++){
+ 		c = shortLorem.charAt(i);
  		if (c == ' ' || c == "\n"){
  			// pass 
  		} else {
@@ -597,7 +597,70 @@ there’s a reason so many famous artists come from rich families with key conne
 
 maybe it’s best not delineated beyond “art”. i'm letting some kind of dharmic principle sort the rest out
 
-this figure was derived from georgia o'keeffe's blue II, 1916.`
+this figure was derived from georgia o'keeffe's blue II, 1916.
+
+here i am, throwing away an opportunity to write some impressive, recruiter-attracting STAR technique based stories 
+in order to try out a mopey, artsy-fartsy think piece.. on my website that is otherwise just a portfolio; very fitting, huh? even if it was great, it'd be like printing
+out the last judgment onto a poster and putting it into a frame that says "HIRE ME HIRE ME HIRE ME"
+
+i was watching this video where woody allen discusses the role of an artist. i'm generally not a fan of big conclusions or 
+prescriptions like this, but he concludes, essentially, that with life being as bleak as it is, i.e. with it's irrevocable outcome
+being 1. your own death, 2. the heat death of the universe, and 3. your voided efforts,
+the artist is the one who figures out a reason to 'go on living'
+
+it's a nice, flowery, "that's a wrap" conclusion. he could've come to it while speaking to his therapist. 
+really, i don't know how the artist has any more insight than the liberal arts scholar or the scientist.
+however, it's worth exploring this conclusion - allow me to mood map for a bit. the first relation that comes to mind is
+the myth of sisyphus, an essay by camus, which essentially tries to answer the question of how to live with 'the absurd' - the bare facts of mortality. 
+
+his *description* is much the same. at some point in your life you realize the last year went by, without notice, in a blink of eye. then you take a good
+long look in the mirror and calculate the number of weeks you have left to live in the best case scenario. eternity presses on you
+as if your head was in a closing vise. your taxes are due tomorrow. which should you be more concerned with?
+
+his *prescription*, since he actually explores one, is firstly logical, and secondly normative. the logical part is that you don't have a choice.
+picture sisyphus watching his rock roll down the hill at the end of his climb. he's been doing this for millenia - who knows how many times he's pushed the rock up the hill.
+is he happy? 
+
+why not? what in his frame of mind could make him unhappy? this 'meaningless' toil of pushing a rock up a hill JUST IS his existence. he has no alternative.
+but what if he thought he did? that is what makes his assignment seem especially sadistic. we picture sisyphus, without fail, watching the rock fall down with a thousand yard stare 
+and imagining what he has to endure for the rest of eternity. and despairingly suppressing his plea for the gods to release him.
+
+can't we imagine sisyphus at ease? can't he, either through pure ignorance or through acceptance, simply live his fate? he does not have to torture himself with
+impossible alternatives.
+
+of course, you are sisyphus. your life, toils, and death, are akin to pushing a rock up a hill. and you should not torture yourself with alternatives. there is no choice.
+
+the normative part of camus' essay is where he tries to describe the possible lives of those 'living with the absurd'. i.e., don juanism, creating art, etc. anything with a multiplicity of experience.
+
+but i find this part less satisfying. if any one experience is bleak, adding more is of no value. clearly, to me, it's more about your 'fate' or your 'duty' and your comprehensive acceptance of it.
+
+the most famous answer to 'why do anything?' is the conclusion of goethe's faust. the chorus mysticus: 
+
+"Das Ewig-Weibliche 
+Zieht uns hinan." 
+
+which translates to something like 'the eternal feminine drives us forward'. the feminine, in this case, is an obvious symbol. i would equate it to something like plato's forms. perfect conceptions or symbols that lie behind the material 'stuff' in the world. 
+things that we, for no honest reason, desire and strive towards, effectively attempting to shape reality to more closely fit these forms. it's the idea that there's something better 'out there'. it's unclear to me, though i can see it in myself, why this is a satisfying answer; maybe some people are just wired that way, emotionally or otherwise.
+even though it was surreptitiously his downfall, striving is why dr. faust was saved in the end.
+
+i'm probably not the only person still left in the dark. asking 'why?' is a nonsensical question. it just is. you're damned if you do, damned if you don't. whether or not your life is your duty, and you accept 'what is', 
+and you're mentally sound, and you approach it with vigor and resolution, it's ultimately irrational. it's absurd that i woke up to 'this' and that there is no 'not this' and yet i watch the clock tick.
+
+yet i still wake up. i sometimes see humanity like this, its inner nature working in the opposite direction of entropy:
+
+			human energy use, consolidation, work and effort
+			          --------------------------> 
+			<----------------------------
+			 increasing entropy, heat death of the universe
+
+history correlates with an increased effectiveness at harvesting energy. it's like you're a phantasmic side effect of entropy - trapped energy that gained cognizance and strives to consolidate more and more. imagine if we survive the sun exploding, we'll somehow find another star to harvest. that star, too, will die. all for nothing.
+
+artists, as far as i'm concerned, do nothing better than consolidate experience and mutate it into effective sentiment. the proustian effect. 
+
+they're on the same timeline. they play the same game. if there's such a thing as original sin, then it's the simple, almost stale fact that your existence and lifelong effort runs contrary to the physical reality of the universe. 
+
+it is what it is - no alternatives. a dance with death. taking the time to write this piece shows i only take part.
+`
 
 var lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices mi tempus imperdiet nulla malesuada. Faucibus in ornare quam viverra orci. Nullam ac tortor vitae purus faucibus. Tristique senectus et netus et malesuada fames ac turpis. Ut porttitor leo a diam sollicitudin tempor. Mauris sit amet massa vitae. Massa vitae tortor condimentum lacinia. Ac placerat vestibulum lectus mauris ultrices eros in. Ac turpis egestas integer eget aliquet nibh praesent. Sollicitudin tempor id eu nisl nunc mi ipsum. Eget egestas purus viverra accumsan in nisl nisi scelerisque eu. Elit ullamcorper dignissim cras tincidunt lobortis feugiat. Et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Maecenas pharetra convallis posuere morbi leo. Diam sollicitudin tempor id eu nisl nunc mi ipsum. Massa sed elementum tempus egestas sed sed risus pretium.
 
