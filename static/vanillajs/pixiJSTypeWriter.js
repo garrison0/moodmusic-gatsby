@@ -4,7 +4,7 @@ const BP1_HEIGHT = 2600;
 var BREAKPOINT; // 1,2,3
 var CANVAS_WIDTH;
 // determine bp on page load
-if (window.innerWidth > 320) { 
+if (window.innerWidth > 0) { 
   BREAKPOINT = 1;
   CANVAS_WIDTH = 320;
 }
@@ -46,27 +46,27 @@ switch (BREAKPOINT) {
     break;
 }
 
-loader.onComplete.add(() => {
+// loader.onComplete.add(() => {
   // first transition is automatic
-  var wait_to_click;
-  switch (BREAKPOINT) { 
-    case 1:
-      wait_to_click = 5500;
-      break;
-    case 2:
-      wait_to_click = 8750;
-      break;
-    case 3: 
-      wait_to_click = 12500;
-      break;
-    default:
-      wait_to_click = 0;
-      break;
-  }
-  setTimeout(function(){ document.body.click() }, wait_to_click);
+  // var wait_to_click;
+  // switch (BREAKPOINT) { 
+  //   case 1:
+  //     wait_to_click = 5500;
+  //     break;
+  //   case 2:
+  //     wait_to_click = 8750;
+  //     break;
+  //   case 3: 
+  //     wait_to_click = 12500;
+  //     break;
+  //   default:
+  //     wait_to_click = 0;
+  //     break;
+  // }
+  // setTimeout(function(){ document.body.click() }, wait_to_click);
   // document.getElementById("loading").style.display = "none";
   // apparently, in gatsby, can't even reference document in iframe'd scripts!
-});
+// });
 
 loader.load(setup);
 
@@ -90,7 +90,7 @@ function setup(loader, resources) {
 state = transition;
 
 //add controls
-document.body.addEventListener("click", function() {
+document.body.addEventListener("pointerdown", function() {
   if (characterPositions) {
     for (var i = 0; i < characterPositions.length; i++){
       let cur = characterPositions[i];
