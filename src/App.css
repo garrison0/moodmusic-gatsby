@@ -51,7 +51,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h2 { 
-  font-size: calc(32px + 4vw);
+  font-size: calc(32px + 3.4vw);
 }
 
 ul li a {
