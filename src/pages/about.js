@@ -3,7 +3,6 @@ import Iframe from 'react-iframe'
 import Header from '../components/Header'
 
 function About() {
-  document.body.style.backgroundColor = "#ffffff"; // bad hard coding!
   return (
     <div>
       <Header layout="vertical" />
