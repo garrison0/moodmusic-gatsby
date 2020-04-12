@@ -64,7 +64,8 @@ loader.onComplete.add(() => {
       break;
   }
   setTimeout(function(){ document.body.click() }, wait_to_click);
-  document.getElementById("loading").style.display = "none";
+  // document.getElementById("loading").style.display = "none";
+  // apparently, in gatsby, can't even reference document in iframe'd scripts!
 });
 
 loader.load(setup);
