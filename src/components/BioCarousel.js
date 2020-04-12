@@ -68,90 +68,92 @@ export default function BioCarousel(props) {
   };
 
   return (
-    <Row id="about-section" style={{height: '100%', minHeight: '35em', background: 'rgb(255,255,255)'}} className="border-top border-light"> 
+    <div style={{background: 'rgb(255,255,255)', height: '100%', minHeight: '35em'}}>
+      <Row id="about-section" style={{background: 'rgb(255,255,255)', height: '100%', maxWidth: '68em', minHeight: '35em'}} className="border-top border-light"> 
 
-      <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}}>
-        {/* another row, w the col inside being the text box */}
-        <Row style={{height: '100%'}} className="justify-content-end mb-5">
-          <Col md="9" xs="12" className="px-5 px-md-0 bio_descriptions_carousel">
-            <h2 className="d-none d-md-block"><b>About</b></h2>
-            <br className="d-none d-md-block"/>
-            {/* adds a line */}
-            <p id="line" className="border w-75 mb-3"></p> 
-            <BioDescriptions index={bsCarouselIndex}></BioDescriptions>
-          </Col>
-        </Row>
-      </Col>
+        <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}}>
+          {/* another row, w the col inside being the text box */}
+          <Row style={{height: '100%'}} className="justify-content-end mb-5">
+            <Col md="9" xs="12" className="px-5 px-md-2 bio_descriptions_carousel">
+              <h2 className="d-none d-md-block"><b>About</b></h2>
+              <br className="d-none d-md-block"/>
+              {/* adds a line */}
+              <p id="line" className="border w-75 mb-3"></p> 
+              <BioDescriptions index={bsCarouselIndex}></BioDescriptions>
+            </Col>
+          </Row>
+        </Col>
 
-      <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}}>
-        {/* CAROUSELS */}
-        <Row style={{height: '100%'}} className="pl-4 pl-md-0">
-          {/* IMAGE CAROUSEL */}
-          <Col xs={6} className="image_carousel">
-            <Carousel style={{height: '100%', marginTop: '0vh'}}
-                      indicators={false} controls={false} interval={null} 
-                      activeIndex={bsCarouselIndex} onSelect={()=>{}}> 
+        <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}}>
+          {/* CAROUSELS */}
+          <Row style={{height: '100%'}} className="pl-4 pl-md-0">
+            {/* IMAGE CAROUSEL */}
+            <Col xs={6} className="image_carousel">
+              <Carousel style={{height: '100%', marginTop: '0vh'}}
+                        indicators={false} controls={false} interval={null} 
+                        activeIndex={bsCarouselIndex} onSelect={()=>{}}> 
 
-              <Carousel.Item style={{height: "100%"}}>
-                <Image fluid={data.selfPortrait.childImageSharp.fluid} 
+                <Carousel.Item style={{height: "100%"}}>
+                  <Image fluid={data.selfPortrait.childImageSharp.fluid} 
+                          objectFit="contain"
+                          style={{ maxHeight: "100%", height: "70%" }}
+                          alt="picture of me" 
+                          className="my-auto mx-2 image-border-big border border-light neumorph" />
+                  <Carousel.Caption>
+                    <h3 style={{color: 'rgb(0,0,0)'}}><b>Me</b></h3>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                
+                <Carousel.Item style={{height: "100%"}}>
+                  <Image fluid={data.projectImage.childImageSharp.fluid} 
                         objectFit="contain"
                         style={{ maxHeight: "100%", height: "70%" }}
-                        alt="picture of me" 
+                        alt="picture of one of my projects" 
                         className="my-auto mx-2 image-border-big border border-light neumorph" />
-                <Carousel.Caption>
-                  <h3 style={{color: 'rgb(0,0,0)'}}><b>Me</b></h3>
-                </Carousel.Caption>
-              </Carousel.Item>
-              
-              <Carousel.Item style={{height: "100%"}}>
-                <Image fluid={data.projectImage.childImageSharp.fluid} 
-                      objectFit="contain"
-                      style={{ maxHeight: "100%", height: "70%" }}
-                      alt="picture of one of my projects" 
-                      className="my-auto mx-2 image-border-big border border-light neumorph" />
-                <Carousel.Caption>
-                  <h3 style={{color: 'rgb(0,0,0)'}}><b>Tech</b></h3>
-                </Carousel.Caption>
-              </Carousel.Item>
-              
-              <Carousel.Item style={{height: "100%"}}>
-                <Image fluid={data.musicImage.childImageSharp.fluid} 
-                      objectFit="contain"
-                      style={{ maxHeight: "100%", height: "70%" }}
-                      alt="picture of harmonics" 
-                      className="my-auto mx-2 image-border-big border border-light neumorph" />
-                <Carousel.Caption>
-                  <h3 style={{color: 'rgb(0,0,0)'}}><b>Music</b></h3>
-                </Carousel.Caption>
-              </Carousel.Item>
+                  <Carousel.Caption>
+                    <h3 style={{color: 'rgb(0,0,0)'}}><b>Tech</b></h3>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                
+                <Carousel.Item style={{height: "100%"}}>
+                  <Image fluid={data.musicImage.childImageSharp.fluid} 
+                        objectFit="contain"
+                        style={{ maxHeight: "100%", height: "70%" }}
+                        alt="picture of harmonics" 
+                        className="my-auto mx-2 image-border-big border border-light neumorph" />
+                  <Carousel.Caption>
+                    <h3 style={{color: 'rgb(0,0,0)'}}><b>Music</b></h3>
+                  </Carousel.Caption>
+                </Carousel.Item>
 
-            </Carousel>
-          </Col>
-          {/* SEPARATE CAROUSEL OF LABELS THAT SLIDE BOTH CAROUSELS LEFT ON CLICK */}
-          <Col xs={6} className="image_carousel" style={{paddingRight: '0', paddingLeft: '0'}}>
-            <div style={{maxWidth: "120px"}}>
-              <Image fluid={data.wowImage.childImageSharp.fluid} 
-                        alt="a good description of this picture"
-                        className="my-auto" />
-            </div>
-            <Wrapper>
-              <div style={{"maxWidth":"1000"}}>
-                <ItemsCarousel
-                  infiniteLoop
-                  numberOfCards={2}
-                  slidesToScroll={1}
-                  showSlither={true}
-                  activeItemIndex={index}
-                  requestToChangeActive={value => setIndex(value)}>
-                      <a onClick={handleCarouselClick}><h3><b>Tech</b></h3></a>
-                      <a onClick={handleCarouselClick}><h3><b>Music</b></h3></a>
-                      <a onClick={handleCarouselClick}><h3><b>Me</b></h3></a>
-                </ItemsCarousel>
+              </Carousel>
+            </Col>
+            {/* SEPARATE CAROUSEL OF LABELS THAT SLIDE BOTH CAROUSELS LEFT ON CLICK */}
+            <Col xs={6} className="image_carousel" style={{paddingRight: '0', paddingLeft: '0'}}>
+              <div style={{maxWidth: "120px"}}>
+                <Image fluid={data.wowImage.childImageSharp.fluid} 
+                          alt="a good description of this picture"
+                          className="my-auto" />
               </div>
-            </Wrapper>
-          </Col>
-        </Row>
-      </Col>
-    </Row>
+              <Wrapper>
+                <div style={{"maxWidth":"1000"}}>
+                  <ItemsCarousel
+                    infiniteLoop
+                    numberOfCards={2}
+                    slidesToScroll={1}
+                    showSlither={true}
+                    activeItemIndex={index}
+                    requestToChangeActive={value => setIndex(value)}>
+                        <a onClick={handleCarouselClick}><h3><b>Tech</b></h3></a>
+                        <a onClick={handleCarouselClick}><h3><b>Music</b></h3></a>
+                        <a onClick={handleCarouselClick}><h3><b>Me</b></h3></a>
+                  </ItemsCarousel>
+                </div>
+              </Wrapper>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </div>
   );
 }

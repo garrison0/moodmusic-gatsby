@@ -61,7 +61,6 @@ function Projects() {
   );
   return (
       <div id="projects-container"
-            style={{backgroundColor: 'rgb(97, 122, 128)'}}
             className="image-border-big-container border neumorph--image-border-big">
         <Header layout="inline" className="image-border-big-top" />
         <Accordion>

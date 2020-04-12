@@ -27,11 +27,15 @@ h1,h2,h3,h4,h5,h6 {
 /* GENERAL/MISC SITE WIDE:  */
 @media screen and (min-width: 768px) {
   #projects-container { 
-    margin-left: 15%!important;
-    margin-right: 15%!important;
     margin-top: 3vh;
     margin-bottom: 3vh;
   }
+}
+
+#projects-container { 
+  margin-left: auto!important;
+  margin-right: auto!important;
+  max-width: 50em;
 }
 
 /* css line */
@@ -101,10 +105,14 @@ a, img {
 /* ########################## */
 .Header {
   width: 90%;
+  max-width: 45em;
   height: 48px!important;
   font-size: calc(8px + 1vw);
   margin-top: 1vh;
-  margin-left: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  left: calc(-50vw + 50%);
+  right: calc(-50vw + 50%);
   border-radius: 10px;
   background-color: rgba(255,255,255,0.9);
   position: fixed;
