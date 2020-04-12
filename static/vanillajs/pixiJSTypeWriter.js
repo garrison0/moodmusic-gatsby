@@ -19,7 +19,7 @@ if (window.innerWidth > 1050) {
 
 //Create a Pixi Application
 let app = new PIXI.Application({                   
-    transparent: true, 
+    transparent: false, 
     resolution: 1
   }
 );
@@ -28,6 +28,7 @@ var characterPositions;
 
 // make pixi full screen
 app.renderer.view.style.position = "absolute";
+app.renderer.backgroundColor = 0xffffff;
 app.renderer.view.style.display = "block";
 app.renderer.autoResize = true;
 app.renderer.resize(CANVAS_WIDTH, BP1_HEIGHT);

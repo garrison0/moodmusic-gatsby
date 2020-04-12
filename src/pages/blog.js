@@ -9,7 +9,6 @@ import Button from "../components/button"
 
 class Blog extends React.Component {
   render() {
-    document.body.style.backgroundColor = "rgb(97, 122, 128)"; // bad hard coding!
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMdx.edges
