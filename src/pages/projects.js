@@ -1,7 +1,7 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
-import PreviewBox from '../components/PReviewBox'
+import PreviewBox from '../components/PreviewBox'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link, graphql, useStaticQuery } from 'gatsby'
