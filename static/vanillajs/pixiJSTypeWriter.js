@@ -45,13 +45,34 @@ switch (BREAKPOINT) {
     break;
 }
 
+loader.onComplete.add(() => {
+  // first transition is automatic
+  var wait_to_click;
+  switch (BREAKPOINT) { 
+    case 1:
+      wait_to_click = 5500;
+      break;
+    case 2:
+      wait_to_click = 8750;
+      break;
+    case 3: 
+      wait_to_click = 12500;
+      break;
+    default:
+      wait_to_click = 0;
+      break;
+  }
+  setTimeout(function(){ document.body.click() }, wait_to_click);
+  document.getElementById("loading").style.display = "none";
+});
+
 loader.load(setup);
 
 function setup(loader, resources) {
   let style = new PIXI.TextStyle({
     fontFamily: "Source Serif Pro",
     fontSize: 14,
-    fill: 'fcfcfc'
+    fill: "#17252a"
   });
   characterPositions = JSON.parse(resources.characterPositions.data);
   for (var i = 0; i < characterPositions.length; i++) {

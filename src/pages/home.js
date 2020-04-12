@@ -60,6 +60,8 @@ const Home = () => {
                     style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
           <SocialIcon url="https://www.soundcloud.com/garrison0"
                     style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
+          <SocialIcon url="https://www.youtube.com/channel/UCL79wxAWsMsrmFzrSuuaX-w" 
+                    style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
           <SocialIcon url="https://www.paypal.me/moodmusic" 
                     style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
         </Col>

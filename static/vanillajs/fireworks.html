@@ -28,6 +28,9 @@
     var DARKEST_COLOR = '19253C'
     var COLORS_WITHOUT_BACKGROUND = ['FFFFFF', 'D1D7D7', DARKEST_COLOR, 'FFFEFF', DARKEST_COLOR, 'FFFEFF', '19253C', 'FFFF00', '0000FF', '00FF00', 'FF0000']
     var COMPLEMENTARY_TO_BACKGROUND = 'd1d7d7'
+    var SIZE_SCALAR = window.innerWidth < 550 ? 1 : 1 + window.innerWidth / 1650;
+    var VEL_SCALAR = window.innerHeight < 600 ? 1 : 1 + (window.innerHeight - 600) / 850;
+    var RATE_SCALAR = window.innerWidth < 650 ? 1 : 2 * window.innerWidth / 650;
     main();
     function main() {
       canvas = document.getElementById('myCanvas');
@@ -43,13 +46,14 @@
     function createProton(image) {
       proton = new Proton;
       emitter = new Proton.Emitter();
-      emitter.rate = new Proton.Rate(0.5, 1.0);
+      emitter.rate = new Proton.Rate(0.5 * RATE_SCALAR, 1.0 * RATE_SCALAR);
 
       emitter.addInitialize(new Proton.Mass(1));
-      emitter.addInitialize(new Proton.Radius(3.5,1.5));
+      emitter.addInitialize(new Proton.Radius(SIZE_SCALAR * 3.5, SIZE_SCALAR * 1.5));
       emitter.addInitialize(new Proton.P(new Proton.LineZone(100, 0, canvas.width - 100, 0)));
       emitter.addInitialize(new Proton.Life(1, 1.5));
-      emitter.addInitialize(new Proton.V(new Proton.Span(4.2,5.9), new Proton.Span(180, 180), 'polar'));
+      
+      emitter.addInitialize(new Proton.V(new Proton.Span(VEL_SCALAR * 4.2,VEL_SCALAR *5.9), new Proton.Span(180, 180), 'polar'));
 
       emitter.addBehaviour(new Proton.Gravity(-3.3));
       emitter.addBehaviour(new Proton.Color('19253C', '19253C'));
@@ -75,11 +79,11 @@
 
     function createFirstEmitter(particle) {
       var subemitter = new Proton.Emitter();
-      subemitter.rate = new Proton.Rate(new Proton.Span(100, 150), 1);
+      subemitter.rate = new Proton.Rate(new Proton.Span(100 * RATE_SCALAR / 2.5, 150 * RATE_SCALAR / 2.5), 1);
       subemitter.addInitialize(new Proton.Mass(1));
-      subemitter.addInitialize(new Proton.Radius(2, 4.5));
+      subemitter.addInitialize(new Proton.Radius(2 * SIZE_SCALAR, 4.5 * SIZE_SCALAR));
       subemitter.addInitialize(new Proton.Life(2, 4));
-      subemitter.addInitialize(new Proton.V(new Proton.Span(0.95, 1.45), new Proton.Span(0, 360), 'polar'));
+      subemitter.addInitialize(new Proton.V(new Proton.Span(0.95 * VEL_SCALAR, 1.45 * VEL_SCALAR), new Proton.Span(0, 360), 'polar'));
 
       subemitter.addBehaviour(new Proton.RandomDrift(6, 9, .5));
       subemitter.addBehaviour(new Proton.Cyclone(new Proton.Span(-3, 3), 5));
@@ -96,12 +100,12 @@
 
     function createSecendEmitter(particle) {
       var subemitter = new Proton.Emitter();
-      subemitter.rate = new Proton.Rate(new Proton.Span(100, 150), 1);
+      subemitter.rate = new Proton.Rate(new Proton.Span(100 * RATE_SCALAR / 2.5, 150 * RATE_SCALAR / 2.5), 1);
 
       subemitter.addInitialize(new Proton.Mass(1));
-      subemitter.addInitialize(new Proton.Radius(3));
+      subemitter.addInitialize(new Proton.Radius(3 * SIZE_SCALAR));
       subemitter.addInitialize(new Proton.Life(2, 4));
-      subemitter.addInitialize(new Proton.V([1.6, 2.5], new Proton.Span(0, 360), 'polar'));
+      subemitter.addInitialize(new Proton.V([1.6 * VEL_SCALAR, 2.5 * VEL_SCALAR], new Proton.Span(0, 360), 'polar'));
 
       subemitter.addBehaviour(new Proton.Alpha(1, 0));
       subemitter.addBehaviour(new Proton.Scale(1, .1));
@@ -117,11 +121,11 @@
 
     function createThirdEmitter(particle) { 
       var subemitter = new Proton.Emitter();
-      subemitter.rate = new Proton.Rate(new Proton.Span(100, 150), 1);
+      subemitter.rate = new Proton.Rate(new Proton.Span(100 * RATE_SCALAR / 2.5, 150 * RATE_SCALAR / 2.5), 1);
       subemitter.addInitialize(new Proton.Mass(1));
-      subemitter.addInitialize(new Proton.Radius(4.25, 3));
+      subemitter.addInitialize(new Proton.Radius(4.25 * SIZE_SCALAR, 3 * SIZE_SCALAR));
       subemitter.addInitialize(new Proton.Life(2, 4));
-      subemitter.addInitialize(new Proton.V([0.75, 2.5, 4], new Proton.Span(0, 360), 'polar'));
+      subemitter.addInitialize(new Proton.V([0.75 * VEL_SCALAR, 2.5 * VEL_SCALAR, 4 * VEL_SCALAR], new Proton.Span(0, 360), 'polar'));
 
       subemitter.addBehaviour(new Proton.RandomDrift(6, 9, .5));
       subemitter.addBehaviour(new Proton.Alpha(1, 0));

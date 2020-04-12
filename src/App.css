@@ -6,7 +6,7 @@
 }
 
 body { 
-  background-color: rgba(97, 122, 128);
+  background-color: rgb(97, 122, 128);
   font-family: 'Source Serif Pro, sans-serif';
   font-size: 1.15rem;
 }
@@ -105,7 +105,7 @@ a, img {
 
 .Header__inline{
   height: 48px;
-  font-size: calc(1.2rem + 0.3vw);
+  font-size: calc(1.05rem + 0.3vw);
   width: 100%!important;
   margin-right: 0!important;
   margin-left: 0!important;

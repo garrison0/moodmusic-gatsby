@@ -24,9 +24,9 @@
 
     function updateMousePosition(e){
       if (e.clientX < (window.innerWidth / 2)){
-        document.body.style = 'cursor: url(vacuumleft.png) 32 25, auto;'
+        document.body.style = 'cursor: url(assets/vacuumleft.png) 32 25, auto;'
       } else {
-        document.body.style = 'cursor: url(vacuum.png) -32 25, auto;'
+        document.body.style = 'cursor: url(assets/vacuum.png) -32 25, auto;'
       } 
       if (BoidGlobals.mousePosition == null) return;
       BoidGlobals.mousePosition.d[0] = e.clientX;

@@ -58,6 +58,7 @@ function Projects() {
       }
     }`
   );
+  document.body.style.backgroundColor = "rgb(97, 122, 128)"; 
   return (
     <div id="projects-container" className="image-border-big-container border neumorph--image-border-big">
       <Header layout="inline" className="image-border-big-top" />
