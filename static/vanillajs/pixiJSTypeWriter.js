@@ -1,6 +1,21 @@
 const loader = PIXI.Loader.shared;
-const LEFT_MARGIN = 68;
+const LEFT_MARGIN = 52;
 const BP1_HEIGHT = 2600;
+var BREAKPOINT; // 1,2,3
+var CANVAS_WIDTH;
+// determine bp on page load
+if (window.innerWidth > 320) { 
+  BREAKPOINT = 1;
+  CANVAS_WIDTH = 320;
+}
+if (window.innerWidth > 750) {
+  BREAKPOINT = 2;
+  CANVAS_WIDTH = 750;
+}
+if (window.innerWidth > 1050) {
+  BREAKPOINT = 3;
+  CANVAS_WIDTH = 1050;
+}
 
 //Create a Pixi Application
 let app = new PIXI.Application({                   
@@ -15,11 +30,20 @@ var characterPositions;
 app.renderer.view.style.position = "absolute";
 app.renderer.view.style.display = "block";
 app.renderer.autoResize = true;
-app.renderer.resize(window.innerWidth, BP1_HEIGHT);
+app.renderer.resize(CANVAS_WIDTH, BP1_HEIGHT);
 
 //load the character positions and run the `setup` function when it's done
-loader
-  .add('characterPositions', 'assets/typeWriterBreakpoint1.txt');
+switch (BREAKPOINT) { 
+  case 1: 
+    loader.add('characterPositions', 'bp1Combined.txt');
+    break;
+  case 2:
+    loader.add('characterPositions', 'bp2Combined.txt');
+    break;
+  case 3: 
+    loader.add('characterPositions', 'bp3Combined.txt');
+    break;
+}
 
 loader.load(setup);
 
@@ -27,7 +51,7 @@ function setup(loader, resources) {
   let style = new PIXI.TextStyle({
     fontFamily: "Source Serif Pro",
     fontSize: 14,
-    fill: 'black'
+    fill: 'fcfcfc'
   });
   characterPositions = JSON.parse(resources.characterPositions.data);
   for (var i = 0; i < characterPositions.length; i++) {
@@ -72,7 +96,8 @@ function transition(delta) {
       // if more than a pixel away on either axis, move towards goal
       // todo: use vectors like a normal person
       let x_diff = currentPosition.x - goalPosition.x;
-      let x_vel = Math.min(Math.abs(x_diff), 0.8 * delta * (1 - currentPosition.y / 2600));
+      let x_vel_scalar = window.innerWidth / 200;
+      let x_vel = Math.min(Math.abs(x_diff), x_vel_scalar * 0.8 * delta * (1 - currentPosition.y / 2600));
       if ( Math.abs(x_diff) > 0 ) {
           x_diff > 0 ? cur.currentPosition.x -= x_vel : cur.currentPosition.x += x_vel;
       }
@@ -93,7 +118,12 @@ function transition(delta) {
       }
   
       cur.pixiText.position.set(cur.currentPosition.x + LEFT_MARGIN, cur.currentPosition.y);
-      cur.pixiText.style.opacity = cur.currentOpacity;
+      // let rgb = `rgb(
+      //   ${Math.floor(255 * cur.currentGrayscale)},
+      //   ${Math.floor(255 * cur.currentGrayscale)},
+      //   ${Math.floor(255 * cur.currentGrayscale)})`;
+      cur.pixiText.alpha = cur.currentOpacity;
+      // cur.pixiText.style.fill = rgb;
     }
   }
 }

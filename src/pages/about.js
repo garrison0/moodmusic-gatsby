@@ -7,15 +7,16 @@ function About() {
     <div>
       <Header layout="vertical" />
       {/* typewriter art page  */}
-      <Iframe url="/vanillajs/typeWriterDemoP5.html" 
+      <div style={{zIndex: -1, marginTop: 12}}>
+        <Iframe url="/vanillajs/pixiJSTypeWriter.html" 
             width="100%"
             height="100%"
             id="myId"
             frameBorder="0"
             position="absolute"
             overflow='show'
-            styles={{zIndex: -1}}
             />
+      </div>
     </div>
   );
 }

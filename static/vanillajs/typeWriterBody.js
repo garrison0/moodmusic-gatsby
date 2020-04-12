@@ -55,7 +55,7 @@ function preload(){
   img = loadImage('assets/gokflower.jpg');
 //   img = loadImage('assets/series.jpg');
 	// img = loadImage('assets/gazeofsilenceklee.jpg');
-	// img = loadImage('assets/seatednudexi.jpg');
+	// img = loadImage('assets/nudeseriesviii.jpg');
 	// img = loadImage('assets/show-photo.jpg');
 	// img = loadImage('assets/gazeofsilenceklee.jpg');
 	// img = loadImage('assets/gazeofsilenceklee.jpg');
@@ -72,7 +72,7 @@ function preload(){
 }
 
 function setup(){
-  canvas = createCanvas(window.innerWidth, window.innerHeight * 2);
+  canvas = createCanvas(window.innerWidth * 2, window.innerHeight * 2);
   canvas.class = "canvas"
   canvas.position(0,0);
   // canvas.style('position', 'fixed');
@@ -113,8 +113,8 @@ function setup(){
  	var x = 0;
 	 var y = Math.ceil(fontSize * 2);
 	 console.log(fontSize)
- 	for (var i = 0; i < shortLorem.length; i++){
- 		c = shortLorem.charAt(i);
+ 	for (var i = 0; i < selfstory.length; i++){
+ 		c = selfstory.charAt(i);
  		if (c == ' ' || c == "\n"){
  			// pass 
  		} else {
@@ -661,6 +661,20 @@ they're on the same timeline. they play the same game. if there's such a thing a
 
 it is what it is - no alternatives. a dance with death. taking the time to write this piece shows i only take part.
 `
+
+var ok = `while I was still a teenager, I read this old essay arguing against the existence of free will in a mid-twentieth century, thrift-store compilation called “Readings in Philosophy.” the argument went something like this:  if you were to replay any closed scenario, with any number of physical objects and any number of actors with whatever temperaments, dispositions, and limited sets of knowledge they have at the start, the outcome of that scenario would not change.
+
+i believe the essay was written in the 18th century, and I’d argue it’s very much of its time. i’m saying this because it presupposes a sense of physical determinism that likely stems from the assumptions of newtonian physics. that is, any physical interactions in the scenario would predictably resolve in the exact same manner each time you replayed it - all according to Newton’s laws. there are no probabilistic forks in the road. why should people be any different?
+
+it’s not immediately obvious whether this is really attacking the idea of “free will” or not, though it does seem to strongly imply it doesn’t exist in it’s strongest, most popularly conceived sense. if you’ve read 20th/21st century papers on free will, you might know that the subject is very nitty-gritty and quite dry. for example, we might ask this question: in the scenario above, are the actors not able to choose otherwise? if so, why can’t they? It’s not like they’re attached to puppet strings that dictate their every movement. no, it rather seems like each time you replay the scenario, the actors have the same initial knowledge and preferences they had the first time, so they would derive their decisions from these factors and obviously make the same choice — “freely.” this is suggesting that the actors are still the *source* of their decision making. there are no “guns to the head”, so to speak. at its weakest, I think this argument could suggest a sense of compatibilism. that is, you can’t will what you will, but you do follow your will “freely.” i.e., your will, when the scenario is replayed, will never change - it’s not like Groundhog Day where you remember the last time you replayed it.
+
+you might quip that based on certain interpretations of quantum mechanics there are actually probabilistic forks in the road underlying physical interactions. for this, I found an interesting counter argument from Derek Pereboom on the Stanford encyclopedia. 
+
+suppose something seemingly weak: we have some amount of causal influences that don’t necessarily determine what we do but only make one choice or another more or less likely. say that the statistical laws that govern all of our physical components are part of this process. imagine that the physical part of “some action occurring” has the probability of .32. if we freely chose this action, and we are not violating this statistical law, that means over a large number of instances we would have freely chose the action 32 percent of the time. but hold on — doesn’t the phrase ‘freely chose’ sound weird here? is this any more contrary to expectation than saying we “freely chose” such an action 99 percent of time (i.e., the action is nearly determined)? both possibilities are subject to some larger constraint that farcically runs contrary to what we’d expect from the phrase “freely chosen.” therefore, even in a nondeterministic universe, it may be difficult to defend “free will”.   i’ve been trying to suggest that free will, in its most popular, libertarian conception, is a folk theory. it’s true that our phenomenological experiences suggests its existence. no one wakes up and goes, “gee, I’m craving Thai food, but that craving came from somewhere outside of my agency.” and no one thinks they don’t “freely” eat Thai food just because they, for whatever reason, crave it, and thus buy it for lunch. however, free will is a poor explanatory tool, no more useful than separating “the heavens” from “the earth.” 
+
+it is hard, I think, to deny that your decision making faculties are limited in scope by your environmental stimuli and your near instantaneous emotional responses. even theoretically, the most perfectly rational agent would experience factors “outside his control” determining his “fate” as his set of knowledge is, in all but a supernatural context, incomplete. ergo, I would argue that whether the universe is nondeterministic (meaning, there is chance) or deterministic (there is no chance), all non-God-like actors would experience a “lack of free will” on an epistemic level, as they will always lack the infinite amount of evidence needed to make the best choices in each moment-to-moment sliver of time. 
+
+i find it absurd to both rationally accept these thoughts *and* have these thoughts occur to me. the rationale being - assumedly, based on the above reasoning, I have little say in what thoughts pop into my mind, including this one. given that fact, some sequence of events in the universe not only led to me being born and having my current brain (clearly, outside of my control), but led to me thinking and rationally accepting a sequence of thoughts implying that the possible sequences of thought I will have at any moment of time are outside my control. what kind of silly simulation are we living in?`
 
 var lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices mi tempus imperdiet nulla malesuada. Faucibus in ornare quam viverra orci. Nullam ac tortor vitae purus faucibus. Tristique senectus et netus et malesuada fames ac turpis. Ut porttitor leo a diam sollicitudin tempor. Mauris sit amet massa vitae. Massa vitae tortor condimentum lacinia. Ac placerat vestibulum lectus mauris ultrices eros in. Ac turpis egestas integer eget aliquet nibh praesent. Sollicitudin tempor id eu nisl nunc mi ipsum. Eget egestas purus viverra accumsan in nisl nisi scelerisque eu. Elit ullamcorper dignissim cras tincidunt lobortis feugiat. Et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Maecenas pharetra convallis posuere morbi leo. Diam sollicitudin tempor id eu nisl nunc mi ipsum. Massa sed elementum tempus egestas sed sed risus pretium.
 

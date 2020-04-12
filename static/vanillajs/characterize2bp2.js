@@ -11,11 +11,13 @@ var resDict = [];
   correspondingly puts each letter in a <span> tag
   and makes its parent the parent of the original <p> tags
 */
-function pairLetters(imagePositions){
+function pairLetters(imagePositions, bp1CombinedPositions){
   var range = document.createRange();
   var elts = document.getElementsByClassName('characters');
   var id = 0;
 
+  // these positions go from img, to text, to flying out of screen
+  console.log(imagePositions.length);
   for(var i = 0; i < elts.length; i++){
     let elem = elts[i];
     var parent = elem.parentElement;
@@ -61,10 +63,12 @@ function pairLetters(imagePositions){
                         'currentPosition': {'x': char.x, 'y': char.y},
                         'currentOpacity': char.opacity,
                         'currentGrayscale': char.grayscale,
-                        'opacities': [char.opacity, 1],
-                        'positions': [{'x': char.x, 'y': char.y}, 
-                                      {'x': r.left - offsets.left, 'y': r.top - offsets.top}],
-                        'grayscale': [char.grayscale, 1],
+                        'opacities': [char.opacity, 1, 0],
+                        'positions': [{'x': 34 + char.x, 'y': char.y}, 
+                                      {'x': r.left - offsets.left, 'y': r.top - offsets.top},
+                                      {'x': Math.random() < 0.5 ? -24 : window.innerWidth + 24, 
+                                       'y': Math.random() * window.innerHeight}],
+                        'grayscale': [char.grayscale, 1, 0],
                         'positionState': 0};
           id++;
 
@@ -79,6 +83,38 @@ function pairLetters(imagePositions){
     // remove original <p>
     // elem.remove();
     elem.style.visibility = 'hidden';
+  }
+
+  console.log(imagePositions.length);
+  // there are more positions image that match to bp1 image! 
+  // these positions go from bp2 image, to bp1 image, to bp1 text + some margin
+  var k = 0;
+  while (k < imagePositions.length){
+    var char = imagePositions[k];
+    var j = 0;
+    while (j < bp1CombinedPositions.length){
+      var char2 = bp1CombinedPositions[j];
+      if (char2.c === char.c){
+        // add everything to result dictionary
+        resDict[id] = {'c': char.c, 
+                      'currentPosition': {'x': char.x, 'y': char.y},
+                      'currentOpacity': char.opacity,
+                      'currentGrayscale': char.grayscale,
+                      'opacities': [char.opacity, char2.opacities[0], char2.opacities[1]],
+                      'positions': [{'x': 34 + char.x, 'y': char.y}, 
+                                    {'x': char2.positions[0].x, 'y': 48 + char2.positions[0].y},
+                                    {'x': 140 + char2.positions[1].x, 'y': char2.positions[1].y}],
+                      'grayscale': [char.grayscale, char2.grayscale[0], char2.grayscale[1]],
+                      'positionState': 0};
+        id++;
+
+        // remove jth element 
+        bp1CombinedPositions.splice(j, 1);
+        break;
+      }
+      j++;
+    }
+    k++;
   }
 }
 
@@ -130,12 +166,21 @@ function download(filename, text) {
     document.body.removeChild(element);
 }
 
-const fileUrl = 'bp1CleanImage.txt';
-
+const fileUrl = 'bp2CleanImage.txt';
+const bp1FileUrl = 'bp1Combined.txt';
 fetch(fileUrl)
    .then( r => r.text() )
    .then( t => {
-                  var imagePositions = JSON.parse(t);
-                  pairLetters(imagePositions);
+        // get bp1 image
+        fetch (bp1FileUrl) 
+          .then( r2 => r2.text() )
+          .then (t2 => { 
+            var imagePositions = JSON.parse(t);
+            var bp1CombinedPos = JSON.parse(t2);
+            pairLetters(imagePositions, bp1CombinedPos);
+        });
+      }
+   );
+                  
 
-                } );
+              

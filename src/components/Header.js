@@ -78,8 +78,7 @@ export default function Header(props){
       <Row className={enter ? SHOW_CLASSES + CLASSES : CLASSES}>
         {/* emoji icons */}
         {expandButton}
-        <Col style={showButtonsLogic()} 
-             xs={isInline ? 12 : 11}>
+        <Col style={showButtonsLogic()} xs={isInline ? 12 : 11}>
           <Row style={isVertical ? {} : {width: '100vw'}}> 
             <Col xs={isVertical ? 12 : 6} 
                  className="text-left my-auto">

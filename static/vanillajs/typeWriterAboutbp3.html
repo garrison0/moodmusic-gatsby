@@ -1,0 +1,100 @@
+<html>
+
+  <head>
+    <title>huff huff</title>  
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <style>
+    .canvas { 
+      position: absolute;
+      z-index: -1;
+    }
+
+    @font-face {
+      font-family: 'Source Serif Pro';
+      src: url('fonts/SourceSerifPro-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .text {
+      font-family: 'Source Serif Pro';
+      font-size: 14px;
+      text-align: left!important;
+    }
+    
+    .text-margins {
+      margin-left: 25%;
+      margin-right: 25%;
+    }
+
+    .topTextMargin { 
+      margin-left: 286px;
+    }
+
+    .middleMargin { 
+      margin-left: 140px;
+    }
+
+    .middleMargin2 { 
+      margin-left: 232px;
+    }
+
+    .topMargins { 
+      margin-top: 700px;  
+    }
+
+  </style>
+  
+  <body>
+    <script src="p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/opentype.js@latest/dist/opentype.min.js"></script>
+    
+    <div class="container-fluid text">
+      <div class="row justify-content-center text-margins topMargins">
+        <div id='parent' class="col">
+          <p class="characters">
+            while I was still a teenager, I read this old essay arguing against the existence of free will in a mid-twentieth century, thrift-store compilation called “Readings in Philosophy.” the argument went something like this:  if you were to replay any closed scenario, with any number of physical objects and any number of actors with whatever temperaments, dispositions, and limited sets of knowledge they have at the start, the outcome of that scenario would not change.
+          </p>
+          <p class="characters">
+            i believe the essay was written in the 18th century, and I’d argue it’s very much of its time. i’m saying this because it presupposes a sense of physical determinism that likely stems from the assumptions of newtonian physics. that is, any physical interactions in the scenario would predictably resolve in the exact same manner each time you replayed it - all according to Newton’s laws. there are no probabilistic forks in the road. why should people be any different?
+          </p>
+          <p class="characters">
+            it’s not immediately obvious whether this is really attacking the idea of “free will” or not, though it does seem to strongly imply it doesn’t exist in it’s strongest, most popularly conceived sense. if you’ve read 20th/21st century papers on free will, you might know that the subject is very nitty-gritty and quite dry. for example, we might ask this question: in the scenario above, are the actors not able to choose otherwise? if so, why can’t they? It’s not like they’re attached to puppet strings that dictate their every movement. no, it rather seems like each time you replay the scenario, the actors have the same initial knowledge and preferences they had the first time, so they would derive their decisions from these factors and obviously make the same choice — “freely.” this is suggesting that the actors are still the *source* of their decision making. there are no “guns to the head”, so to speak. at its weakest, I think this argument could suggest a sense of compatibilism. that is, you can’t will what you will, but you do follow your will “freely.” i.e., your will, when the scenario is replayed, will never change - it’s not like Groundhog Day where you remember the last time you replayed it.
+          </p>
+          <p class="characters">
+            you might quip that based on certain interpretations of quantum mechanics there are actually probabilistic forks in the road underlying physical interactions. for this, I found an interesting counter argument from Derek Pereboom on the Stanford encyclopedia. 
+          </p>
+          <p class="characters">
+            suppose something seemingly weak: we have some amount of causal influences that don’t necessarily determine what we do but only make one choice or another more or less likely. say that the statistical laws that govern all of our physical components are part of this process. imagine that the physical part of “some action occurring” has the probability of .32. if we freely chose this action, and we are not violating this statistical law, that means over a large number of instances we would have freely chose the action 32 percent of the time. but hold on — doesn’t the phrase ‘freely chose’ sound weird here? is this any more contrary to expectation than saying we “freely chose” such an action 99 percent of time (i.e., the action is nearly determined)? both possibilities are subject to some larger constraint that farcically runs contrary to what we’d expect from the phrase “freely chosen.” therefore, even in a nondeterministic universe, it may be difficult to defend “free will”.   i’ve been trying to suggest that free will, in its most popular, libertarian conception, is a folk theory. it’s true that our phenomenological experiences suggests its existence. no one wakes up and goes, “gee, I’m craving Thai food, but that craving came from somewhere outside of my agency.” and no one thinks they don’t “freely” eat Thai food just because they, for whatever reason, crave it, and thus buy it for lunch. however, free will is a poor explanatory tool, no more useful than separating “the heavens” from “the earth.” 
+          </p>
+          <p class="characters">
+            it is hard, I think, to deny that your decision making faculties are limited in scope by your environmental stimuli and your near instantaneous emotional responses. even theoretically, the most perfectly rational agent would experience factors “outside his control” determining his “fate” as his set of knowledge is, in all but a supernatural context, incomplete. ergo, I would argue that whether the universe is nondeterministic (meaning, there is chance) or deterministic (there is no chance), all non-God-like actors would experience a “lack of free will” on an epistemic level, as they will always lack the infinite amount of evidence needed to make the best choices in each moment-to-moment sliver of time. 
+          </p>
+          <p class="characters">
+            i find it absurd to both rationally accept these thoughts *and* have these thoughts occur to me. the rationale being - assumedly, based on the above reasoning, I have little say in what thoughts pop into my mind, including this one. given that fact, some sequence of events in the universe not only led to me being born and having my current brain (clearly, outside of my control), but led to me thinking and rationally accepting a sequence of thoughts implying that the possible sequences of thought I will have at any moment of time are outside my control. what kind of silly simulation are we living in?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="characterize2bp3.js"></script>
+    
+    <script> 
+      document.onkeypress = () => download('charposesBP2.txt', JSON.stringify(resDict));
+    </script>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
