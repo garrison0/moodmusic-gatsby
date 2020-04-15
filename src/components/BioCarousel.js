@@ -74,7 +74,7 @@ export default function BioCarousel(props) {
         <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}}>
           {/* another row, w the col inside being the text box */}
           <Row style={{height: '100%'}} className="justify-content-end mb-5">
-            <Col md="9" xs="12" className="px-5 px-md-2 bio_descriptions_carousel">
+            <Col md="9" xs="12" className="px-5 bio_descriptions_carousel">
               <h2 className="d-none d-md-block"><b>About</b></h2>
               <br className="d-none d-md-block"/>
               {/* adds a line */}
@@ -139,9 +139,9 @@ export default function BioCarousel(props) {
                 <div style={{"maxWidth":"1000"}}>
                   <ItemsCarousel
                     infiniteLoop
-                    numberOfCards={2}
+                    numberOfCards={3}
                     slidesToScroll={1}
-                    showSlither={true}
+                    showSlither={false}
                     activeItemIndex={index}
                     requestToChangeActive={value => setIndex(value)}>
                         <a onClick={handleCarouselClick}><h3><b>Tech</b></h3></a>

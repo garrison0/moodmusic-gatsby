@@ -15,9 +15,9 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Source Serif Pro, sans-serif';
 }
 
-.overlayHack { 
+.overlay { 
   background-color: rgb(255,255,255);
-  position:fixed;
+  position:relative;
   top: 0;
   width: 100%;
   height: 100%;
@@ -30,12 +30,42 @@ h1,h2,h3,h4,h5,h6 {
     margin-top: 3vh;
     margin-bottom: 3vh;
   }
+  #about-page-container{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 749px){ 
+  #about-page-container { 
+    width: 321px;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 1000px){ 
+  #about-page-container { 
+    width: 751px;
+  }
+}
+
+@media screen and (min-width: 1050px) { 
+  #about-page-container { 
+    width: 1051;
+  }
 }
 
 #projects-container { 
   margin-left: auto!important;
   margin-right: auto!important;
-  max-width: 50em;
+  max-width: 40em;
+}
+
+#about-page-container { 
+  max-width: 1051px;
+  margin-left: auto!important;
+  margin-right: auto!important;
 }
 
 /* css line */
@@ -51,7 +81,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h2 { 
-  font-size: calc(32px + 3.4vw);
+  font-size: min(70px, calc(32px + 3.4vw));
 }
 
 ul li a {
@@ -107,7 +137,7 @@ a, img {
   width: 90%;
   max-width: 45em;
   height: 48px!important;
-  font-size: calc(8px + 1vw);
+  font-size: min(28px, calc(8px + 1vw));
   margin-top: 1vh;
   margin-left: auto;
   margin-right: auto;
@@ -122,7 +152,7 @@ a, img {
 
 .Header__inline{
   height: 48px;
-  font-size: calc(1.05rem + 0.3vw);
+  font-size: min(28px, calc(1.05rem + 0.3vw));
   width: 100%!important;
   margin-right: 0!important;
   margin-left: 0!important;
@@ -135,19 +165,24 @@ a, img {
   box-shadow:  -2px 6px 6px rgba(97, 122, 128)
 }
 
+.neumorph-dark { 
+  box-shadow: -2px 6px 6px rgb(38, 61, 69);
+  background-color: 'white';
+}
+
 .neumorph--image-border-big{
-  box-shadow: -6px 8px 6px rgb(38, 61, 69)
+  box-shadow: -6px 8px 6px rgb(38, 61, 69);
 }
 .Header__vertical {
   /* just the letters MDMC, not the buttons */
-  font-size: calc(11px + 1vmin); 
+  font-size: min(28px, calc(11px + 1vmin)); 
   z-index: 5;
   width: 48px;
   height: 100%;
   min-height: 36px;
+  margin-left: 8px;
   position: fixed;
   overflow: hidden;
-  margin-left: 8px!important;
   margin-top: 5vh!important;
   background-color: rgba(255,255,255,1.0);
 }
@@ -166,7 +201,7 @@ a, img {
 }
 
 .EmojiButton { 
-  font-size: calc(10px + 2vmin);
+  font-size: min(28px, calc(10px + 2vmin));
   cursor: pointer;
 }
 

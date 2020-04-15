@@ -62,7 +62,7 @@ function Projects() {
   return (
       <div id="projects-container"
             className="image-border-big-container border neumorph--image-border-big">
-        <Header layout="inline" className="image-border-big-top" />
+        <Header layout="inline" titleLeftMargin="2em" className="image-border-big-top" />
         <Accordion>
           <Card className="grid border-0 image-border-big-bottom">
             <Accordion.Toggle as={Card.Header} className="grid__item border border-light" 

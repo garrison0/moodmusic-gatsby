@@ -32,7 +32,7 @@ export default function Header(props){
       isInline = true;
       break;
     case "vertical":
-      CLASSES += " Header__vertical border border-light neumorph height image-border";
+      CLASSES += " Header__vertical border border-light neumorph-dark height image-border";
       SHOW_CLASSES = "show";
       button_classes = "text-left text-muted EmojiButton pr-0 mt-1"
       isVertical = true;
@@ -84,7 +84,7 @@ export default function Header(props){
                  className="text-left my-auto">
               <div style={isVertical ? {paddingBottom: '2em'} : {paddingTop: '0.2vw'}}>
                 <Link to="/">
-                  <div style={isInline ? {marginLeft: '2vw'} : {}}>
+                  <div style={isInline ? {marginLeft: props.titleLeftMargin} : {}}>
                     {isVertical ? "MDMC" : "MOODMUSIC"}
                   </div>
                 </Link>
