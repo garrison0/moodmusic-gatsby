@@ -146,7 +146,7 @@ export default function BioCarousel(props) {
                     activeItemIndex={index}
                     requestToChangeActive={value => setIndex(value)}
                     disableSwipe={true}
-                    classes={{wrapper: "overflow-visible"}}
+                    classes={{itemsWrapper: "overflow-visible"}}
                     style={{overflow: 'visible!important'}}>
                         <a onClick={handleCarouselClick}><h3><b>Tech</b></h3></a>
                         <a onClick={handleCarouselClick}><h3><b>Music</b></h3></a>
