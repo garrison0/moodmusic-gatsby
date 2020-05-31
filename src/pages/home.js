@@ -49,7 +49,7 @@ const Home = () => {
       </Col>
     </Row>
     <BioCarousel id="about-section" />
-    {/* TO-DO: cohesive footer component, REFACTOR TO USE LAYOUT!!! */}
+    {/* TODO: cohesive footer component, REFACTOR TO USE LAYOUT!!! */}
     <Row className="footer justify-content-center section--innerShadowTop">
       <Footer>
         <Col xs="12"> 

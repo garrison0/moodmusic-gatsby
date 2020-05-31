@@ -139,7 +139,7 @@ export default function BioCarousel(props) {
                 <div style={{"maxWidth":"1000"}}>
                   <ItemsCarousel
                     infiniteLoop
-                    numberOfCards={3}
+                    numberOfCards={2}
                     slidesToScroll={1}
                     showSlither={false}
                     activeItemIndex={index}

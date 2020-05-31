@@ -14,7 +14,7 @@ export default function Header(props){
   const [open, setOpen] = useState(true);
   const [enter, setEnter] = useState(false);
 
-  let button__styling = { 
+  let button_styling = { 
     'paddingBottom': '4px',
     'paddingLeft': '0px',
   };
@@ -27,7 +27,7 @@ export default function Header(props){
   switch ( (props.layout || '').toLowerCase() ) { 
     case "inline":
       CLASSES += " Header__inline image-border-big-top border-bottom";
-      button__styling['display'] = 'none';
+      button_styling['display'] = 'none';
       button_classes = "text-left text-muted EmojiButton pr-0 my-auto"
       isInline = true;
       break;
@@ -49,7 +49,7 @@ export default function Header(props){
     expandButton = <Col xs={1} className={button_classes}
                         style={isVertical ? {height: '50px'} : 
                               (isInline ? {display: 'none'} : {})}>
-      <div style={button__styling}>
+      <div style={button_styling}>
         <a
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
