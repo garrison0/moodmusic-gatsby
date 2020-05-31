@@ -71,7 +71,7 @@ export default function BioCarousel(props) {
     <Row style={{background: 'rgb(255,255,255)', height: '100%', minHeight: '35em', overflow: 'hidden'}}>
       <Row id="about-section" style={{background: 'rgb(255,255,255)', height: '100%', maxWidth: '68em', minHeight: '35em', margin: '0 auto'}} className="border-top border-light"> 
 
-        <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}} className="right_shadow">
+        <Col xs={{span: 12, order: 1}} md={{span: 6, order: 0}} className="right_shadow">
           {/* another row, w the col inside being the text box */}
           <Row style={{height: '100%'}} className="justify-content-end mb-5">
             <Col className="px-5 bio_descriptions_carousel">
@@ -84,7 +84,7 @@ export default function BioCarousel(props) {
           </Row>
         </Col>
 
-        <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}} className="pl-md-0" style={{clipPath: 'inset( -100vw -100vw -100vw 0)'}}>
+        <Col xs={{span: 12, order: 0}} md={{span: 6, order: 1}} className="pl-md-0" style={{clipPath: 'inset( -100vw -100vw -100vw 0)'}}>
           {/* CAROUSELS */}
           <Row style={{height: '100%'}} className="justify-content-center">
             {/* IMAGE CAROUSEL */}
