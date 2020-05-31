@@ -68,7 +68,7 @@ export default function BioCarousel(props) {
   };
 
   return (
-    <Row style={{background: 'rgb(255,255,255)', height: '100%', minHeight: '35em'}}>
+    <Row style={{background: 'rgb(255,255,255)', height: '100%', minHeight: '35em' overflow: 'hidden'}}>
       <Row id="about-section" style={{background: 'rgb(255,255,255)', height: '100%', maxWidth: '68em', minHeight: '35em', margin: '0 auto'}} className="border-top border-light"> 
 
         <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}} className="right_shadow">
@@ -84,7 +84,7 @@ export default function BioCarousel(props) {
           </Row>
         </Col>
 
-        <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}} className="pl-md-0">
+        <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}} className="pl-md-0" style={{clipPath: 'inset( -100vw -100vw -100vw 0)'}}>
           {/* CAROUSELS */}
           <Row style={{height: '100%'}} className="pl-4 pl-md-0">
             {/* IMAGE CAROUSEL */}
