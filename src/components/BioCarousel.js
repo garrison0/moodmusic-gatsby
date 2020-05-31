@@ -74,7 +74,7 @@ export default function BioCarousel(props) {
         <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}} className="right_shadow">
           {/* another row, w the col inside being the text box */}
           <Row style={{height: '100%'}} className="justify-content-end mb-5">
-            <Col md="9" xs="12" className="px-5 bio_descriptions_carousel">
+            <Col className="px-5 bio_descriptions_carousel">
               <h2 className="d-none d-md-block"><b>About</b></h2>
               <br className="d-none d-md-block"/>
               {/* adds a line */}
@@ -84,7 +84,7 @@ export default function BioCarousel(props) {
           </Row>
         </Col>
 
-        <Col xs={{span: 12, order: 0}} md={{span: 12, order: 1}} className="pl-md-0" style={{clipPath: 'inset( -100vw -100vw -100vw 0)'}}>
+        <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}} className="pl-md-0" style={{clipPath: 'inset( -100vw -100vw -100vw 0)'}}>
           {/* CAROUSELS */}
           <Row style={{height: '100%'}} className="pl-4 pl-md-0 justify-content-center">
             {/* IMAGE CAROUSEL */}
