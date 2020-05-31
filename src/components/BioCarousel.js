@@ -71,8 +71,7 @@ export default function BioCarousel(props) {
     <Row style={{background: 'rgb(255,255,255)', height: '100%', minHeight: '35em'}}>
       <Row id="about-section" style={{background: 'rgb(255,255,255)', height: '100%', maxWidth: '68em', minHeight: '35em', margin: '0 auto'}} className="border-top border-light"> 
 
-        <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}}
-             style={{borderRight: '1px solid rgb(25,37,60)', boxShadow: '3px 0 10px rgb(25,37,60)'}}>
+        <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}} className="right_shadow">
           {/* another row, w the col inside being the text box */}
           <Row style={{height: '100%'}} className="justify-content-end mb-5">
             <Col md="9" xs="12" className="px-5 bio_descriptions_carousel">
@@ -130,7 +129,7 @@ export default function BioCarousel(props) {
               </Carousel>
             </Col>
             {/* SEPARATE CAROUSEL OF LABELS THAT SLIDE BOTH CAROUSELS LEFT ON CLICK */}
-            <Col xs={5} className="image_carousel" style={{paddingRight: '0', paddingLeft: '0'}}>
+            <Col xs={6} className="image_carousel" style={{paddingRight: '0', paddingLeft: '0'}}>
               <div style={{maxWidth: "120px"}}>
                 <Image fluid={data.wowImage.childImageSharp.fluid} 
                           alt="a good description of this picture"

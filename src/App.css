@@ -296,6 +296,10 @@ a, img {
   .image_carousel { 
     margin-top: 8em!important;
   }
+  .right_shadow { 
+    border-right: 1px solid rgb(25,37,60);
+    box-shadow: 3px 0 10px rgb(25,37,60);
+  }
 }
 
 /* STANDARD SITE WIDE BORDERS */
