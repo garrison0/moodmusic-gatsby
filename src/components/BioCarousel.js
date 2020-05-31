@@ -71,7 +71,8 @@ export default function BioCarousel(props) {
     <Row style={{background: 'rgb(255,255,255)', height: '100%', minHeight: '35em'}}>
       <Row id="about-section" style={{background: 'rgb(255,255,255)', height: '100%', maxWidth: '68em', minHeight: '35em', margin: '0 auto'}} className="border-top border-light"> 
 
-        <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}}>
+        <Col xs={{span: 12, order: 1}} md={{span: 5, order: 0}}
+             style={{borderRight: '1px solid black', boxShadow: '5px 0 5px #19253C'}}>
           {/* another row, w the col inside being the text box */}
           <Row style={{height: '100%'}} className="justify-content-end mb-5">
             <Col md="9" xs="12" className="px-5 bio_descriptions_carousel">
@@ -84,7 +85,7 @@ export default function BioCarousel(props) {
           </Row>
         </Col>
 
-        <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}}>
+        <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}} className="pl-md-0">
           {/* CAROUSELS */}
           <Row style={{height: '100%'}} className="pl-4 pl-md-0">
             {/* IMAGE CAROUSEL */}
@@ -96,7 +97,7 @@ export default function BioCarousel(props) {
                 <Carousel.Item style={{height: "100%"}}>
                   <Image fluid={data.selfPortrait.childImageSharp.fluid} 
                           objectFit="contain"
-                          style={{ maxHeight: "100%", height: "70%" }}
+                          style={{ maxHeight: "100%", height: "70%", background: "rgb(255,255,255)" }}
                           alt="picture of me" 
                           className="my-auto mx-2 image-border-big border border-light neumorph" />
                   <Carousel.Caption>
@@ -107,7 +108,7 @@ export default function BioCarousel(props) {
                 <Carousel.Item style={{height: "100%"}}>
                   <Image fluid={data.projectImage.childImageSharp.fluid} 
                         objectFit="contain"
-                        style={{ maxHeight: "100%", height: "70%" }}
+                        style={{ maxHeight: "100%", height: "70%", backgroundColor: "rgb(255,255,255)" }}
                         alt="picture of one of my projects" 
                         className="my-auto mx-2 image-border-big border border-light neumorph" />
                   <Carousel.Caption>
@@ -118,7 +119,7 @@ export default function BioCarousel(props) {
                 <Carousel.Item style={{height: "100%"}}>
                   <Image fluid={data.musicImage.childImageSharp.fluid} 
                         objectFit="contain"
-                        style={{ maxHeight: "100%", height: "70%" }}
+                        style={{ maxHeight: "100%", height: "70%", backgroundColor: "rgb(255,255,255)" }}
                         alt="picture of harmonics" 
                         className="my-auto mx-2 image-border-big border border-light neumorph" />
                   <Carousel.Caption>

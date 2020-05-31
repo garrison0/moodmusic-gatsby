@@ -81,7 +81,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h2 { 
-  font-size: min(70px, calc(32px + 3.4vw));
+  font-size: min(70px, calc(29px + 3.4vw));
 }
 
 ul li a {
