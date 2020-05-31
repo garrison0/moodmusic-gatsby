@@ -6,7 +6,7 @@
 
   <style type="text/css">
   body {
-    background-color: #8cb1b9;
+    background-color: #19253C;
     font-family: Monospace;
 		margin: 0px;
 		overflow: hidden;
@@ -24,7 +24,7 @@
     var renderer;
     var emitter;
 
-    var BACKGROUND_COLOR = '8cb1b9'
+    var BACKGROUND_COLOR = '19253C'
     var DARKEST_COLOR = '19253C'
     var COLORS_WITHOUT_BACKGROUND = ['FFFFFF', 'D1D7D7', DARKEST_COLOR, 'FFFEFF', DARKEST_COLOR, 'FFFEFF', '19253C', 'FFFF00', '0000FF', '00FF00', 'FF0000']
     var COMPLEMENTARY_TO_BACKGROUND = 'd1d7d7'
@@ -155,14 +155,14 @@
     function tick() {
       requestAnimationFrame(tick);
 
-      canvas.style.background = '8cb1b9';
+      canvas.style.background = '19253C';
       //   canvas.width = window.innerWidth;
       //   resize();
         // could make canvas size responsive, but this clears the 
       //   canvas.height = window.innerHeight;
       //   canvas.width = window.innerWidth;
         renderer.onProtonUpdate = function() {
-        context.fillStyle = "rgba(140,177,186, 0.12)";
+        context.fillStyle = "rgba(25, 37, 60, 0.12)";
         context.fillRect(0, 0, canvas.width, canvas.height);
     };
       
