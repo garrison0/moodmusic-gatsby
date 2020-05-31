@@ -281,6 +281,8 @@ a, img {
 
 .carousel-inner { 
   height: 100%;
+  width: 84%;
+  margin: auto;
 }
 
 .bio_descriptions_carousel {

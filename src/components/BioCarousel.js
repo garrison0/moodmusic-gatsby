@@ -123,15 +123,15 @@ export default function BioCarousel(props) {
                         style={{ maxHeight: "100%", height: "70%", backgroundColor: "rgb(255,255,255)" }}
                         alt="picture of harmonics" 
                         className="my-auto mx-2 image-border-big border border-light neumorph" />
-                  <Carousel.Caption>
+                  {/* <Carousel.Caption>
                     <h3 style={{color: 'rgb(0,0,0)'}}><b></b></h3>
-                  </Carousel.Caption>
+                  </Carousel.Caption> */}
                 </Carousel.Item>
 
               </Carousel>
             </Col>
             {/* SEPARATE CAROUSEL OF LABELS THAT SLIDE BOTH CAROUSELS LEFT ON CLICK */}
-            <Col xs={12} style={{paddingRight: '0', paddingLeft: '0'}}>
+            <Col xs={12} style={{paddingRight: '0', paddingLeft: '0', alignSelf: "start"}}>
               {/* <div style={{maxWidth: "120px"}}>
                 <Image fluid={data.wowImage.childImageSharp.fluid} 
                           alt="a good description of this picture"
