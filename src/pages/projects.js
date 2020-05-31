@@ -96,7 +96,7 @@ function Projects() {
                   </Col>
                   {/* DESCRIPTION */}
                   <Col xs={12}>
-                    <div className="mx-3">
+                    <div className="mx-3 my-3">
                       <h3><b>fontdraw</b></h3>
                       {/* adds a line */}
                       <p id="line" className="border border-light w-75 mb-2"></p> 
@@ -139,7 +139,7 @@ function Projects() {
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="1" className="grid__description mx-md-5" id="boids-section">
               <Card.Body>
-                <Row>
+                <Row className="mx-3 my-3">
                   <Col xs={12} lg={6}>
                     <h3><b>boids 404</b></h3>
                     {/* adds a line */}
@@ -169,7 +169,7 @@ function Projects() {
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="2" className="grid__description mx-md-5" id="eulogy-gen-section">
               <Card.Body>
-                <Row className="h-100">
+                <Row className="h-100 mx-3 my-3">
                   {/* PROJECT DESCRIPTION */}
                   <Col xs={12}>
                     <h3><b>eulogizer</b></h3>
