@@ -300,6 +300,9 @@ a, img {
     border-right: 1px solid rgb(25,37,60);
     box-shadow: 3px 0 10px rgb(25,37,60);
   }
+  .margin_left_card {
+    margin-left: 10px;
+  }
 }
 
 /* STANDARD SITE WIDE BORDERS */

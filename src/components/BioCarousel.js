@@ -89,7 +89,8 @@ export default function BioCarousel(props) {
           <Row style={{height: '100%'}} className="pl-4 pl-md-0">
             {/* IMAGE CAROUSEL */}
             <Col xs={5} className="image_carousel">
-              <Carousel style={{height: '100%', marginTop: '0vh', marginLeft: '10px'}}
+              <Carousel style={{height: '100%', marginTop: '0vh'}}
+                        className="margin_left_card"
                         indicators={false} controls={false} interval={null} 
                         activeIndex={bsCarouselIndex} onSelect={()=>{}}> 
 
