@@ -86,7 +86,7 @@ export default function BioCarousel(props) {
 
         <Col xs={{span: 12, order: 0}} md={{span: 7, order: 1}} className="pl-md-0" style={{clipPath: 'inset( -100vw -100vw -100vw 0)'}}>
           {/* CAROUSELS */}
-          <Row style={{height: '100%'}} className="pl-4 pl-md-0 justify-content-center">
+          <Row style={{height: '100%'}} className="justify-content-center">
             {/* IMAGE CAROUSEL */}
             <Col xs={12} className="image_carousel">
               <Carousel style={{height: '100%'}}
