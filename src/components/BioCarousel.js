@@ -101,9 +101,9 @@ export default function BioCarousel(props) {
                           style={{ maxHeight: "100%", height: "70%", background: "rgb(255,255,255)" }}
                           alt="picture of me" 
                           className="my-auto mx-2 image-border-big border border-light neumorph" />
-                  <Carousel.Caption>
+                  {/* <Carousel.Caption>
                     <h3 style={{color: 'rgb(0,0,0)'}}><b></b></h3>
-                  </Carousel.Caption>
+                  </Carousel.Caption> */}
                 </Carousel.Item>
                 
                 <Carousel.Item style={{height: "100%"}}>
@@ -112,9 +112,9 @@ export default function BioCarousel(props) {
                         style={{ maxHeight: "100%", height: "70%", backgroundColor: "rgb(255,255,255)" }}
                         alt="picture of one of my projects" 
                         className="my-auto mx-2 image-border-big border border-light neumorph" />
-                  <Carousel.Caption>
+                  {/* <Carousel.Caption>
                     <h3 style={{color: 'rgb(0,0,0)'}}><b></b></h3>
-                  </Carousel.Caption>
+                  </Carousel.Caption> */}
                 </Carousel.Item>
                 
                 <Carousel.Item style={{height: "100%"}}>

@@ -34,7 +34,7 @@ const Home = () => {
       <Header layout="inline" titleLeftMargin="2em" className="image-border-big-top" />
       <Container fluid='true'>
         {/* fireworks script */}
-        <Row style={{height: '100vh'}} className="image-border-big-top"> 
+        <Row style={{height: '80vh'}}> 
           <Col className="p-0 m-0">
             <Iframe url="/vanillajs/fireworks.html" 
               width="100%"
