@@ -31,9 +31,9 @@ const Home = () => {
   return (
     <div id="projects-container"
             className="image-border-big-container border neumorph--image-border-big">
+      <Header layout="inline" titleLeftMargin="2em" className="image-border-big-top" />
       <Container fluid='true'>
         {/* fireworks script */}
-        <Header />
         <Row style={{height: '100vh'}} className="image-border-big-top"> 
           <Col className="p-0 m-0">
             <Iframe url="/vanillajs/fireworks.html" 
@@ -42,7 +42,8 @@ const Home = () => {
               id="myId"
               display="initial"
               frameBorder="0"
-              position="relative" />
+              position="relative"
+              className="image-border-big-top" />
             <div className="text-center w-100" onClick={() => scrollTo('#about-section')} >
               <Image fluid={data.downArrowIndicator.childImageSharp.fluid}  
                             style={{ width: '3.5em', position: 'absolute', bottom: 0, left: 'calc(50% - 1.5em)' }}

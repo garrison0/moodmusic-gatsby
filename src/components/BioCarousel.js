@@ -131,12 +131,12 @@ export default function BioCarousel(props) {
               </Carousel>
             </Col>
             {/* SEPARATE CAROUSEL OF LABELS THAT SLIDE BOTH CAROUSELS LEFT ON CLICK */}
-            <Col xs={12} className="image_carousel" style={{paddingRight: '0', paddingLeft: '0'}}>
-              <div style={{maxWidth: "120px"}}>
+            <Col xs={12} style={{paddingRight: '0', paddingLeft: '0'}}>
+              {/* <div style={{maxWidth: "120px"}}>
                 <Image fluid={data.wowImage.childImageSharp.fluid} 
                           alt="a good description of this picture"
                           className="my-auto" />
-              </div>
+              </div> */}
               <Wrapper>
                 <div style={{"maxWidth":"1000"}}>
                   <ItemsCarousel
