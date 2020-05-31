@@ -131,7 +131,7 @@ export default function BioCarousel(props) {
               </Carousel>
             </Col>
             {/* SEPARATE CAROUSEL OF LABELS THAT SLIDE BOTH CAROUSELS LEFT ON CLICK */}
-            <Col xs={6} style={{paddingRight: '0', paddingLeft: '0'}} className="offset-xs-6">
+            <Col xs={12} style={{paddingRight: '0', paddingLeft: '0'}} className="offset-xs-6">
               {/* <div style={{maxWidth: "120px"}}>
                 <Image fluid={data.wowImage.childImageSharp.fluid} 
                           alt="a good description of this picture"
@@ -141,7 +141,7 @@ export default function BioCarousel(props) {
                 <div style={{"maxWidth":"1000"}}>
                   <ItemsCarousel
                     infiniteLoop
-                    numberOfCards={2}
+                    numberOfCards={3}
                     slidesToScroll={1}
                     showSlither={true}
                     activeItemIndex={index}
