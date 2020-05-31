@@ -34,7 +34,7 @@ const Home = () => {
       <Container fluid='true'>
         {/* fireworks script */}
         <Header />
-        <Row style={{height: '100vh'}}> 
+        <Row style={{height: '100vh'}} className="image-border-big-top"> 
           <Col className="p-0 m-0">
             <Iframe url="/vanillajs/fireworks.html" 
               width="100%"
@@ -52,7 +52,7 @@ const Home = () => {
         </Row>
         <BioCarousel id="about-section" />
         {/* TODO: cohesive footer component, REFACTOR TO USE LAYOUT!!! */}
-        <Row className="footer justify-content-center section--innerShadowTop">
+        <Row className="footer justify-content-center section--innerShadowTop image-border-big-bottom">
           <Footer>
             <Col xs="12"> 
               © {new Date().getFullYear()}, made by Garrison McMullen
