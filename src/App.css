@@ -119,6 +119,10 @@ a, img {
   overflow: hidden;
 }
 
+.overflow-visible {
+  overflow: visible!important;
+}
+
 .top-margin{
   margin-top: 9vh;
 }

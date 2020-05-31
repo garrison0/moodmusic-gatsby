@@ -101,7 +101,7 @@ export default function BioCarousel(props) {
                           alt="picture of me" 
                           className="my-auto mx-2 image-border-big border border-light neumorph" />
                   <Carousel.Caption>
-                    <h3 style={{color: 'rgb(0,0,0)'}}><b>Me</b></h3>
+                    <h3 style={{color: 'rgb(0,0,0)'}}><b></b></h3>
                   </Carousel.Caption>
                 </Carousel.Item>
                 
@@ -112,7 +112,7 @@ export default function BioCarousel(props) {
                         alt="picture of one of my projects" 
                         className="my-auto mx-2 image-border-big border border-light neumorph" />
                   <Carousel.Caption>
-                    <h3 style={{color: 'rgb(0,0,0)'}}><b>Tech</b></h3>
+                    <h3 style={{color: 'rgb(0,0,0)'}}><b></b></h3>
                   </Carousel.Caption>
                 </Carousel.Item>
                 
@@ -123,7 +123,7 @@ export default function BioCarousel(props) {
                         alt="picture of harmonics" 
                         className="my-auto mx-2 image-border-big border border-light neumorph" />
                   <Carousel.Caption>
-                    <h3 style={{color: 'rgb(0,0,0)'}}><b>Music</b></h3>
+                    <h3 style={{color: 'rgb(0,0,0)'}}><b></b></h3>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -142,9 +142,12 @@ export default function BioCarousel(props) {
                     infiniteLoop
                     numberOfCards={2}
                     slidesToScroll={1}
-                    showSlither={false}
+                    showSlither={true}
                     activeItemIndex={index}
-                    requestToChangeActive={value => setIndex(value)}>
+                    requestToChangeActive={value => setIndex(value)}
+                    disableSwipe={true}
+                    classes={{wrapper: "overflow-visible"}}
+                    style={{overflow: 'visible!important'}}>
                         <a onClick={handleCarouselClick}><h3><b>Tech</b></h3></a>
                         <a onClick={handleCarouselClick}><h3><b>Music</b></h3></a>
                         <a onClick={handleCarouselClick}><h3><b>Me</b></h3></a>
