@@ -42,8 +42,7 @@ const Home = () => {
               id="myId"
               display="initial"
               frameBorder="0"
-              position="relative"
-              className="image-border-big-top" />
+              position="relative" />
             <div className="text-center w-100" onClick={() => scrollTo('#about-section')} >
               <Image fluid={data.downArrowIndicator.childImageSharp.fluid}  
                             style={{ width: '3.5em', position: 'absolute', bottom: 0, left: 'calc(50% - 1.5em)' }}
