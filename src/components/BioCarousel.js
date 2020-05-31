@@ -89,7 +89,7 @@ export default function BioCarousel(props) {
           <Row style={{height: '100%'}} className="pl-4 pl-md-0 justify-content-center">
             {/* IMAGE CAROUSEL */}
             <Col xs={12} className="image_carousel">
-              <Carousel style={{height: '100%', marginTop: '0vh'}}
+              <Carousel style={{height: '100%'}}
                         className="margin_left_card"
                         fade={true}
                         indicators={false} controls={false} interval={null} 
@@ -131,7 +131,7 @@ export default function BioCarousel(props) {
               </Carousel>
             </Col>
             {/* SEPARATE CAROUSEL OF LABELS THAT SLIDE BOTH CAROUSELS LEFT ON CLICK */}
-            <Col xs={12} style={{paddingRight: '0', paddingLeft: '0', alignSelf: "start"}}>
+            <Col xs={6} style={{paddingRight: '0', paddingLeft: '0', alignSelf: "start"}} className="offset-xs-6">
               {/* <div style={{maxWidth: "120px"}}>
                 <Image fluid={data.wowImage.childImageSharp.fluid} 
                           alt="a good description of this picture"
