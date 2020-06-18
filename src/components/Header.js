@@ -84,7 +84,7 @@ export default function Header(props){
                  className="text-left my-auto">
               <div style={isVertical ? {paddingBottom: '2em'} : {paddingTop: '0.2vw'}}>
                 <Link to="/">
-                  <div style={isInline ? {marginLeft: props.titleLeftMargin} : {}}>
+                  <div className={isInline ? "header__title" : ""}>
                     {isVertical ? "MDMC" : "MOODMUSIC"}
                   </div>
                 </Link>

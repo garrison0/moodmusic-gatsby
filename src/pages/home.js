@@ -30,9 +30,9 @@ const Home = () => {
   `)
   return (
     <div id="projects-container"
-            className="image-border-big-container border neumorph--image-border-big">
-      <Header layout="inline" titleLeftMargin="2em" className="image-border-big-top" />
-      <Container fluid='true'>
+            className="image-border-big-container border border-dark neumorph--image-border-big">
+      <Header layout="inline" className="image-border-big-top" />
+      <Container fluid>
         {/* fireworks script */}
         <Row style={{height: '80vh'}}> 
           <Col className="p-0 m-0">
