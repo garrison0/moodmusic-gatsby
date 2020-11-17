@@ -69,34 +69,34 @@ function Projects() {
                               eventKey="0" tabIndex="1"
                               onClick={() => setTimeout(() => {
                                 scrollTo('#text-art-section')
-                              }, 1000)} >
+                              }, 100)} >
               <Image fluid={data.mlImage.childImageSharp.fluid} className="cover"/>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="0" className="grid__description mx-md-5" id="text-art-section">
               <Card.Body>
-                <Row className="h-100">
+                <Row className="h-100 mx-2 my-3">
                   {/* IMAGE(s) */}
                   <Col xs={12}>
-                    <Row className="py-3 px-2">
+                    <Row>
                       <Col>
                         <Image fluid={data.seatedNudeImage.childImageSharp.fluid} 
                             objectFit="contain"
                             style={{ maxHeight: "100%" }}
                             alt="picture of georgia o'keeffe's seated nude made with text" 
-                            className="image-border-big border neumorph w-100 h-100" />
+                            className="image-border-big border  w-100 h-100" />
                       </Col>
                       <Col className="align-self-end">
                         <Image fluid={data.gazeImage.childImageSharp.fluid} 
                             objectFit="contain"
                             style={{width: "100%", maxHeight: "60%", bottom: 0}}
                             alt="picture of paul klee's gaze of silence made with text" 
-                            className="image-reversed-border border neumorph w-100 h-100" />
+                            className="image-reversed-border border  w-100 h-100" />
                       </Col>
                     </Row>
                   </Col>
                   {/* DESCRIPTION */}
                   <Col xs={12}>
-                    <div className="mx-3 my-3">
+                    <div className="my-3 py-3 px-4 border rounded ">
                       <h3><b>fontdraw</b></h3>
                       {/* adds a line */}
                       <p id="line" className="border border-light w-75 mb-2"></p> 
@@ -104,17 +104,20 @@ function Projects() {
                       <p>Made using p5.js for graphical ease, opentype.js for glyph inspection, 
                         and my own algorithm for minimizing the error while placing each letter.</p>
                       <p className="mt-4">
-                        <Link to="projects">
-                            <Button variant="outline-primary">
-                                See it on GitHub!
-                            </Button>
-                        </Link>
+                        <a href="https://github.com/garrison0/fontdraw">
+                          <Button variant="outline-primary">
+                              See all the details on GitHub!
+                          </Button>
+                        </a>
                       </p>
                       <p>
-                        <Link to="about">
-                            <Button variant="outline-primary">
-                              Check out a proof of concept!
-                            </Button>
+                        And here's a demo. Fair warning - your browser must support WebGL for the demo!
+                      </p>
+                      <p className="mb-0">
+                        <Link to="/coolstory">
+                          <Button variant="outline-primary">
+                            Check out a proof of concept! 
+                          </Button>
                         </Link>
                       </p>
                     </div>
@@ -124,7 +127,7 @@ function Projects() {
                             objectFit="contain"
                             style={{ maxHeight: "100%" }}
                             alt="picture of cabin made of text" 
-                            className="image-border-big neumorph border w-100 h-100" />
+                            className="image-border-big  border w-100 h-100" />
                   </Col>
                 </Row>
               </Card.Body>
@@ -134,29 +137,26 @@ function Projects() {
                               eventKey="1" tabIndex="2"
                               onClick={() => setTimeout(() => {
                                 scrollTo('#boids-section')
-                              }, 1000)}>
+                              }, 100)}>
               <Image fluid={data.boidsImage.childImageSharp.fluid} className="cover" /> 
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="1" className="grid__description mx-md-5" id="boids-section">
               <Card.Body>
-                <Row className="mx-3 my-3">
-                  <Col xs={12} lg={6}>
+                <Row className="mx-2 my-3 py-3 px-4 border rounded ">
+                  <Col xs={12}>
                     <h3><b>boids 404</b></h3>
                     {/* adds a line */}
                     <p id="line" className="border border-light w-75 mb-2"></p> 
                     <p>I have a boids-knockoff script (basically, boids with only a separation force) simulating dust you can vacuum up
-                      in the background of my 404 page. Like this:</p>
-                  </Col>
-                  <Col>
-                    <Iframe url="/vanillajs/boids.html"
-                      width="100%"
-                      id="boids demo"
-                      className="mt-4 image-reversed-border neumorph border"
-                      position="relative" />
+                      in the background of my 404 page.
+                    </p>
+                    <Link to="/404">
+                      <Button variant="outline-primary">
+                        Click here to check it out!
+                      </Button>
+                    </Link>
                   </Col>
                 </Row>
-
-                
               </Card.Body>
             </Accordion.Collapse>
             
@@ -164,34 +164,46 @@ function Projects() {
                               eventKey="2" tabIndex="3"
                               onClick={() => setTimeout(() => {
                                 scrollTo('#eulogy-gen-section')
-                              }, 1000)}>
+                              }, 100)}>
               <Image fluid={data.eulogyImage.childImageSharp.fluid} className="cover" />  
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="2" className="grid__description mx-md-5" id="eulogy-gen-section">
               <Card.Body>
-                <Row className="h-100 mx-3 my-3">
+                <Row className="h-100 mx-2 my-3 py-3 px-4 border rounded ">
                   {/* PROJECT DESCRIPTION */}
                   <Col xs={12}>
                     <h3><b>eulogizer</b></h3>
                     {/* adds a line */}
                     <p id="line" className="border border-light w-75 mb-2"></p> 
-                    <p>A machine learning model (LSTM) trained on online eulogies I personally harvested 
-                      off the web using BeautifulSoup (a python web scraper). 
+                    <p>A machine learning model (textgenrnn) trained on online eulogies I personally harvested 
+                      off the web using BeautifulSoup (a python web scraper). Some absurd generated quotes with names censored:
+                    </p>
+                    <blockquote>
+                      NAME always danged dangels. Bondand condirestion.
+                    </blockquote>
+                    <blockquote>
+                      he loved the state of the working he would brighten up to your whole room. He was just the warrotiates. He got never seeing to have for there. He would be the time on him. I feel the boyfriend, he telling them not totallys. NAME was very nurturing.
+                    </blockquote>
+                    <blockquote>
+                      She was just a good her.
+                    </blockquote>
+                    <p>
+                      I find it impressive, and pretty funny, how the model picks up on the general structure of eulogy sentences. I.e., 
+                    </p>
+                    <p style={{marginLeft: '8px'}}>
+                      (pronoun or name) + (superlative) + (past tense verb) + (noun)
+                    </p>
+                    <p>
+                      So, as you increase the "temperature" or "random variation" of the generated text, it retains the structure even as it makes up words -- "NAME always danged dangels."
                     </p>
                   </Col>
                   {/* IMAGE */}
-                  <Col xs={7}>
-                    <Row>
-                      <Col xs={12} md={7}> 
-                        
-                      </Col>
-                      <Col xs={12} md={5}>
-                        
-                      </Col>
-                    </Row>
-                    <Row className="h-100">
-                    
-                    </Row>
+                  <Col>
+                    <a href="https://github.com/garrison0/eulogizer">
+                      <Button variant="outline-primary">
+                        See more details on GitHub!
+                      </Button>
+                    </a>
                   </Col>
                 </Row>
               </Card.Body>
@@ -201,13 +213,13 @@ function Projects() {
                               eventKey="3" tabIndex="4"
                               onClick={() => setTimeout(() => {
                                 scrollTo('#letsbefriends-section')
-                              }, 1000)}>
-              let's be friends
+                              }, 100)}>
+              the more the time is
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="3" className="grid__description mx-md-5" id="letsbefriends-section">
               <Card.Body>
                 <Col xs={12}>
-                  <h3><b>let's be friends</b></h3>
+                  <h3><b>the more the time is</b></h3>
                   {/* adds a line */}
                   <p id="line" className="border border-light w-75 mb-2"></p> 
                   <p>t - b - a!
@@ -220,13 +232,13 @@ function Projects() {
                               eventKey="4" tabIndex="5"
                               onClick={() => setTimeout(() => {
                                 scrollTo('#fluidwalk-section')
-                              }, 1000)}>
-              fluidwalk
+                              }, 100)}>
+              art n stuff
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="4" className="grid__description mx-md-5" id="fluidwalk-section">
               <Card.Body>
                 <Col xs={12}>
-                  <h3><b>fluidwalk</b></h3>
+                  <h3><b>art n stuff</b></h3>
                   {/* adds a line */}
                   <p id="line" className="border border-light w-75 mb-2"></p> 
                   <p>t - b - a!
@@ -239,7 +251,7 @@ function Projects() {
                               eventKey="5" tabIndex="6"
                               onClick={() => setTimeout(() => {
                                 scrollTo('#misc-stuff-section')
-                              }, 1000)}>
+                              }, 100)}>
               misc
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="5" className="grid__description mx-md-5" id="misc-stuff-section">
@@ -252,14 +264,8 @@ function Projects() {
                     <PreviewBox id="gameSite" url="vanillajs/projects/gameSite/index.html" 
                       dest="vanillajs/projects/gameSite/"
                       slogan="HTML integrated into a platformer for a fun UI" />
-                    <PreviewBox id="bgSite" url="vanillajs/projects/bgSite/index.html?preview=true"
-                      dest="vanillajs/projects/bgSite/"
-                      slogan="proof of concept website" />
                   </Row>
                   <Row className="justify-content-center">
-                    <PreviewBox id="fountains" url="vanillajs/projects/fountains.html" 
-                      dest="vanillajs/projects/fountains.html"
-                      slogan="particle engine toy" />
                     <PreviewBox id="mountains" url="vanillajs/projects/mountains.html?preview=true" 
                       dest="vanillajs/projects/mountains.html"
                       slogan="mountains for music visualization" />

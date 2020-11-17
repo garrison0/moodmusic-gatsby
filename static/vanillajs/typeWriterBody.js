@@ -39,7 +39,7 @@ IMPROVEMENTS:
 			- and when computing the cost ...
 (2)	DONE!
 	draw characters in order of either (a) randomly chosen each time 
-									or (b) in order of whitespace within bb
+									or (b) in order of whitespace within bounding box
 													(less holes) -> (more holes)
 												[l i j t 1 ... B w m K ...]
 */
@@ -89,6 +89,8 @@ function setup(){
 	textSize(parseInt(fontSize));
   dict = {};
 
+  //// HERE ARE THE CONTROLS ////////
+
   // THRESHOLD, DEFAULT, OR INNER
   MODE = "INNER";
   // BY_CHARACTER or RANDOM or BY_WHITESPACE
@@ -105,7 +107,7 @@ function setup(){
   OPACITY_JITTER = .8;
   // know when to give up
   // for speed's sake
- 	GOOD_ENOUGH_COST = 0;
+  GOOD_ENOUGH_COST = 0;
 
   // i am totally guessing here
   PRIORITY_ARR = ['.',',','1','I', 'i', 'l','j','t','[',']','-','_','`','~','|']

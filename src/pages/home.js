@@ -26,17 +26,25 @@ const Home = () => {
           }
         }
       }
-    }
-  `)
+      selfImage: file(relativePath: {eq: "me_cover.png"}) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }`
+  );
   return (
     <div id="projects-container"
-            className="image-border-big-container border border-dark neumorph--image-border-big">
+            className="image-border-big-container border neumorph--image-border-big">
       <Header layout="inline" className="image-border-big-top" />
       <Container fluid>
         {/* fireworks script */}
-        <Row style={{height: '80vh'}}> 
+        <Row> 
           <Col className="p-0 m-0">
-            <Iframe url="/vanillajs/fireworks.html" 
+            <Image fluid={data.selfImage.childImageSharp.fluid}/>
+            {/* <Iframe url="/vanillajs/fireworks.html" 
               width="100%"
               height="100%"
               id="myId"
@@ -47,12 +55,12 @@ const Home = () => {
               <Image fluid={data.downArrowIndicator.childImageSharp.fluid}  
                             style={{ width: '3.5em', position: 'absolute', bottom: 0, left: 'calc(50% - 1.5em)' }}
                             alt="hey, scroll down!"/>
-            </div>
+            </div> */}
           </Col>
         </Row>
         <BioCarousel id="about-section" />
         {/* TODO: cohesive footer component, REFACTOR TO USE LAYOUT!!! */}
-        <Row className="footer justify-content-center section--innerShadowTop image-border-big-bottom">
+        <Row className="footer justify-content-center image-border-big-bottom">
           <Footer>
             <Col xs="12"> 
               © {new Date().getFullYear()}, made by Garrison McMullen
@@ -62,7 +70,7 @@ const Home = () => {
                         style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
               <SocialIcon url="https://www.soundcloud.com/garrison0"
                         style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
-              <SocialIcon url="https://www.youtube.com/channel/UCL79wxAWsMsrmFzrSuuaX-w" 
+              <SocialIcon url="https://www.youtube.com/channel/UCcZYyXLJ7yEH3lWm58RoKRA" 
                         style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
               <SocialIcon url="https://www.paypal.me/moodmusic" 
                         style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />

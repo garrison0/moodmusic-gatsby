@@ -58,26 +58,24 @@ export default function BioCarousel(props) {
   };
 
   return (
-    <Row id="about-section" style={{background: '#fff', height: '100%', minHeight: '35em', padding: '0'}} className="border border-dark">
+    <Row id="about-section" style={{background: '#fff', height: '100%', minHeight: '31em', padding: '0'}}>
       {/* another row, w the col inside being the text box */}
       <Col xs={{span: 12, order: 1}} md={6} className="bioDescription--higherPosition">
         <Col className="px-4 bio_descriptions_carousel">
           <h2 className="d-none d-md-block"><b>About</b></h2>
-          <br className="d-none d-md-block"/>
           {/* adds a line */}
           <p id="line" className="border w-75 mb-3"></p> 
-          <div className="mb-5"><BioDescriptions index={bsCarouselIndex}></BioDescriptions></div>
+          <div className="my-5"><BioDescriptions index={bsCarouselIndex}></BioDescriptions></div>
         </Col>
       </Col>
 
       <Col xs={{span: 12, order: 0}} md={{span: 6, order: 1}} className="overflow-hidden" >
         {/* CAROUSELS */}
-        <Row className="justify-content-center image_carousel--inset">
+        <Row className="border-left image_carousel--inset">
           {/* IMAGE CAROUSEL. */}
           <Col xs={12} className="image_carousel">
             <Carousel style={{height: '100%'}}
                       className="margin_left_card"
-                      fade={true}
                       indicators={false} controls={false} interval={null} 
                       activeIndex={bsCarouselIndex} onSelect={()=>{}}> 
 

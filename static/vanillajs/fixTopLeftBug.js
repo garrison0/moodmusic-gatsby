@@ -1,3 +1,6 @@
+// this script exists because I noticed a buggy clump of characters in the top-left corner once :) 
+// so, i relocated them all
+
 const fs = require('fs');
 const fileUrl = 'seatedBP3positions.txt';
 

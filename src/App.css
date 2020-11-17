@@ -6,7 +6,7 @@
 }
 
 body { 
-  background-color: rgb(97, 122, 128);
+  background-color: rgb(240,240,240);
   font-family: 'Source Serif Pro, sans-serif';
   font-size: 1.15rem;
 }
@@ -60,6 +60,7 @@ h1,h2,h3,h4,h5,h6 {
   margin-left: auto!important;
   margin-right: auto!important;
   max-width: 40em;
+  background: rgb(255,255,255);
 }
 
 #about-page-container { 
@@ -166,7 +167,7 @@ a, img {
 }
 
 .neumorph { 
-  box-shadow:  -2px 6px 6px rgba(97, 122, 128)
+  box-shadow: -2px 4px 4px rgb(173 188 191);
 }
 
 .neumorph-dark { 
@@ -175,7 +176,7 @@ a, img {
 }
 
 .neumorph--image-border-big{
-  box-shadow: -6px 8px 6px rgb(38, 61, 69);
+  box-shadow: -4px 5px 6px rgb(99, 122, 128);
 }
 .Header__vertical {
   /* just the letters MDMC, not the buttons */
@@ -281,7 +282,6 @@ a, img {
 
 .carousel-inner { 
   height: 100%;
-  width: 84%;
   margin: auto;
 }
 
@@ -291,7 +291,7 @@ a, img {
 
 .image_carousel { 
   height: 21em;
-  margin-top: 3em;
+  margin-top: 5.5em;
   pointer-events: none;
 }
 
@@ -310,15 +310,6 @@ a, img {
 
   .bio_descriptions_carousel { 
     margin-top: 2em!important;
-  }
-  .image_carousel { 
-    margin-top: 8em!important;
-  }
-
-  .image_carousel--inset { 
-    -webkit-box-shadow: inset 10px 0px 30px -15px rgba(25,37,60,1);
-    -moz-box-shadow: inset 10px 0px 30px -15px rgba(25,37,60,1);
-    box-shadow: inset 10px 0px 30px -15px rgba(25,37,60,1);
   }
 
   .right_shadow { 
@@ -401,13 +392,23 @@ a, img {
   background: rgb(255,255,255);
 }
 /* .grid__item:active + .grid__description {
-  max-height: 1000px;
-  transition: max-height 2.0s ease-in;
+  max-height: fit-content;
 } */
 
 .card-header {
   margin: 0;
   padding: 0;
+}
+
+blockquote { 
+  margin-left: 8px;
+}
+
+blockquote::before {
+  content: open-quote;
+}
+blockquote::after {
+  content: close-quote;
 }
 
 .card-header:focus {
@@ -423,8 +424,7 @@ a, img {
 .grid__description {
   top: 0;
   overflow: hidden;
-  height: 100%;
-  transition: max-height 0.4s ease-in;
+  transition: max-height 1.0s ease-in;
 }
 
 @media screen and (min-width: 40em) {
@@ -432,7 +432,7 @@ a, img {
     display: grid;
     grid-template-areas: "item item item" 
                          "desc desc desc";
-    /* grid-template-columns: 33% 33% 33%; */
+    grid-template-columns: 33.333% 33.333% 33.333%;
   }
 
   .grid__description {

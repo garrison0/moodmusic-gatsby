@@ -11,23 +11,26 @@ export default function BioDescriptions(props) {
                         My name is Garrison. 
                     </p>
                     <p>
-                        I’m a Full Stack Developer at TravelWits. Sometimes I’m also an Audio Engineer 
-                        - I like to wear different hats. I have a B.Sc. in Logic and 
-                        Computation and a minor in Sound Design from Carnegie Mellon 
-                        University. 
+                        I write music, play guitar, and code. Right now, I'm pushing the YouTube thing. 
+                        Previously, I was a Full Stack developer, and before that, I ran live sound and
+                        did odd jobs during my time at Carnegie Mellon University.  
                     </p>
-                    <p>
-                        I have a rotating laundry list of interests. Music, the humanities, and creative tech regularly top it.
+                    <p className="mt-4">
+                        <a href="https://www.youtube.com/channel/UCcZYyXLJ7yEH3lWm58RoKRA">
+                            <Button variant="outline-primary">
+                                Check out my YouTube channel!
+                            </Button>
+                        </a>
                     </p>
                 </div>);
         case 1:
             return (
                 <div>
                     <p> 
-                        At work, I use C# (.NET) with Angular, LESS, Bootstrap, CSS3, MySQL, AWS (Lambda, CloudWatch, EC2), Python, ES5, Node.js.
+                        On large scale projects, I've used C# (.NET) with Angular, LESS, Bootstrap, CSS3, MySQL, AWS (Lambda, CloudWatch, EC2), Python, ES5, Node.js.
                     </p> 
                     <p>
-                        For personal projects, I've used the following: vanilla ES6, React, Gatsby (e.g., this site), P5.js, ML5.js, Express, WebAudio, PortAudio, and LOVE.2D.
+                        I have extensive small scale experience with: vanilla ES6, React, Gatsby (e.g., this site), P5.js, ML5.js, Express, WebAudio, PortAudio, and LOVE.2D.
                     </p>
                     <p className="mt-4">
                         <Link to="projects">
@@ -41,10 +44,18 @@ export default function BioDescriptions(props) {
             return (
                 <div>
                     <p> 
-                        The proportion of music I've written and jammed on to music I've mastered and released is near infinite. This is a current focus of mine.
-                        I play a certain brand of guitar and I carry around this unusable, plastic molded, 32 key thing in my backpack. I think it's supposed to be a keyboard.
-                        My sound is evolving, but it involves a mixture of my guitar compositions and loops side-by-side with my favorite electronic sounds and VSTs. 
+                        I've been playing music my whole life, starting from when I picked up the drums in elementary school band (which I quickly dropped!)
                     </p> 
+                    <p>
+                        Now, you'll see me playing fingerstyle guitar in a style I've created from piecing together all of my influences, such as Michael Hedges and Ted Greene.
+                    </p>
+                    <p className="mt-4">
+                        <a href="https://www.youtube.com/channel/UCcZYyXLJ7yEH3lWm58RoKRA">
+                            <Button variant="outline-primary">
+                                Have I linked you to my YouTube channel yet?
+                            </Button>
+                        </a>
+                    </p>
                 </div>);
         default:
             return "";

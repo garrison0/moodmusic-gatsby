@@ -1,18 +1,20 @@
 ---
-title: MDX!
+title: wow!
 date: "2019-10-22"
-description: "A post showing MDX in action"
+description: "an easy exponential distribution"
 ---
 
-This is a post showing MDX in action. This starter now comes with MDX out-of-the-box!
+Did you know you can easily generate a sample of pseudo-random numbers from an exponential distribution using only a uniform distribution (like Math.random())?
+
+Just use the quantile for the distribution and set lambda equal to 1. This gives you:
 
 ```js
-// you can write JSX in your Markdown!
-<button>test</button>
+// lambda = 1;
+// truncated exponential distribution b/w 0 and 1
+// returns value from 0 to 1, more often closer to 0.
+function expDistribution () {
+  return -Math.log(Math.random()) % 1;
+}
 ```
 
-<button>test</button>
-
-## MDX
-
-MDX lets you write JSX embedded inside markdown, perfect for technical blogs. MDX works with Gatsby through [gatsby-plugin-mdx](https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/). You can learn more about it in the Gatsby docs: [Getting Started with MDX](https://www.gatsbyjs.org/docs/mdx/getting-started/).
+Take the result % 1 to get values between 0 to 1. Multiply by some scalar if you need a larger range. If you're wondering, yes it'll still be an exponential distribution when you take the modulo. There's a proof out there you can find! This idea is used in Monte Carlo simulations. But you can use it in games, creative experiments, or whatever you like. 
