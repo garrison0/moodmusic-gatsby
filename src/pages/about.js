@@ -6,6 +6,13 @@ import Container from 'react-bootstrap/Container'
 import Image from 'gatsby-image/withIEPolyfill';
 import { graphql, useStaticQuery } from 'gatsby'
 import Button from 'react-bootstrap/Button'
+import { SocialIcon } from 'react-social-icons';
+import styled from 'styled-components'
+
+const Footer = styled.footer`
+  text-align: center;
+  margin: 36px;
+`
 
 function About() {
   const data = useStaticQuery(graphql`
@@ -59,7 +66,25 @@ function About() {
             </p>
           </Col>
         </Row>
+        <Row className="footer justify-content-center image-border-big-bottom">
+          <Footer>
+            <Col xs="12"> 
+              © {new Date().getFullYear()}, made by Garrison McMullen
+            </Col>
+            <Col> 
+              <SocialIcon url="https://www.linkedin.com/in/garrisonmcmullen/"
+                        style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
+              <SocialIcon url="https://www.soundcloud.com/garrison0"
+                        style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
+              <SocialIcon url="https://www.youtube.com/channel/UCcZYyXLJ7yEH3lWm58RoKRA" 
+                        style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
+              <SocialIcon url="https://www.paypal.me/moodmusic" 
+                        style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
+            </Col>
+          </Footer>
+        </Row>
       </Container>
+      
     </div>
   );
 }
