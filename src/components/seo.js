@@ -52,19 +52,19 @@ function SEO({ description, lang, meta, keywords, title }) {
           content: `website`,
         },
         {
-          name: `twitter:card`,
+          name: `youtube:card`,
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
+          name: `youtube:creator`,
           content: site.siteMetadata.author,
         },
         {
-          name: `twitter:title`,
+          name: `youtube:title`,
           content: title,
         },
         {
-          name: `twitter:description`,
+          name: `youtube:description`,
           content: metaDescription,
         },
       ]

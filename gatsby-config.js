@@ -3,10 +3,10 @@ module.exports = {
     // edit below
     title: `MOODMUSIC`,
     author: `Garrison McMullen`,
-    description: `A personal website and front-end playground.`,
+    description: `Music, guitar, code, and more!`,
     siteUrl: `https://moodmusic.me`,
     social: {
-      twitter: ``,
+      youtube: `Garrison`,
     },
   },
   plugins: [
