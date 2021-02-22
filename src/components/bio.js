@@ -34,7 +34,7 @@ function Bio() {
               }}
             />
             <p className="mt-3">
-              Written by <strong>{author}</strong>, an entrepreneur.
+              Written by <strong>{author}</strong>
               {` `}
               
             </p>
