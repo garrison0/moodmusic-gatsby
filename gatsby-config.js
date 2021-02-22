@@ -7,6 +7,7 @@ module.exports = {
     siteUrl: `https://moodmusic.me`,
     social: {
       youtube: `Garrison`,
+      twitter: ``,
     },
   },
   plugins: [

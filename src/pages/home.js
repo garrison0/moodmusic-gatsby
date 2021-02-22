@@ -10,10 +10,20 @@ import Header from '../components/Header.js'
 import BioCarousel from '../components/BioCarousel.js'
 import Image from 'gatsby-image/withIEPolyfill';
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import img from '../../content/assets/hereiam.png';
 
 const Footer = styled.footer`
   text-align: center;
   margin: 36px;
+`
+const HereIAm = styled.div`
+  background-image: url(${img});
+  background-repeat: repeat;
+  background-position: bottom right;
+  width: 115%;
+  height: 52rem;
+  left: -4px;
+  top: -4px;
 `
 
 const Home = () => {
@@ -26,7 +36,7 @@ const Home = () => {
           }
         }
       }
-      selfImage: file(relativePath: {eq: "me_cover.png"}) {
+      selfImage: file(relativePath: {eq: "me_cover.jpg"}) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
@@ -58,13 +68,12 @@ const Home = () => {
             </div> */}
           </Col>
         </Row>
-        <BioCarousel id="about-section" />
+        <Row>
+            <HereIAm></HereIAm>
+        </Row>
         {/* TODO: cohesive footer component, REFACTOR TO USE LAYOUT!!! */}
         <Row className="footer justify-content-center image-border-big-bottom">
           <Footer>
-            <Col xs="12"> 
-              © {new Date().getFullYear()}, made by Garrison McMullen
-            </Col>
             <Col> 
               <SocialIcon url="https://www.linkedin.com/in/garrisonmcmullen/"
                         style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />

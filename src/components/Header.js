@@ -80,7 +80,7 @@ export default function Header(props){
         {expandButton}
         <Col style={showButtonsLogic()} xs={isInline ? 12 : 11}>
           <Row style={isVertical ? {} : {width: '100vw'}}> 
-            <Col xs={isVertical ? 12 : 6} 
+            <Col xs={isVertical ? 12 : 8} 
                  className="text-left my-auto">
               <div style={isVertical ? {paddingBottom: '2em'} : {paddingTop: '0.2vw'}}>
                 <Link to="/">
@@ -90,7 +90,7 @@ export default function Header(props){
                 </Link>
               </div>
             </Col>
-            <EmojiButton vertical={isVertical} emoji="∿&#xFE0E;" section="about page"/>
+            {/* <EmojiButton vertical={isVertical} emoji="∿&#xFE0E;" section="about page"/> */}
             <EmojiButton vertical={isVertical} emoji="⊥&#xFE0E;" section="blog"/>
             <EmojiButton vertical={isVertical} emoji="𝕌&#xFE0E;" section="projects"/>
           </Row>

@@ -68,9 +68,6 @@ function About() {
         </Row>
         <Row className="footer justify-content-center image-border-big-bottom">
           <Footer>
-            <Col xs="12"> 
-              © {new Date().getFullYear()}, made by Garrison McMullen
-            </Col>
             <Col> 
               <SocialIcon url="https://www.linkedin.com/in/garrisonmcmullen/"
                         style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />

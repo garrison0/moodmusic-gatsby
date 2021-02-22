@@ -209,45 +209,7 @@ function Projects() {
               </Card.Body>
             </Accordion.Collapse>
             
-            <Accordion.Toggle href="#" className="grid__item border border-light image-border-big-bottomleft" 
-                              eventKey="3" tabIndex="4"
-                              onClick={() => setTimeout(() => {
-                                scrollTo('#letsbefriends-section')
-                              }, 100)}>
-              the more the time is
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="3" className="grid__description mx-md-5" id="letsbefriends-section">
-              <Card.Body>
-                <Col xs={12}>
-                  <h3><b>the more the time is</b></h3>
-                  {/* adds a line */}
-                  <p id="line" className="border border-light w-75 mb-2"></p> 
-                  <p>t - b - a!
-                  </p>
-                </Col>
-              </Card.Body>
-            </Accordion.Collapse>
-
-            <Accordion.Toggle href="#" className="grid__item border border-light" 
-                              eventKey="4" tabIndex="5"
-                              onClick={() => setTimeout(() => {
-                                scrollTo('#fluidwalk-section')
-                              }, 100)}>
-              art n stuff
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="4" className="grid__description mx-md-5" id="fluidwalk-section">
-              <Card.Body>
-                <Col xs={12}>
-                  <h3><b>art n stuff</b></h3>
-                  {/* adds a line */}
-                  <p id="line" className="border border-light w-75 mb-2"></p> 
-                  <p>t - b - a!
-                  </p>
-                </Col>
-              </Card.Body>
-            </Accordion.Collapse>
-            
-            <Accordion.Toggle href="#" className="grid__item border border-light image-border-big-bottomright" 
+            {/* <Accordion.Toggle href="#" className="grid__item border border-light image-border-big-bottomright" 
                               eventKey="5" tabIndex="6"
                               onClick={() => setTimeout(() => {
                                 scrollTo('#misc-stuff-section')
@@ -275,7 +237,7 @@ function Projects() {
                   </Row>
                 </div>
               </Card.Body>
-            </Accordion.Collapse>
+            </Accordion.Collapse> */}
           </Card>
         </Accordion>
       </div>
