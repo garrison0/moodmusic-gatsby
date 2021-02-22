@@ -36,7 +36,7 @@ const Home = () => {
           }
         }
       }
-      selfImage: file(relativePath: {eq: "me_cover.jpg"}) {
+      selfImage: file(relativePath: {eq: "me_cover_text.jpg"}) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
