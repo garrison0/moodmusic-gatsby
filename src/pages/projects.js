@@ -83,7 +83,7 @@ function Projects() {
                                 }, 100)} >
                 <Image fluid={data.mlImage.childImageSharp.fluid} className="cover"/>
               </Accordion.Toggle>
-              <Accordion.Collapse eventKey="0" className="grid__description mx-md-5" id="text-art-section">
+              <Accordion.Collapse eventKey="0" className="grid__description" id="text-art-section">
                 <Card.Body>
                   <Row className="h-100 mx-2 my-3">
                     {/* IMAGE(s) */}
@@ -151,7 +151,7 @@ function Projects() {
                                 }, 100)}>
                 <Image fluid={data.boidsImage.childImageSharp.fluid} className="cover" /> 
               </Accordion.Toggle>
-              <Accordion.Collapse eventKey="1" className="grid__description mx-md-5" id="boids-section">
+              <Accordion.Collapse eventKey="1" className="grid__description" id="boids-section">
                 <Card.Body>
                   <Row className="mx-2 my-3 py-3 px-4 border rounded ">
                     <Col xs={12}>
@@ -178,7 +178,7 @@ function Projects() {
                                 }, 100)}>
                 <Image fluid={data.eulogyImage.childImageSharp.fluid} className="cover" />  
               </Accordion.Toggle>
-              <Accordion.Collapse eventKey="2" className="grid__description mx-md-5" id="eulogy-gen-section">
+              <Accordion.Collapse eventKey="2" className="grid__description" id="eulogy-gen-section">
                 <Card.Body>
                   <Row className="h-100 mx-2 my-3 py-3 px-4 border rounded ">
                     {/* PROJECT DESCRIPTION */}
@@ -227,7 +227,7 @@ function Projects() {
                                 }, 100)}>
                 misc
               </Accordion.Toggle>
-              <Accordion.Collapse eventKey="5" className="grid__description mx-md-5" id="misc-stuff-section">
+              <Accordion.Collapse eventKey="5" className="grid__description" id="misc-stuff-section">
                 <Card.Body>
                   <div>
                     <Row className="justify-content-center">
