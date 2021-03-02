@@ -15,7 +15,7 @@ export default function Rose(props) {
         if (count + 1 >= dictionary['words'].length - 2) { 
             setTimeout( () => { 
                 setFinal(true);
-            }, 4600);
+            }, 4300);
             setTimeout( () => {
                 setClasses('');
             }, 6000);
