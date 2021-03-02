@@ -15,6 +15,38 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Source Serif Pro, sans-serif';
 }
 
+.list-group-item { 
+  display: list-item;
+}
+
+.blurry-text { 
+  color: transparent;
+	animation: blur 5s ease-in-out infinite;
+	-webkit-animation: blur 5s ease-out infinite;
+}
+
+@-webkit-keyframes blur {
+	0%		{text-shadow:  0 0 25px #000; opacity:0;}
+	5%		{text-shadow:  0 0 15px #000;}
+	15%		{opacity: 1;}
+	20%		{text-shadow:  0 0 0px #000;}
+	80%		{text-shadow:  0 0 0px #000;}
+	85%		{opacity: 1;}
+	95%		{text-shadow:  0 0 15px #000;}
+	100%	{text-shadow:  0 0 25px #000; opacity:0;}
+}
+
+@keyframes blur {
+	0%		{text-shadow:  0 0 25px #000; opacity:0;}
+	5%		{text-shadow:  0 0 15px #000;}
+	15%		{opacity: 1;}
+	20%		{text-shadow:  0 0 0px #000;}
+	80%		{text-shadow:  0 0 0px #000;}
+	85%		{opacity: 1;}
+	95%		{text-shadow:  0 0 15px #000;}
+	100%	{text-shadow:  0 0 25px #000; opacity:0;}
+}
+
 .overlay { 
   background-color: rgb(255,255,255);
   position:relative;

@@ -7,6 +7,7 @@ import Iframe from 'react-iframe'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SocialIcon } from 'react-social-icons';
 import Header from '../components/Header.js'
+import Rose from '../components/rose.js';
 import BioCarousel from '../components/BioCarousel.js'
 import Image from 'gatsby-image/withIEPolyfill';
 import scrollTo from 'gatsby-plugin-smoothscroll';
@@ -69,7 +70,7 @@ const Home = () => {
           </Col>
         </Row>
         <Row>
-            <HereIAm></HereIAm>
+            <Rose></Rose>
         </Row>
         {/* TODO: cohesive footer component, REFACTOR TO USE LAYOUT!!! */}
         <Row className="footer justify-content-center image-border-big-bottom">
