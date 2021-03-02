@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import dictionary from '../../content/assets/rose.json';
 
@@ -7,20 +7,19 @@ export default function Rose(props) {
     var [classes, setClasses] = useState('blurry-text');
     var [final, setFinal] = useState(false);
 
-    // let dictionary = props.dictionary;
-    // dictionary = {'words': ['rose', 'ok', 'yes', 'mama', 'meme'], 'partsOfSpeech': ['noun', 'adjective', 'noun', 'noun', 'verb'], 'definitions': [['pepee', 'meeeee'], ['mamamamam'], ['memememe', 'mama', 'wowowow'], ['mimimimi'], ['mameskmdso']]};
-
-    setTimeout( () => { 
-        setCount( Math.min(count + 1, dictionary['words'].length - 2) );
-        if (count + 1 >= dictionary['words'].length - 2) { 
-            setTimeout( () => { 
-                setFinal(true);
-            }, 4300);
-            setTimeout( () => {
-                setClasses('');
-            }, 6000);
-        }
-    }, 5000);
+    useEffect( () => { 
+        setTimeout( () => { 
+            setCount( Math.min(count + 1, dictionary['words'].length - 2) );
+            if (count + 1 >= dictionary['words'].length - 2) { 
+                setTimeout( () => { 
+                    setFinal(true);
+                }, 5000);
+                setTimeout( () => {
+                    setClasses('');
+                }, 6000);
+            }
+        }, 5000);
+    } );
 
     let definitions = dictionary['definitions'].filter( (cur, index) => { return index <= count + 1; } );
     definitions = definitions.map( (cur, index) => { 
