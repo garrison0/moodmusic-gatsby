@@ -4,10 +4,11 @@ import dictionary from '../../content/assets/rose.json';
 
 export default function Rose(props) {
     var [count, setCount] = useState(0);
-    var [classes, setClasses] = useState('blurry-text');
+    var [classes, setClasses] = useState('');
     var [final, setFinal] = useState(false);
 
     useEffect( () => { 
+        setClasses('blurry-text');
         setTimeout( () => { 
             setCount( Math.min(count + 1, dictionary['words'].length - 2) );
             if (count + 1 >= dictionary['words'].length - 2) { 
