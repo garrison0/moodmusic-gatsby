@@ -8,18 +8,20 @@ export default function Rose(props) {
     var [final, setFinal] = useState(false);
 
     useEffect( () => { 
-        setClasses('blurry-text');
-        setTimeout( () => { 
-            setCount( Math.min(count + 1, dictionary['words'].length - 2) );
-            if (count + 1 >= dictionary['words'].length - 2) { 
-                setTimeout( () => { 
-                    setFinal(true);
-                }, 5000);
-                setTimeout( () => {
-                    setClasses('');
-                }, 6000);
-            }
-        }, 5000);
+        if (!final) { 
+            setClasses('blurry-text');
+            setTimeout( () => { 
+                setCount( Math.min(count + 1, dictionary['words'].length - 2) );
+                if (count + 1 >= dictionary['words'].length - 2) { 
+                    setTimeout( () => { 
+                        setFinal(true);
+                    }, 5000);
+                    setTimeout( () => {
+                        setClasses('');
+                    }, 6000);
+                }
+            }, 5000);
+        }   
     } );
 
     let definitions = dictionary['definitions'].filter( (cur, index) => { return index <= count + 1; } );
