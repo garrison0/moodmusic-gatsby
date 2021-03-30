@@ -52,9 +52,9 @@ const Home = () => {
       <Header layout="inline" className="image-border-big-top" />
       <Container fluid>
         {/* fireworks script */}
-        <Row> 
-          <Col className="p-0 m-0">
-            <Image fluid={data.selfImage.childImageSharp.fluid}/>
+        {/* <Row>  */}
+          {/* <Col className="p-0 m-0">
+            <Image fluid={data.selfImage.childImageSharp.fluid}/> */}
             {/* <Iframe url="/vanillajs/fireworks.html" 
               width="100%"
               height="100%"
@@ -67,8 +67,8 @@ const Home = () => {
                             style={{ width: '3.5em', position: 'absolute', bottom: 0, left: 'calc(50% - 1.5em)' }}
                             alt="hey, scroll down!"/>
             </div> */}
-          </Col>
-        </Row>
+          {/* </Col>
+        </Row> */}
         <Row>
             <Rose></Rose>
         </Row>
