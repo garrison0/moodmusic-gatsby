@@ -1,12 +1,8 @@
 ---
-title: wow
+title: an easy exponential distribution
 date: "2019-10-22"
-description: "an easy exponential distribution"
+description: "wow"
 ---
-
-you can easily generate a sample of pseudo-random numbers from an exponential distribution using only a uniform distribution (like Math.random())
-
-just use the quantile for the distribution and set lambda equal to 1:
 
 ```js
 // lambda = 1;
@@ -17,4 +13,3 @@ function expDistribution () {
 }
 ```
 
-taking the result modulo 1 gives you values between 0 to 1. multiply by some scalar if you need a larger range. this idea is used in Monte Carlo simulations. but you can use it in games, creative experiments, or whatever you like. 

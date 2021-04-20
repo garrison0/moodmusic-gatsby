@@ -25,6 +25,9 @@ h1,h2,h3,h4,h5,h6 {
 	-webkit-animation: blur 5s ease-out infinite;
 }
 
+#graphicFrame { 
+  margin-bottom: 0px;
+}
 @-webkit-keyframes blur {
 	0%		{text-shadow:  0 0 25px #000; opacity:0;}
 	5%		{text-shadow:  0 0 15px #000;}

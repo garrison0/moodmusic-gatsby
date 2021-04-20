@@ -85,7 +85,7 @@ export default function Header(props){
               <div style={isVertical ? {paddingBottom: '2em'} : {paddingTop: '0.2vw'}}>
                 <Link to="/">
                   <div className={isInline ? "header__title" : ""}>
-                    {isVertical ? "MDMC" : "MOODMUSIC"}
+                    {isVertical ? "MDMC" : props.title || 'MOODMUSIC'}
                   </div>
                 </Link>
               </div>
