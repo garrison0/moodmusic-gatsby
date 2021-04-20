@@ -253,14 +253,16 @@ function Projects() {
           </Accordion>
           {/* TODO: cohesive footer component, REFACTOR TO USE LAYOUT!!! */}
           <Row className="footer justify-content-center image-border-big-bottom">
-          <Col> 
-              <SocialIcon url="https://www.soundcloud.com/garrison0"
-                        style={{ height: '48px', width: '48px', margin: '2vmin' }} />
-              <SocialIcon url="https://www.youtube.com/channel/UCcZYyXLJ7yEH3lWm58RoKRA" 
-                        style={{ height: '48px', width: '48px', margin: '2vmin' }} />
-              <SocialIcon url="https://www.paypal.me/moodmusic" 
-                        style={{ height: '48px', width: '48px', margin: '2vmin' }} />
-            </Col>
+            <Footer>
+              <Col> 
+                <SocialIcon url="https://www.soundcloud.com/garrison0"
+                          style={{ height: '48px', width: '48px', margin: '2vmin' }} />
+                <SocialIcon url="https://www.youtube.com/channel/UCcZYyXLJ7yEH3lWm58RoKRA" 
+                          style={{ height: '48px', width: '48px', margin: '2vmin' }} />
+                <SocialIcon url="https://www.paypal.me/moodmusic" 
+                          style={{ height: '48px', width: '48px', margin: '2vmin' }} />
+              </Col>
+            </Footer>
           </Row>
         </Container>
       </div>
