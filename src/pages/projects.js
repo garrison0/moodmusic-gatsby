@@ -121,7 +121,7 @@ function Projects() {
                             </Button>
                           </a>
                         </p>
-                        <p>
+                        {/* <p>
                           And here's a demo. Fair warning - your browser must support WebGL for the demo!
                         </p>
                         <p className="mb-0">
@@ -130,7 +130,7 @@ function Projects() {
                               Check out a proof of concept! 
                             </Button>
                           </Link>
-                        </p>
+                        </p> */}
                       </div>
                     </Col>
                     <Col>
@@ -253,18 +253,14 @@ function Projects() {
           </Accordion>
           {/* TODO: cohesive footer component, REFACTOR TO USE LAYOUT!!! */}
           <Row className="footer justify-content-center image-border-big-bottom">
-            <Footer>
-              <Col> 
-                <SocialIcon url="https://www.linkedin.com/in/garrisonmcmullen/"
-                          style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
-                <SocialIcon url="https://www.soundcloud.com/garrison0"
-                          style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
-                <SocialIcon url="https://www.youtube.com/channel/UCcZYyXLJ7yEH3lWm58RoKRA" 
-                          style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
-                <SocialIcon url="https://www.paypal.me/moodmusic" 
-                          style={{ height: '5vmin', width: '5vmin', margin: '2vmin' }} />
-              </Col>
-            </Footer>
+          <Col> 
+              <SocialIcon url="https://www.soundcloud.com/garrison0"
+                        style={{ height: '48px', width: '48px', margin: '2vmin' }} />
+              <SocialIcon url="https://www.youtube.com/channel/UCcZYyXLJ7yEH3lWm58RoKRA" 
+                        style={{ height: '48px', width: '48px', margin: '2vmin' }} />
+              <SocialIcon url="https://www.paypal.me/moodmusic" 
+                        style={{ height: '48px', width: '48px', margin: '2vmin' }} />
+            </Col>
           </Row>
         </Container>
       </div>
