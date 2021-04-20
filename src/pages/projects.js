@@ -72,7 +72,7 @@ function Projects() {
   return (
       <div id="projects-container"
             className="image-border-big-container border neumorph--image-border-big">
-        <Header layout="inline" titleLeftMargin="2em" className="image-border-big-top" />
+        <Header title="works" layout="inline" titleLeftMargin="2em" className="image-border-big-top" />
         <Container fluid>
           <Accordion>
             <Card className="grid border-0 image-border-big-bottom">
