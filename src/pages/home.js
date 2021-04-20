@@ -17,6 +17,7 @@ const Footer = styled.footer`
   text-align: center;
   margin: 36px;
 `
+
 const HereIAm = styled.div`
   background-image: url(${img});
   background-repeat: repeat;
