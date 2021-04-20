@@ -24,9 +24,9 @@ class Blog extends React.Component {
     const posts = data.allMdx.edges
 
     return (
-      <div id="projects-container" title="words"
+      <div id="projects-container"
               className="image-border-big-container border neumorph--image-border-big">
-        <Header layout="inline" className="image-border-big-top" />
+        <Header title="words" layout="inline" className="image-border-big-top" />
         <Container fluid>
           <Row className="px-5 py-3"> 
             <SEO title="All posts" />
