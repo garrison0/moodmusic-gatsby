@@ -53,7 +53,7 @@ const Home = () => {
     1: "katamari grain procurement",
     2: "cars and washing machines",
     3: "the cost of living",
-    4: "turn the lights .",
+    4: "turn the lights on",
     5: "master builder 222"
   }
   const choice = Math.floor(6 * Math.random());
