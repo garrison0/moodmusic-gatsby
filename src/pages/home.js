@@ -100,8 +100,6 @@ const Home = () => {
         <Row className="footer justify-content-center image-border-big-bottom">
           <Footer>
             <Col> 
-              <SocialIcon url="https://www.linkedin.com/in/garrisonmcmullen/"
-                        style={{ height: '48px', width: '48px', margin: '2vmin' }} />
               <SocialIcon url="https://www.soundcloud.com/garrison0"
                         style={{ height: '48px', width: '48px', margin: '2vmin' }} />
               <SocialIcon url="https://www.youtube.com/channel/UCcZYyXLJ7yEH3lWm58RoKRA" 
