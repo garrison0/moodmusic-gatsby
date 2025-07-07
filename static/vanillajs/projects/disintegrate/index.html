@@ -11,7 +11,7 @@
         }
         #c { 
             width: 100%;
-            height: 450px;
+            height: 100%;
         }
     </style>
 </head>
@@ -122,8 +122,9 @@
 
                 t += temp;
             }
-
-            vec3 color = vec3(0.0);
+            
+            // slow time down to length of song -- uTime * ????
+            vec3 color = vec3(smoothstep(1.0, 0.0, uTime*0.1)*0.88627);
             if (t < tMax - eps) { 
                 vec3 normal = calcNormal(ip);
                 //vec3 lightPosition = vec3(4,0,-10);
@@ -136,8 +137,8 @@
                 color = vec3( lightOneColor - lightTwoColor) + 0.4 * sin(uTime * 0.1) * 0.28 * normal.brg;
                 //color = clamp(vec3(dot(lightPosition, normal)), 0., 1.) - vec3(0.05);
             }
-    
-            gl_FragColor = vec4(color.rgb, 1.0);
+            float grayscale = 0.299 * color.r + 0.587 * color.g + 0.114 * color.b;
+            gl_FragColor = vec4(vec3(grayscale), 1.0);
         }
     </script>
     <canvas id="c"></canvas>

@@ -37,6 +37,7 @@
     const num_particles = 28000;
     var old_timestamp = 0.0;
     var total_time = 0.0;
+    var varied_time = 0.0;
     var time_delta = 0.0;
 
     var programInfo;
@@ -110,8 +111,11 @@
       gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
       // update bowditch curve
-      bowditch[0] = 0.5 * Math.sin(5 * total_time + 3.14159 / 4)
-      bowditch[1] = 0.5 * Math.sin(4 * total_time)
+
+      let diff = (Math.cos(Math.sin(total_time*10.0) + Math.sin(total_time*8.0 + 3.1415/3.0)) + 1.0) / 10.0;
+      varied_time += diff * time_delta / (Math.min(1.0,1.0+Math.sin(total_time*0.555)) * 600 + 400.0); // gradually decrease to 400 from 1000?
+      bowditch[0] = 0.5 * Math.sin(5 * varied_time + 3.14159 / 4)
+      bowditch[1] = 0.5 * Math.sin(4 * varied_time)
 
       const uniforms = {
         u_Origin: bowditch,

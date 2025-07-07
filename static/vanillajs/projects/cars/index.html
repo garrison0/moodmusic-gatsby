@@ -10,8 +10,8 @@
         margin: 0;
     }
     #c { 
-        width: 100%;
-        height: 450px;
+        width: 960px;
+        height: 540px;
     }
   </style>
 </head>
@@ -65,9 +65,9 @@
 
       // flip for webgl
       ctx.scale(1, -1);
-      ctx.drawImage(image, 0, 0, image.width, image.height * -1);
+      ctx.drawImage(image, 0, 0, image.width, image.height * -1.0);
       
-      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const imgData = ctx.getImageData(0, 0, image.width, image.height);
       originalColors = Float32Array.from(imgData.data);
 
       for (let i = 0; i < numPoints; i++) {

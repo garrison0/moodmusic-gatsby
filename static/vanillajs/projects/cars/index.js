@@ -49,28 +49,28 @@ float rand(vec2 n) {
 }
 
 void main() {
-  vec2 puv = i_Position * 1.0;
-  vPUv = vec2(puv.x, -puv.y);
+  vec2 puv = i_Position * 2.0;
+  vPUv = vec2(puv.x, -puv.y - 0.7) - 0.3;
   vec2 aspect = vec2(u_Screen.y / u_Screen.x, 1.0);
+  // aspect *= 1.5;
 
   vec2 displacement = vec2(0.0);
   displacement += vec2(
-    rand(sin(u_Time) * vPUv * 0.45 - 0.5) / 20.0 + (snoise(vPUv) - 0.1) / 1.0, 
-    snoise( 
-      (vPUv / (sin(u_Time / 1.2) * 2.0)) + sin(u_Time / 1.0) / 100.0)
-       - 0.5);
-  displacement *= 0.05 * cos(u_Time * 1.5) / sin(u_Time * 1.5);
+    snoise((sin(u_Time*0.2) * vPUv * 0.45 - 0.5) / 2.0) + (snoise(vPUv) - 0.1) / 3.0, 
+    snoise( 100.0 - 10.0 * vPUv * sin(u_Time * 0.52) * 0.8 + sin(u_Time * 0.35) / 100.0));
+  displacement *= 0.02 * cos(u_Time * 0.2) / (0.3+abs(sin(u_Time *0.2423)));
        //* cos(u_Time / 5.0) / (sin(u_Time * 2.5) 
+  // displacement *= 0.0;
   diff = i_Position - u_Origin;
   if ( length(diff) < 0.25 ) {
-    displacement = normalize(diff) * sin(length(diff) * 7.0) * max(0.16, sin(u_Time) * 0.45);
+    displacement = normalize(diff) * sin(length(diff) * 7.0) * max(0.088, sin(u_Time) * 0.45);
     gl_PointSize = 2.0;
     gl_Position = vec4(0.6 * i_Position + displacement, 0.5, 1.0);  
   } else {
     gl_PointSize = 2.0 - 4.0 * length(displacement);
     gl_Position = vec4(0.6 * i_Position + displacement, 0.6, 1.0);  
   }
-  gl_Position = gl_Position * vec4(aspect, 1., 1.);
+  gl_Position = gl_Position * vec4(aspect, 1., 1.) ;
 }
 `
 
@@ -154,23 +154,26 @@ vec3 palette( in float t, in vec3 a, in vec3 b, in vec3 c, in vec3 d )
 
 void main() {
 	// pixel color
-  vec4 colA = texture(u_Texture, vPUv);
+  vec2 new_vPUv = 0.25 * vPUv + 0.5;
+  new_vPUv.x += 0.09;
+  new_vPUv.y += 0.25;
+  vec4 colA = texture(u_Texture, new_vPUv);
   
   if (length(diff) < 0.25) {
     o_FragColor = colA;
   } else { 
     vec4 colB = colA + 0.4 * vec4(palette(
-      sin(u_Time * vPUv.x),
-      vec3(0.5,0.5,0.5) * vPUv.y,
-      vec3(1.0,0.5,1.0) * vPUv.x,
+      sin(u_Time * new_vPUv.x),
+      vec3(0.5,0.5,0.5) * new_vPUv.y,
+      vec3(1.0,0.5,1.0) * new_vPUv.x,
       vec3(0.3,0.5,0.8),
       vec3(0.5,0.5,0.5)
     ), 1.0);
 
     // RGB Shift
-    float texColorR = texture(u_Texture, vPUv).r;
-    float texColorG = texture(u_Texture, vPUv - 0.01).g;
-    float texColorB = texture(u_Texture, vPUv + 0.01).b;
+    float texColorR = texture(u_Texture, new_vPUv).r;
+    float texColorG = texture(u_Texture, new_vPUv - 0.01).g;
+    float texColorB = texture(u_Texture, new_vPUv + 0.01).b;
     vec4 colC = vec4(vec3(texColorR, texColorG, texColorB), 1.0);
 
     o_FragColor = 0.8 * colC + 0.2 * colB;
