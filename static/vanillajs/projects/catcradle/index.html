@@ -17,9 +17,10 @@
 </head>
 <body>
   <canvas id="c"></canvas>
+  <script src="./node_modules/ccapture.js/build/CCapture.all.min.js" type"text/javascript"></script>
   <script src="index.js"></script>
   <script type="module">
-    import * as twgl from './node_modules/twgl.js/dist/4.x/twgl-full.module.js';
+    import * as twgl from './node_modules/twgl.js/dist/7.x/twgl-full.module.js';
 
     function randomRGData(size_x, size_y) {
       var d = [];
@@ -39,12 +40,22 @@
     var total_time = 0.0;
     var varied_time = 0.0;
     var time_delta = 0.0;
+    var capturer;
 
     var programInfo;
     var rg_noise_texture;
     var read_buffers;
 
     function init(forcefield_image) {
+      capturer = new CCapture( { format: 'webm', 
+                            framerate: 60, 
+                            name: "startTime-"+Date.UTC(),
+                            verbose: true, 
+                            startTime: 0,
+                            timeLimit: 2000} );
+                                // set to length of music video in seconds
+                                // - Number(timeString)*24} 
+
       programInfo = twgl.createProgramInfo(gl, [vs, fs]);
 
       // make initial data
@@ -93,6 +104,7 @@
 
       // start rendering
       requestAnimationFrame(render);
+      capturer.start();
     }
     
     var mouse_pos = [0.5, 0.5];
@@ -151,6 +163,7 @@
       twgl.drawBufferInfo(gl, bufferInfoRender, gl.POINTS);
 
       requestAnimationFrame(render);
+      capturer.capture( gl.canvas );
     }
     
     var force_field_image = new Image();

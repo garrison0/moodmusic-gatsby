@@ -2,6 +2,16 @@ import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/thr
 
 function main () {
   const canvas = document.querySelector('#c');
+  
+  var capturer = new CCapture( { format: 'webm', 
+    framerate: 60, 
+    name: "startTime-"+Date.UTC(),
+    verbose: true, 
+    startTime: 0,
+    timeLimit: 2000} );
+        // set to length of music video in seconds
+        // - Number(timeString)*24} 
+
   const renderer = new THREE.WebGLRenderer({canvas});
   const scene = new THREE.Scene();
   var previousTime = 0;
@@ -56,9 +66,11 @@ function main () {
     renderer.render(scene, camera);
 
     requestAnimationFrame(render);
+    capturer.capture( renderer.domElement );
   }
 
   requestAnimationFrame(render);
+  capturer.start();
 }
 
 main();
